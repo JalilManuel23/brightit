@@ -1,0 +1,176 @@
+/* Variables */
+:root {
+    --azul: #3E54D3;
+    --sombra: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* Estilos Generales */
+
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+img {
+    max-width: 100%;
+}
+
+.contenedor{
+    max-width: 120rem;
+    width: 80%;
+    margin: 0 auto;
+}
+
+h1{
+    font-size: 3.8rem;
+}
+
+h2{
+    font-size: 3.4rem;
+    margin: 0;
+}
+
+h3{
+    font-size: 3rem;
+}
+
+h4{
+    font-size: 2.6rem;
+}
+
+.centrar-texto{
+    text-align: center;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 5rem;
+}
+
+/* Utilidades */
+.top-5 {
+    margin-top: 5rem;
+}
+
+.top-3 {
+    margin-top: 3rem;
+}
+
+.texto-azul {
+    color: var(--azul);
+}
+
+/* Botones */
+.boton-azul, .boton-blanco {
+    padding: 0.5rem 2rem;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    border-radius: 0.8rem;
+}
+
+.boton-azul {
+    background: var(--azul);
+}
+
+.boton-blanco {
+    background: #FFF;
+    color: var(--azul);
+    padding: 1rem 2rem;
+}
+
+/* Barra de Menú */
+.barra-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    height: 10vh;
+    /* background: rgb(133, 114, 114); */
+}
+
+.enlace-menu {
+    /* width: 25%; */
+    display: flex;
+    align-items: center;
+}
+
+.logo-menu {
+    width: 15rem;
+    height: 4rem;
+}
+
+.opciones-menu {
+    /* width: 50%; */
+    display: flex;
+}
+
+.opciones-menu, li {
+    list-style: none;
+    padding: 0 2rem 0 2rem;
+    font-weight: 300;
+}
+
+.opciones-menu a {
+    text-decoration: none;
+    color: #3C4048;
+}
+
+.boton-menu {
+    /* width: 25%; */
+}
+
+/* Sección 1 header */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header p{
+    line-height: 0.1;
+    font-weight: 300;
+    font-size: 2rem;
+}
+
+header img {
+    border-radius: 1rem;
+    box-shadow: var(--sombra);
+}
+
+/* Conoce productos */
+.conoce-productos {
+    background: rgb(77,110,208);
+    background: linear-gradient(90deg, rgba(77,110,208,1) 0%, rgba(65,122,222,1) 35%, rgba(52,135,224,1) 100%);
+    color: #FFF;
+    padding: 5rem 0;
+    margin: 10rem 0;
+}
+
+.contenedor-conoce-productos {
+    display: flex;
+    justify-content: space-around; 
+}
+
+.titulo-boton-conoce-productos {
+    width: 50%;
+    line-height: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.titulo-boton-conoce-productos .boton-blanco {
+    margin-top: 4rem;
+}
+
