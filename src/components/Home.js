@@ -6,7 +6,7 @@ import MenuLateral from './MenuLateral';
 
 class Home extends Component {
     state = {
-        menuMovil: 'ocultar'
+        menuMovil: 'menu-lateral ocultar'
     }
 
     handler = (param) => {
