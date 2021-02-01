@@ -261,7 +261,11 @@ h4{
     }
 }
 
-
+@media screen and (max-width: 500px) {
+    .barra-menu {
+        width: 95%;
+    }
+}
 /* Sección 1 header */
 header {
     padding-top: 5rem;
