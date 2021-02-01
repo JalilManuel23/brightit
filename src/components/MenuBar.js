@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import Boton from './Boton';
+import { MenuItems } from "../sample/MenuItems";
 
 function MenuBar(props) {
     const [navbar,setNavbar] = useState(false);
@@ -20,13 +21,16 @@ function MenuBar(props) {
             <div className="barra-menu">
                 <a href="#" className="enlace-menu"><img src={props.imagenes.logo} className="logo-menu" /></a>
                 <ul className="opciones-menu">
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Productos</a></li>
-                    <li><a href="#">Nosotros</a></li>
-                    <li><a href="#">Contacto</a></li>
+                    {MenuItems.map((item, index) => {
+                        return (
+                            <li key={index}>
+                                <a href={item.ruta}>{item.titulo}</a>
+                            </li>
+                        )
+                    })}
                 </ul>
                 <div class="menu-boton">
-                    <Boton texto="Iniciar Sesión" color="boton-azul" />
+                    <Boton texto="Iniciar Sesión" color="boton-azul btn-login" />
                     <a href="#" onClick={mostrarMenu} className="menu-movil"><img src={props.imagenes.menu}></img></a>
                 </div>
             </div>

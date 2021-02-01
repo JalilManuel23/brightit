@@ -60,11 +60,27 @@ h4{
     font-size: 5rem;
 }
 
-@media (max-width: 1200px) {
+@media screen and (max-width: 1200px) {
+    .contenedor {
+        width: 95%;
+    }
+
     .titulo {
         font-size: 6vmin;
+        text-align: center;
     }
 }
+
+@media screen and (max-width: 500px) {
+    .titulo {
+        font-size: 9vmin;
+    }
+
+    h3 {
+        text-align: center;
+    }
+}
+
 
 /* Utilidades */
 .top-5 {
@@ -105,6 +121,17 @@ h4{
     }
 }
 
+@media (max-width: 500px) {
+    .boton-azul, .boton-blanco {
+        font-size: 4vmin;
+    }
+
+    .btn-login {
+        font-size: 3vmin;
+        text-align: center;
+        padding: 1rem;
+    }
+}
 /* Barra de Menú */
 .contenedor-menu {
     position: fixed;
@@ -161,8 +188,11 @@ h4{
 
 /* Menú versión móvil */
 @media screen and (max-width: 1200px) {
-    .opciones-menu {
+    
+    .opciones-menu, .opciones-menu-lateral {
         display: none;
+        margin: 0;
+        padding: 0;
     }
 
     .menu-movil {
@@ -186,6 +216,11 @@ h4{
         background-color: #FFF;
         position: fixed;
         height: 100vh;
+        -webkit-transition: all 1s;
+        -moz-transition: all 1s;
+        -mos-transition: all 1s;
+        -o-transition: all 1s;
+        transition: all 1s;
     }
 
     .mostrar {
@@ -246,6 +281,17 @@ header img {
     box-shadow: var(--sombra);
 }
 
+/* Header versión móvil */
+@media screen and (max-width: 500px) { 
+    header {
+        height: 100vh;
+        width: 100%;
+    }
+    header p{
+        line-height: 1;
+        font-size: 4vmin;
+    }
+}
 /* Conoce productos */
 .conoce-productos {
     background: rgb(77,110,208);
@@ -272,6 +318,20 @@ header img {
     margin-top: 4rem;
 }
 
+@media screen and (max-width: 500px) { 
+    .contenedor-conoce-productos {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .titulo-boton-conoce-productos {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+}
 /*  Nosotros */
 .nosotros {
     background-image: url('../assets/images/background.png');
@@ -303,6 +363,28 @@ header img {
     width: 50%;
     text-align: center;
     overflow: hidden;
+}
+
+/* Nosotros versión tablet */
+@media screen and (max-width: 1200px) {
+    .nosotros {
+        height: 80vh;
+    }
+
+    .nosotros img {
+        width: 15rem;
+        height: 30rem;
+    }
+
+    .contenedor-nosotros {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .nosotros img {
+        display: none;
+    }
 }
 
 /* Sección contacto */
@@ -380,6 +462,36 @@ textarea {
     text-align: center;
 }
 
+/* Contacto versión tablet */
+@media screen and (max-width: 1200px) {
+    .info-formulario {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .contacto {
+        height: 100%;
+        padding: 40vmin 0;
+    }
+
+    .info-formulario {
+        flex-direction: column;
+    }
+
+    .info {
+        border-radius: 3rem 3rem 0 0;
+        text-align: center;
+    }
+
+    .bubbles {
+        display: none;
+    }
+
+    form {
+        border-radius: 0 0 3rem 3rem;
+    }
+}
 /* Footer */
 footer {
     display: flex;

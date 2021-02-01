@@ -71,7 +71,7 @@ class Home extends Component {
                                 <input type="email" placeholder="Email"></input>
                                 <textarea>Mensaje</textarea>
                             </div>
-                            <input type="submit" className="boton-azul btn-enviar"></input>
+                            <input type="submit" className="boton-azul btn-enviar" value="Enviar"></input>
                         </form>
                     </div>
                 </div>

@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import { MenuItems } from "../sample/MenuItems";
 
 function MenuLateral(props) {
     return ( <div className={props.clase}>
@@ -6,10 +7,13 @@ function MenuLateral(props) {
             <img className="close" onClick={ocultarMenu} src={props.imagenes.close}></img>
         </div>
         <ul className="opciones-menu-lateral">
-            <a href="#"><li>Inicio</li></a>
-            <a href="#"><li>Productos</li></a>
-            <a href="#"><li>Nosotros</li></a>
-            <a href="#"><li>Contacto</li></a>
+            {MenuItems.map((item, index) => {
+                return (
+                    <li key={index}>
+                        <a href={item.ruta}>{item.titulo}</a>
+                    </li>
+                )
+            })}
         </ul>
     </div>
     )
