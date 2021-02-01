@@ -1,11 +1,24 @@
 import React, {Component} from 'react';
 import MenuBar from './MenuBar';
 import Boton from './Boton';
+import Footer from './Footer';
+import MenuLateral from './MenuLateral';
 
 class Home extends Component {
+    state = {
+        menuMovil: 'ocultar'
+    }
+
+    handler = (param) => {
+        this.setState({
+            menuMovil: param
+        })
+    }
+
     render() {
         return <div>
-            <MenuBar imagenes={this.props.imagenes}/>
+            <MenuBar imagenes={this.props.imagenes} handler={this.handler} menuMovil={this.menuMovil}/>
+            <MenuLateral imagenes={this.props.imagenes} handler={this.handler} menuMovil={this.menuMovil} clase={this.state.menuMovil} />
             <header className="contenedor">
                 <h1 className="titulo top-5 texto-azul">Tecnología que resplandece</h1>
                 <p>Los mejores productos de IoT para el hogar.</p>
@@ -33,22 +46,37 @@ class Home extends Component {
                 <img className="workflow-slide" src={this.props.imagenes.workflowslide}/>
             </section>
             <section className="contacto">
-                <div className="contenedor contendor-contacto">
+                <div className="contenedor contenedor-contacto">
                     <h2 className="titulo texto-azul">Contacto</h2>
                     <div className="info-formulario">
-                        <div className="info">
-                            <h3>Información de contacto</h3>
-                            <p>¿Tienes alguna duda? Solo escribenos en nuestras
-                            redes o en nuestro formulario.</p>
-                            <p>6181846889</p>
-                            <p>brightit@gmail.com</p>
+                        <div className="info-bubbles">
+                            <div class="info">
+                                <h3>Información de contacto</h3>
+                                <p>¿Tienes alguna duda? Solo escribenos en nuestras
+                                redes o en nuestro formulario.</p>
+                                <p>6181846889</p>
+                                <p>brightit@gmail.com</p>
+                            </div>
+                            <div class="bubbles">
+                                <img src={this.props.imagenes.bubbles}></img>
+                                <div>
+                                    
+                                </div>
+                            </div>
                         </div>
                         <form>
-                            <label>Envianos un mensaje</label>
+                            <div>
+                                <label>Envianos un mensaje</label>
+                                <input type="text" placeholder="Nombre"></input>
+                                <input type="email" placeholder="Email"></input>
+                                <textarea>Mensaje</textarea>
+                            </div>
+                            <input type="submit" className="boton-azul btn-enviar"></input>
                         </form>
                     </div>
                 </div>
             </section>
+            <Footer imagenes={this.props.imagenes}/>
         </div>
     }
 }

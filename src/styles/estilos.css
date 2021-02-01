@@ -38,10 +38,13 @@ h1{
 h2{
     font-size: 3.4rem;
     margin: 0;
+    padding: 0;
 }
 
 h3{
     font-size: 3rem;
+    margin: 0;
+    padding: 0;
 }
 
 h4{
@@ -55,6 +58,12 @@ h4{
 .titulo {
     font-weight: bold;
     font-size: 5rem;
+}
+
+@media (max-width: 1200px) {
+    .titulo {
+        font-size: 6vmin;
+    }
 }
 
 /* Utilidades */
@@ -77,6 +86,7 @@ h4{
     color: white;
     font-weight: bold;
     border-radius: 0.8rem;
+    border: none;
 }
 
 .boton-azul {
@@ -89,8 +99,30 @@ h4{
     padding: 1.5rem 3rem;
 }
 
+@media (max-width: 1200px) {
+    .boton-azul, .boton-blanco {
+        font-size: 2vmin;
+    }
+}
+
 /* Barra de Menú */
+.contenedor-menu {
+    position: fixed;
+    top: 0;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    background: #FFF;
+    box-shadow: none;
+}
+
+.contenedor-menu.activo {
+    box-shadow: var(--sombra);
+}
+
 .barra-menu {
+    width: 80%;
+    max-width: 1280px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,8 +155,81 @@ h4{
     color: #3C4048;
 }
 
+.menu-movil, .menu-lateral {
+    display: none;
+}
+
+/* Menú versión móvil */
+@media screen and (max-width: 1200px) {
+    .opciones-menu {
+        display: none;
+    }
+
+    .menu-movil {
+        display: block;
+        width: 3rem;
+    }
+
+    .menu-boton, .menu-boton a {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu-boton a {
+        margin-left: 2rem;
+    }
+
+    .menu-lateral {
+        display: none;
+        position: absolute;
+        width: 100%;
+        background-color: #FFF;
+        position: fixed;
+        height: 100vh;
+    }
+
+    .mostrar {
+        display: block;
+    }
+
+    .ocultar {
+        display: none;
+    }
+
+    .cerrar-menu {
+        color: black;
+        display: flex;
+        justify-content: flex-end;
+        padding: 5rem 5rem 0 0;
+    }
+
+    .opciones-menu-lateral {
+        margin-top: 10vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .opciones-menu-lateral li {
+        padding: 3rem;
+    }
+
+    .opciones-menu-lateral a {
+        text-decoration: none;
+        font-size: 4vmin;
+        color: rgb(71, 63, 63);
+    }
+
+    .close {
+        width: 4rem;
+    }
+}
+
+
 /* Sección 1 header */
 header {
+    padding-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -212,13 +317,111 @@ header img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.contenedor-contacto h2 {
-    text-align: center;
+    height: 100vh;
 }
 
 .info-formulario {
-    box-shadow: var(--sombra);
     display: flex;
+}
+
+.info-bubbles {
+    display: flex;
+    flex-direction: column;
+}
+
+.info {
+    padding: 3rem;
+    color: white;
+    background: var(--azul);
+    box-shadow: var(--sombra);
+    border-radius: 3rem 0 0 0;
+}
+
+.bubbles {
+    background: var(--azul);
+    box-shadow: var(--sombra);
+    border-radius: 0 0 0 3rem;
+    display: flex;
+}
+
+.bubbles img {
+    border-radius: 0 0 0 3rem;
+}
+
+form {
+    padding: 3rem;
+    border-radius: 0 3rem 3rem 0;
+    box-shadow: var(--sombra);
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form label {
+    color: #6b6c6d;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    display: block;
+    width: 30rem;
+    margin: 3rem 0;
+    padding: 1rem;
+    border: none;
+    border-bottom: 1px solid #D5CFCF;
+    color: #8D8F92;
+}
+
+.btn-enviar {
+    padding: 1.5rem 6rem;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-logo-redes {
+    background: #F1F1F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-redes {
+    display: flex;
+    justify-content: center;
+}
+
+.footer-redes a{
+    margin: 2rem;
+    background: var(--azul);
+    color: #FFF;
+    border-radius: 50%;
+    width: 5rem;
+    height: 5rem;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo-redes img{
+    width: 20rem;
+    margin: 1rem;
+}
+
+.footer-derechos {
+    background: var(--azul);
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
+    padding: 2rem;
 }
