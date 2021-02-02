@@ -1,18 +1,18 @@
 export const MenuItems = [
     {
         "titulo": "Inicio",
-        "ruta": "#",
+        "ruta": "#header",
     },
     {
         "titulo": "Productos",
-        "ruta": "#",
+        "ruta": "#conoce-productos",
     },
     {
         "titulo": "Nosotros",
-        "ruta": "#",
+        "ruta": "#nosotros",
     },
     {
         "titulo": "Contacto",
-        "ruta": "#",
+        "ruta": "#contacto",
     }
 ]

@@ -19,13 +19,13 @@ class Home extends Component {
         return <div>
             <MenuBar imagenes={this.props.imagenes} handler={this.handler} menuMovil={this.menuMovil}/>
             <MenuLateral imagenes={this.props.imagenes} handler={this.handler} menuMovil={this.menuMovil} clase={this.state.menuMovil} />
-            <header className="contenedor">
+            <header id="header" className="contenedor">
                 <h1 className="titulo top-5 texto-azul">Tecnología que resplandece</h1>
                 <p>Los mejores productos de IoT para el hogar.</p>
                 <p>Innovación, calidad y compromiso.</p>
                 <img src={this.props.imagenes.iot} className="top-3" />
             </header>
-            <div className="conoce-productos">
+            <div id="conoce-productos" className="conoce-productos">
                 <div className="contenedor contenedor-conoce-productos">
                     <div className="titulo-boton-conoce-productos">
                         <h2 className="titulo">Conoce nuestros productos</h2>
@@ -34,7 +34,7 @@ class Home extends Component {
                     <img src={this.props.imagenes.smarthome}></img>
                 </div>
             </div>
-            <section className="nosotros">
+            <section id="nosotros" className="nosotros">
                 <img className="workflow-items" src={this.props.imagenes.workflowitems}/>
                 <div className="contenedor contenedor-nosotros">
                     <h2 className="titulo">Nosotros</h2>
@@ -45,7 +45,7 @@ class Home extends Component {
                 </div>
                 <img className="workflow-slide" src={this.props.imagenes.workflowslide}/>
             </section>
-            <section className="contacto">
+            <section id="contacto" className="contacto">
                 <div className="contenedor contenedor-contacto">
                     <h2 className="titulo texto-azul">Contacto</h2>
                     <div className="info-formulario">

@@ -1,4 +1,5 @@
 import React, { Component, useState } from "react";
+import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Boton from './Boton';
 import { MenuItems } from "../sample/MenuItems";
 
@@ -30,7 +31,7 @@ function MenuBar(props) {
                     })}
                 </ul>
                 <div class="menu-boton">
-                    <Boton texto="Iniciar Sesión" color="boton-azul btn-login" />
+                    <Boton ruta={'/login'} texto="Iniciar Sesión" color="boton-azul btn-login" />
                     <a href="#" onClick={mostrarMenu} className="menu-movil"><img src={props.imagenes.menu}></img></a>
                 </div>
             </div>
