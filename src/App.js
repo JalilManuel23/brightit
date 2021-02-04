@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Home from './components/Home.js';
 import Login from './components/Login.js';
+import CrearCuenta from './components/CrearCuenta.js';
 import imagenes from './assets/imagenes';
 
 class App extends Component {
@@ -17,6 +18,12 @@ class App extends Component {
         <Route exact path="/login" render={() => {
             return <div>
               <Login imagenes={imagenes}/>
+            </div>
+          }}>
+        </Route>
+        <Route exact path="/crear_cuenta" render={() => {
+            return <div>
+              <CrearCuenta imagenes={imagenes}/>
             </div>
           }}>
         </Route>
