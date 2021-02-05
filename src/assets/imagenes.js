@@ -7,6 +7,7 @@ import workflowslide from './images/workflow-slide.png';
 import bubbles from './images/bubbles.png';
 import menu from './images/menu-rounded-solid.png';
 import close from './images/close.png';
+import producto from './images/producto-ejemplo.png';
 
 export default {
     "logo": logo,
@@ -17,5 +18,6 @@ export default {
     "workflowslide": workflowslide,
     "bubbles": bubbles,
     "menu": menu,
-    "close": close
+    "close": close,
+    "producto": producto
 }

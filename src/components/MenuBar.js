@@ -23,11 +23,19 @@ function MenuBar(props) {
                 <a href="#" className="enlace-menu"><img src={props.imagenes.logo} className="logo-menu" /></a>
                 <ul className="opciones-menu">
                     {MenuItems.map((item, index) => {
-                        return (
-                            <li key={index}>
-                                <a href={item.ruta}>{item.titulo}</a>
-                            </li>
-                        )
+                        if(item.titulo != "Productos") {
+                            return (
+                                <li key={index}>
+                                    <a href={item.ruta}>{item.titulo}</a>
+                                </li>
+                            )
+                        } else {
+                            return (
+                                <li key={index}>
+                                    <Link to={item.ruta}>{item.titulo}</Link>
+                                </li>
+                            )
+                        }
                     })}
                 </ul>
                 <div class="menu-boton">

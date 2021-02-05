@@ -599,3 +599,48 @@ footer {
         font-size: 4vmin;
     }
 }
+
+/* Productos */
+.banner {
+    margin-top: 20vmin;
+    background: rgb(77,110,208);
+    background: linear-gradient(90deg, rgba(77,110,208,1) 0%, rgba(65,122,222,1) 35%, rgba(52,135,224,1) 100%);
+}
+
+.contenedor-banner {
+    color: #FFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8vmin 0;
+}
+
+.contenedor-banner p {
+    font-size: 3vmin;
+    font-weight: 500;
+}
+
+/* Tarjeta de productos */
+.tarjeta-producto {
+    background: #FFF;
+    display: flex;
+    padding: 4vmin;
+    box-shadow: var(--sombra);
+    margin: 10vmin 0;
+    border-radius: 3vmin;
+}
+
+.tarjeta-producto img {
+    width: 60vmin;
+}
+
+.nombre-producto {
+    font-weight: bold;
+    font-size: 3vmin;
+}
+
+.btn-ver {
+    display: flex;
+    justify-content: flex-end;
+}

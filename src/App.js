@@ -4,6 +4,7 @@ import Home from './components/Home.js';
 import Login from './components/Login.js';
 import CrearCuenta from './components/CrearCuenta.js';
 import imagenes from './assets/imagenes';
+import Productos from './components/Productos.js';
 
 class App extends Component {
   render() {
@@ -24,6 +25,12 @@ class App extends Component {
         <Route exact path="/crear_cuenta" render={() => {
             return <div>
               <CrearCuenta imagenes={imagenes}/>
+            </div>
+          }}>
+        </Route>
+        <Route exact path="/productos" render={() => {
+            return <div>
+              <Productos imagenes={imagenes}/>
             </div>
           }}>
         </Route>
