@@ -8,9 +8,9 @@ export default class ProductoCard extends Component {
                 <img src={this.props.imagenes.producto}></img>
                 <div className="datos">
                     <p className="nombre-producto">Alarma antirrobo</p>
-                    <p>Descripción....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut finibus id massa hendrerit ornare.  </p>
+                    <p className="descripcion-producto">Descripción....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut finibus id massa hendrerit ornare.  </p>
                     <div className="btn-ver">
-                        <Link className="boton-azul">Ver más</Link>
+                        <Link to="producto" className="boton-azul">Ver más</Link>
                     </div>
                 </div>
             </div>
