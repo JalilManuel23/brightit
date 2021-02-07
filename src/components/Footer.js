@@ -7,9 +7,9 @@ export default class Footer extends Component {
                 <div className="footer-logo-redes">
                     <img src={this.props.imagenes.logo}></img>
                     <div className="footer-redes">
-                        <a href="#">f</a>
-                        <a href="#">t</a>
-                        <a href="#">w</a>
+                        <a href="#" className="icon icon-facebook"></a>
+                        <a href="#" className="icon icon-twitter"></a>
+                        <a href="#" className="icon icon-whatsapp"></a>
                     </div>
                 </div>
                 <div className="footer-derechos">

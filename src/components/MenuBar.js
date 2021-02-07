@@ -1,7 +1,6 @@
 import React, { Component, useState } from "react";
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Boton from './Boton';
-import { MenuItems } from "../sample/MenuItems";
+import OpcionesMenu from "./OpcionesMenu";
 
 function MenuBar(props) {
     const [navbar,setNavbar] = useState(false);
@@ -21,23 +20,7 @@ function MenuBar(props) {
         <nav className={navbar ? 'contenedor-menu activo' : 'contenedor-menu'}>
             <div className="barra-menu">
                 <a href="#" className="enlace-menu"><img src={props.imagenes.logo} className="logo-menu" /></a>
-                <ul className="opciones-menu">
-                    {MenuItems.map((item, index) => {
-                        if(item.titulo != "Productos") {
-                            return (
-                                <li key={index}>
-                                    <a href={item.ruta}>{item.titulo}</a>
-                                </li>
-                            )
-                        } else {
-                            return (
-                                <li key={index}>
-                                    <Link to={item.ruta}>{item.titulo}</Link>
-                                </li>
-                            )
-                        }
-                    })}
-                </ul>
+                <OpcionesMenu clase="opciones-menu"/>
                 <div class="menu-boton">
                     <Boton ruta={'/login'} texto="Iniciar Sesión" color="boton-azul btn-login" />
                     <a href="#" onClick={mostrarMenu} className="menu-movil"><img src={props.imagenes.menu}></img></a>

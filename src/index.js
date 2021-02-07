@@ -4,6 +4,7 @@ import App from './App';
 import './styles/fonts.css';
 import './styles/normalize.css';
 import './styles/estilos.css';
+import './assets/styles.css';
 
 ReactDOM.render(
    <App />,

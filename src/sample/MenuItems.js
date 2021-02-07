@@ -1,7 +1,7 @@
 export const MenuItems = [
     {
         "titulo": "Inicio",
-        "ruta": "#header",
+        "ruta": "/#header",
     },
     {
         "titulo": "Productos",
@@ -9,10 +9,10 @@ export const MenuItems = [
     },
     {
         "titulo": "Nosotros",
-        "ruta": "#nosotros",
+        "ruta": "/#nosotros",
     },
     {
         "titulo": "Contacto",
-        "ruta": "#contacto",
+        "ruta": "/#contacto",
     }
 ]

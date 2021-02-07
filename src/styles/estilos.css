@@ -216,11 +216,7 @@ h4{
         background-color: #FFF;
         position: fixed;
         height: 100vh;
-        -webkit-transition: all 1s;
-        -moz-transition: all 1s;
-        -mos-transition: all 1s;
-        -o-transition: all 1s;
-        transition: all 1s;
+        
     }
 
     .mostrar {
@@ -239,7 +235,7 @@ h4{
     }
 
     .opciones-menu-lateral {
-        margin-top: 10vh;
+        /* margin-top: 10vh; */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -253,7 +249,7 @@ h4{
     .opciones-menu-lateral a {
         text-decoration: none;
         font-size: 4vmin;
-        color: rgb(71, 63, 63);
+        color: #3E54D3;
     }
 
     .close {
