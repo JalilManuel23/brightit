@@ -8,6 +8,8 @@ import bubbles from './images/bubbles.png';
 import menu from './images/menu-rounded-solid.png';
 import close from './images/close.png';
 import producto from './images/producto-ejemplo.png';
+import usuario from './images/usuario.png';
+import girl from './images/girl-flat.png';
 
 export default {
     "logo": logo,
@@ -19,5 +21,7 @@ export default {
     "bubbles": bubbles,
     "menu": menu,
     "close": close,
-    "producto": producto
+    "producto": producto,
+    "usuario": usuario,
+    "girl": girl
 }

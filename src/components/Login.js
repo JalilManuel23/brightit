@@ -9,7 +9,7 @@ export default class Login extends Component {
                     <p>Inicia sesión para administrar tus productos</p>
                     <input type="text" placeholder="Usuario"></input>
                     <input type="password" placeholder="Contraseña"></input>
-                    <input type="submit" className="boton-azul btn-enviar" value="Iniciar Sesión"></input>
+                    <Link to="dashboard"><input type="submit" className="boton-azul btn-enviar" value="Iniciar Sesión"></input></Link>
                     <p>Si no tienes cuenta <Link to="crear_cuenta" className="enlace-login">crea una aquí</Link></p>
                 </form>
             </div>

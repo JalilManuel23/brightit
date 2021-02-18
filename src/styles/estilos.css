@@ -696,3 +696,130 @@ footer {
         border: none;
     }
 }
+
+/* Estilos Dashboard */
+.contenedor-dashboard {
+    width: 98%;
+    height: 94vmin;
+    margin: 3vmin auto;
+    display: flex;
+}
+
+.menu-dash {
+    width: 7%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3E54D3;
+    border-radius: 2vmin;
+}
+
+.barra-dash {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-dash {
+    width: 25vmin;
+}
+
+.usuario-dash {
+    width: 5vmin;
+    height: 5vmin;
+    border-radius: 50%;
+    border: solid 1px #6b6c6d;
+}
+
+.seccion-usuario {
+    display: flex;
+    align-items: center;
+}
+
+.seccion-usuario p {
+    padding: 0 1vmin;
+}
+
+.dash-contenido {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.menu-dash ul li {
+    padding: 0;
+    margin: 0;
+}
+
+.menu-dash ul {
+    padding: 0;
+}
+
+.main-contenido {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.bienvenida-usuario {
+    background: #F9F9F9;
+    border: 1px solid #DFDBDB;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 3vmin;
+    width: 50%;
+    border-radius: 2vmin;
+}
+
+.bienvenida-usuario h4 {
+    font-weight: 500;
+}
+
+.girl-flat {
+    width: 40vmin;
+}
+
+.productos-dash {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 7vmin;
+    width: 100%;
+}
+
+.producto-dash {
+    background: #4F80E2;
+    color: #FFF;
+    width: 30%;
+    min-height: 30vmin;
+    padding: 2vmin;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2vmin;
+}
+
+.menu-dash ul li a::before, .producto-dash .icon{
+    font-size: 5vmin;
+    color: #FFF;
+}
+
+.producto-dash .icon {
+    font-size: 8vmin;
+    padding: 0;
+    margin: 0;
+}
+
+.producto-dash p {
+    font-size: 3vmin;
+}
+
+.menu-dash ul li a {
+    text-decoration: none;
+}
+
+.menu-dash ul li {
+    padding: 2vmin 0;
+}

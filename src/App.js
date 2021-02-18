@@ -6,6 +6,7 @@ import CrearCuenta from './components/CrearCuenta.js';
 import imagenes from './assets/imagenes';
 import Productos from './components/Productos.js';
 import Producto from './components/Producto.js';
+import Dashboard from './components/Dashboard.js';
 
 class App extends Component {
   render() {
@@ -38,6 +39,12 @@ class App extends Component {
         <Route exact path="/producto" render={() => {
             return <div>
               <Producto imagenes={imagenes}/>
+            </div>
+          }}>
+        </Route>
+        <Route exact path="/dashboard" render={() => {
+            return <div>
+              <Dashboard imagenes={imagenes}/>
             </div>
           }}>
         </Route>

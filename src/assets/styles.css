@@ -47,3 +47,18 @@
 .icon-whatsapp:before {
   content: "\63";
 }
+.icon-clock:before {
+  content: "\64";
+}
+.icon-paw:before {
+  content: "\65";
+}
+.icon-sign-out:before {
+  content: "\66";
+}
+.icon-home:before {
+  content: "\67";
+}
+.icon-logout:before {
+  content: "\69";
+}
