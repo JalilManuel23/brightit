@@ -768,9 +768,11 @@ footer {
     border: 1px solid #DFDBDB;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: 0 3vmin;
-    width: 50%;
+    max-width: 50%;
     border-radius: 2vmin;
+    font-size: 2vmin;
 }
 
 .bienvenida-usuario h4 {
@@ -778,7 +780,8 @@ footer {
 }
 
 .girl-flat {
-    width: 40vmin;
+    width: 40%;
+    height: 30vmin;
 }
 
 .productos-dash {
@@ -822,4 +825,25 @@ footer {
 
 .menu-dash ul li {
     padding: 2vmin 0;
+}
+
+@media screen and (max-width: 1200px) {
+    .bienvenida-usuario {
+        width: 100%;
+    }
+
+    .girl-flat {
+        height: 30vmin;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .bienvenida-usuario {
+        width: 100%;
+        background-color: #2C85DE;
+    }
+
+    .bienvenida-usuario {
+        width: 100%;
+    }
 }
