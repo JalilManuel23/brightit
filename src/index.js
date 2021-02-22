@@ -1,12 +1,17 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './styles/fonts.css';
-import './styles/normalize.css';
-import './styles/estilos.css';
-import './assets/styles.css';
+const express = require('express');
+const path = require('path');
 
-ReactDOM.render(
-   <App />,
-  document.getElementById('root')
-);
+const app = express();
+
+// Settings 
+app.set('port', process.env.PORT || 3000);
+
+app.use(express.json());
+
+// Static Files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Starting the server
+app.listen(app.get('port'), () => {
+    console.log(`Server on port ${app.get('port')}`);
+});
