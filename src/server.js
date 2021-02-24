@@ -16,6 +16,7 @@ app.use(express.urlencoded({extended: false}));
 
 // Routes
 app.use(require('./routes/users.routes'));
+app.use(require('./routes/alimentador.routes'));
 
 // Static Files
 app.use(express.static(path.join(__dirname,'public')));
