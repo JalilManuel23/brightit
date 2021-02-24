@@ -1,15 +1,13 @@
 const mongoose = require('mongoose');
 
-mongoose.Promise = global.Promise;
+const { MONGODB_URI } = process.env;
 
-// Connect MongoDB at default port 27017.
-mongoose.connect('mongodb://localhost/brightit', {
+mongoose.connect(MONGODB_URI, {
+    useUnifiedTopology: true,
     useNewUrlParser: true,
-    useCreateIndex: true,
-}, (err) => {
-    if (!err) {
-        console.log('MongoDB Connection Succeeded.')
-    } else {
-        console.log('Error in DB connection: ' + err)
-    }
-});
+    useCreateIndex: true
+}).then(
+    db => console.log('Database is connected')
+).catch(
+    err => console.log(err)
+);
