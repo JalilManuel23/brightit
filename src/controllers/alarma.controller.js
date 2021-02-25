@@ -1,92 +1,91 @@
-const usersCtrl = {};
+const registrosAlarma = {};
 
-const User = require('../models/User');
+const RegistroAlarma = require('../models/RegistrosAlarma');
 var validacion = require('validator');
 
-usersCtrl.agregarUsuario = async (req, res) => {
-    const {name, email, password} = req.body;
+registrosAlarma.agregarRegistro = async (req, res) => {
+    const {horaActiva, horaDesactivada} = req.body;
 
-    const newUser = new User({name, email, password});
+    const newRegistro = new RegistroAlarma({horaActiva, horaDesactivada});
 
-    await newUser.save((err, usuarioAgregado) => {
+    await newRegistro.save((err, registroAgregado) => {
 
-        if (err || !usuarioAgregado) {
+        if (err || !registroAgregado) {
             return res.status(404).send({
                 status: 'error',
-                mensaje: 'El usuario no se ha guardado'
+                mensaje: 'El registro no se ha guardado'
             })
         }
 
         return res.status(200).send({
             //Registro insertado con exito 
             status: 'Completado',
-            usuarioAgregado
+            registroAgregado
         });
     });
 }
 
-usersCtrl.verUsuarios = (req, res) => {
-    var consulta = User.find({});
+registrosAlarma.verRegistros = (req, res) => {
+    var consulta = RegistroAlarma.find({});
 
-    consulta.exec((err, usuarios) => {
+    consulta.exec((err, registros) => {
         if(err) {
             return res.status(500).send({
                 // Error
                 status: 'Error',
-                mensaje: 'Error al devolver usuarios'
+                mensaje: 'Error al devolver registros'
             });
         }
 
-        if(!usuarios) {
+        if(!registros) {
             return res.status(404).send({
                 // Error
                 status: 'Error',
-                mensaje: 'No existen usuarios en la colección'
+                mensaje: 'No existen registros en la colección'
             });
         }
 
         return res.status(200).send({
             // Registros consultados con éxito
             status: 'Busqueda Correcta',
-            usuarios
+            registros
         });
     });
 }
 
-usersCtrl.verUsuario = (req, res) => {
+registrosAlarma.verRegistro = (req, res) => {
     var id = req.params.id;
 
     if (!id || id == null) {
         return res.status(404).send({
             status: 'Error',
-            mensaje: 'No se ingreso ID de usuario a buscar'
+            mensaje: 'No se ingreso ID de registro a buscar'
         });
     }
 
-    User.findById(id, (err, usuario) => {
-        if (err || !usuario) {
+    RegistroAlarma.findById(id, (err, registro) => {
+        if (err || !registro) {
             return res.status(404).send({
                 status: 'Error: ',
-                mensaje: 'No existe el usuario a buscar en la colección'
+                mensaje: 'No existe el registro a buscar en la colección'
             })
         }
 
         return res.status(200).send({
-            status: 'Busqueda del usuario de forma exitosa',
-            usuario
+            status: 'Busqueda del registro de forma exitosa',
+            registro
         })
     });
 }
 
-usersCtrl.editarUsuario = (req, res) => {
+registrosAlarma.editarRegistro = (req, res) => {
     var id = req.params.id;
 
     var params = req.body;
 
     try {
-        var validar_name = !validacion.isEmpty(params.name);
-        var validar_email = !validacion.isEmpty(params.email);
-        var validar_password = !validacion.isEmpty(params.password);
+        var horaActiva = !validacion.isEmpty(params.horaActiva);
+        var horaDesactivada = !validacion.isEmpty(params.horaDesactivada);
     }
     catch (err) {
         return res.status(404).send({
@@ -95,8 +94,8 @@ usersCtrl.editarUsuario = (req, res) => {
         })
     }
 
-    if (validar_name && validar_email && validar_password) {
-        User.findOneAndUpdate({ _id: id }, params, { new: true }, (err, usuarioActualizado) => {
+    if (horaActiva && horaDesactivada) {
+        RegistroAlarma.findOneAndUpdate({ _id: id }, params, { new: true }, (err, registroActualizado) => {
 
             if (err) {
                 return res.status(404).send({
@@ -105,16 +104,16 @@ usersCtrl.editarUsuario = (req, res) => {
                 })
             }
 
-            if (!usuarioActualizado) {
+            if (!registroActualizado) {
                 return res.status(404).send({
                     status: 'Error',
-                    mensaje: 'No existe el usuario a actualizar'
+                    mensaje: 'No existe el registro a actualizar'
                 })
             }
 
             return res.status(200).send({
-                status: 'Usuario Actualizado con éxito',
-                usuarioActualizado
+                status: 'Registro Actualizado con éxito',
+                registroActualizado
             })
         });
     }
@@ -126,35 +125,36 @@ usersCtrl.editarUsuario = (req, res) => {
     }
 }
 
-usersCtrl.eliminarUsuario = (req, res) => {
+registrosAlarma.eliminarRegistro = (req, res) => {
     var id = req.params.id;
 
     if(!id || id == null) {
         return res.status(404).send({
             status: 'Error',
-            mensaje: 'No se ingresó un ID del articulo'
+            mensaje: 'No se ingresó un ID del registro'
         });
     }
-    User.findOneAndDelete({_id: id}, (err, usuarioEliminado) => {
+    
+    RegistroAlarma.findOneAndDelete({_id: id}, (err, registroEliminado) => {
         if(err) {
             return res.status.send(500).send({
                 status: 'Error',
-                mensaje: 'Error, no se pudo eliminar el usuario'
+                mensaje: 'Error, no se pudo eliminar el registro'
             });
         }
 
-        if(!usuarioEliminado) {
+        if(!registroEliminado) {
             return res.status(404).send({
                 status: 'Error',
-                mensaje: 'Error el usuario a eliminar no existe'
+                mensaje: 'Error el registro a eliminar no existe'
             });
         }
 
         return res.status(200).send({
             status: 'Registro eliminado con éxito',
-            usuarioEliminado
+            registroEliminado
         });
     });
 }
 
-module.exports = usersCtrl;
+module.exports = registrosAlarma;

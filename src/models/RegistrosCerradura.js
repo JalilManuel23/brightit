@@ -1,9 +1,8 @@
 const { Schema, model } = require('mongoose');
 
 const RegistroCerraduraSchema = new Schema({
-    pinEmpleado: {type: Number, required: true},
-    horaIngreso: {type: Date, required: true},
-    horaSalida: {type: Date, required: true}
+    temperaturaRegistrada: {type: Number, required: true},
+    horaRegistro: {type: Date, required: true}
 }, {
     timestamps: true
 });

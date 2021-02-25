@@ -125,4 +125,36 @@ registrosAlimentador.editarRegistro = (req, res) => {
     }
 }
 
+registrosAlimentador.eliminarRegistro = (req, res) => {
+    var id = req.params.id;
+
+    if(!id || id == null) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'No se ingresó un ID del registro'
+        });
+    }
+    
+    Registro.findOneAndDelete({_id: id}, (err, registroEliminado) => {
+        if(err) {
+            return res.status.send(500).send({
+                status: 'Error',
+                mensaje: 'Error, no se pudo eliminar el registro'
+            });
+        }
+
+        if(!registroEliminado) {
+            return res.status(404).send({
+                status: 'Error',
+                mensaje: 'Error el registro a eliminar no existe'
+            });
+        }
+
+        return res.status(200).send({
+            status: 'Registro eliminado con éxito',
+            registroEliminado
+        });
+    });
+}
+
 module.exports = registrosAlimentador;
