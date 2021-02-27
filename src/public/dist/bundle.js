@@ -60,7 +60,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var bootstrap_dist_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/js/bootstrap.min.js */ \"./node_modules/bootstrap/dist/js/bootstrap.min.js\");\n/* harmony import */ var bootstrap_dist_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./App.css */ \"./src/app/App.css\");\n/* harmony import */ var _assets_imagenes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./assets/imagenes */ \"./src/app/assets/imagenes.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/esm/react-router.js\");\n/* harmony import */ var _components_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/Navbar/Navbar */ \"./src/app/components/Navbar/Navbar.js\");\n/* harmony import */ var _components_Home_Home_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Home/Home.js */ \"./src/app/components/Home/Home.js\");\n/* harmony import */ var _components_Home_Productos_Productos_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Home/Productos/Productos.js */ \"./src/app/components/Home/Productos/Productos.js\");\n\n\n\n\n\n\n\n // import Login from './components/Login.js';\n// import CrearCuenta from './components/CrearCuenta.js';\n\n // import Producto from './components/Producto.js';\n// import Dashboard from './components/Dashboard.js';\n\nclass App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_8__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_5__.default, {\n      imagenes: _assets_imagenes__WEBPACK_IMPORTED_MODULE_4__.default\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {\n      exact: true,\n      path: \"/\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Home_Home_js__WEBPACK_IMPORTED_MODULE_6__.default, {\n          imagenes: _assets_imagenes__WEBPACK_IMPORTED_MODULE_4__.default\n        }));\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {\n      exact: true,\n      path: \"/login\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {\n      exact: true,\n      path: \"/crear_cuenta\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {\n      exact: true,\n      path: \"/productos\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Home_Productos_Productos_js__WEBPACK_IMPORTED_MODULE_7__.default, {\n          imagenes: _assets_imagenes__WEBPACK_IMPORTED_MODULE_4__.default\n        }));\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {\n      exact: true,\n      path: \"/producto\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {\n      exact: true,\n      path: \"/dashboard\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    })));\n  }\n\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack://brightit/./src/app/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var bootstrap_dist_css_bootstrap_min_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap/dist/css/bootstrap.min.css */ \"./node_modules/bootstrap/dist/css/bootstrap.min.css\");\n/* harmony import */ var bootstrap_dist_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! bootstrap/dist/js/bootstrap.min.js */ \"./node_modules/bootstrap/dist/js/bootstrap.min.js\");\n/* harmony import */ var bootstrap_dist_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(bootstrap_dist_js_bootstrap_min_js__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var material_icons_iconfont_material_icons_css__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! material-icons/iconfont/material-icons.css */ \"./node_modules/material-icons/iconfont/material-icons.css\");\n/* harmony import */ var _App_css__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./App.css */ \"./src/app/App.css\");\n/* harmony import */ var _assets_imagenes__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./assets/imagenes */ \"./src/app/assets/imagenes.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router-dom/esm/react-router-dom.js\");\n/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ \"./node_modules/react-router/esm/react-router.js\");\n/* harmony import */ var _components_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/Navbar/Navbar */ \"./src/app/components/Navbar/Navbar.js\");\n/* harmony import */ var _components_Home_Home_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/Home/Home.js */ \"./src/app/components/Home/Home.js\");\n/* harmony import */ var _components_Home_Productos_Productos_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/Home/Productos/Productos.js */ \"./src/app/components/Home/Productos/Productos.js\");\n\n\n\n\n\n\n\n\n // import Login from './components/Login.js';\n// import CrearCuenta from './components/CrearCuenta.js';\n\n // import Producto from './components/Producto.js';\n// import Dashboard from './components/Dashboard.js';\n\nclass App extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.BrowserRouter, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Navbar_Navbar__WEBPACK_IMPORTED_MODULE_6__.default, {\n      imagenes: _assets_imagenes__WEBPACK_IMPORTED_MODULE_5__.default\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {\n      exact: true,\n      path: \"/\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Home_Home_js__WEBPACK_IMPORTED_MODULE_7__.default, {\n          imagenes: _assets_imagenes__WEBPACK_IMPORTED_MODULE_5__.default\n        }));\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {\n      exact: true,\n      path: \"/login\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {\n      exact: true,\n      path: \"/crear_cuenta\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {\n      exact: true,\n      path: \"/productos\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_components_Home_Productos_Productos_js__WEBPACK_IMPORTED_MODULE_8__.default, {\n          imagenes: _assets_imagenes__WEBPACK_IMPORTED_MODULE_5__.default\n        }));\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {\n      exact: true,\n      path: \"/producto\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {\n      exact: true,\n      path: \"/dashboard\",\n      render: () => {\n        return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n      }\n    })));\n  }\n\n}\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (App);\n\n//# sourceURL=webpack://brightit/./src/app/App.js?");
 
 /***/ }),
 
@@ -86,14 +86,25 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
-/***/ "./src/app/components/Home/Contacto/Contacto.jsx":
-/*!*******************************************************!*\
-  !*** ./src/app/components/Home/Contacto/Contacto.jsx ***!
-  \*******************************************************/
+/***/ "./src/app/components/Footer/Footer.js":
+/*!*********************************************!*\
+  !*** ./src/app/components/Footer/Footer.js ***!
+  \*********************************************/
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Contacto; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\nfunction Contacto(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"section\", {\n    id: \"contacto\",\n    className: \"contacto\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"contenedor contenedor-contacto\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", {\n    className: \"titulo texto-azul\"\n  }, \"Contacto\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"info-formulario\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"info-bubbles\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    class: \"info\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h3\", null, \"Informaci\\xF3n de contacto\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"\\xBFTienes alguna duda? Solo escribenos en nuestras redes o en nuestro formulario.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"6181846889\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"brightit@gmail.com\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    class: \"bubbles\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    src: props.imagenes.bubbles\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"form\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"label\", null, \"Envianos un mensaje\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"text\",\n    placeholder: \"Nombre\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"email\",\n    placeholder: \"Email\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"textarea\", null, \"Mensaje\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"submit\",\n    className: \"boton-azul btn-enviar\",\n    value: \"Enviar\"\n  })))));\n}\n\n//# sourceURL=webpack://brightit/./src/app/components/Home/Contacto/Contacto.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Footer; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Footer_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Footer.css */ \"./src/app/components/Footer/Footer.css\");\n\n\nfunction Footer(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"footer\", {\n    className: \"d-flex flex-column\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"footer-logo-redes d-flex flex-column align-items-center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    src: props.imagenes.logo\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"footer-redes d-flex justify-content-center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"a\", {\n    href: \"#\",\n    className: \"material-icons-add_link\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"a\", {\n    href: \"#\",\n    className: \"icon icon-twitter\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"a\", {\n    href: \"#\",\n    className: \"icon icon-whatsapp\"\n  }))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"footer-derechos d-flex flex-column align-items-center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"\\xA9 Copyright 2021 Bright IT.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"All rights reserverd.\")));\n}\n\n//# sourceURL=webpack://brightit/./src/app/components/Footer/Footer.js?");
+
+/***/ }),
+
+/***/ "./src/app/components/Home/Contacto/Contacto.js":
+/*!******************************************************!*\
+  !*** ./src/app/components/Home/Contacto/Contacto.js ***!
+  \******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Contacto; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Contacto_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Contacto.css */ \"./src/app/components/Home/Contacto/Contacto.css\");\n\n\nfunction Contacto(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"section\", {\n    className: \"contacto\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"container d-flex flex-column justify-content-center align-items-center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h2\", {\n    className: \"titulo texto-azul\"\n  }, \"Contacto\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"info-formulario d-flex\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    className: \"info-bubbles d-flex flex-column\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    class: \"info\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h3\", null, \"Informaci\\xF3n de contacto\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"\\xBFTienes alguna duda? Solo escribenos en nuestras redes o en nuestro formulario.\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"6181846889\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"p\", null, \"brightit@gmail.com\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", {\n    class: \"bubbles\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"img\", {\n    src: props.imagenes.bubbles\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"form\", {\n    className: \"d-flex flex-column align-items-center\"\n  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"label\", null, \"Envianos un mensaje\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"text\",\n    placeholder: \"Nombre\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"email\",\n    placeholder: \"Email\"\n  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"textarea\", null, \"Mensaje\")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"input\", {\n    type: \"submit\",\n    className: \"btn btn-primary\",\n    value: \"Enviar\"\n  })))));\n}\n\n//# sourceURL=webpack://brightit/./src/app/components/Home/Contacto/Contacto.js?");
 
 /***/ }),
 
@@ -115,7 +126,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Home; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Contacto_Contacto__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Contacto/Contacto */ \"./src/app/components/Home/Contacto/Contacto.jsx\");\n/* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Header/Header */ \"./src/app/components/Home/Header/Header.js\");\n/* harmony import */ var _Nosotros_Nosotros__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Nosotros/Nosotros */ \"./src/app/components/Home/Nosotros/Nosotros.js\");\n/* harmony import */ var _Productos_Productos__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Productos/Productos */ \"./src/app/components/Home/Productos/Productos.js\");\n\n\n\n\n\nclass Home extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Header_Header__WEBPACK_IMPORTED_MODULE_2__.default, {\n      imagenes: this.props.imagenes\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Productos_Productos__WEBPACK_IMPORTED_MODULE_4__.default, {\n      imagenes: this.props.imagenes\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Nosotros_Nosotros__WEBPACK_IMPORTED_MODULE_3__.default, {\n      imagenes: this.props.imagenes\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Contacto_Contacto__WEBPACK_IMPORTED_MODULE_1__.default, {\n      imagenes: this.props.imagenes\n    }));\n  }\n\n}\n\n//# sourceURL=webpack://brightit/./src/app/components/Home/Home.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": function() { return /* binding */ Home; }\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _Footer_Footer__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Footer/Footer */ \"./src/app/components/Footer/Footer.js\");\n/* harmony import */ var _Contacto_Contacto__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Contacto/Contacto */ \"./src/app/components/Home/Contacto/Contacto.js\");\n/* harmony import */ var _Header_Header__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Header/Header */ \"./src/app/components/Home/Header/Header.js\");\n/* harmony import */ var _Nosotros_Nosotros__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./Nosotros/Nosotros */ \"./src/app/components/Home/Nosotros/Nosotros.js\");\n/* harmony import */ var _Productos_Productos__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./Productos/Productos */ \"./src/app/components/Home/Productos/Productos.js\");\n\n\n\n\n\n\nclass Home extends react__WEBPACK_IMPORTED_MODULE_0__.Component {\n  render() {\n    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Header_Header__WEBPACK_IMPORTED_MODULE_3__.default, {\n      imagenes: this.props.imagenes\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Productos_Productos__WEBPACK_IMPORTED_MODULE_5__.default, {\n      imagenes: this.props.imagenes\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Nosotros_Nosotros__WEBPACK_IMPORTED_MODULE_4__.default, {\n      imagenes: this.props.imagenes\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Contacto_Contacto__WEBPACK_IMPORTED_MODULE_2__.default, {\n      imagenes: this.props.imagenes\n    }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_Footer_Footer__WEBPACK_IMPORTED_MODULE_1__.default, {\n      imagenes: this.props.imagenes\n    }));\n  }\n\n}\n\n//# sourceURL=webpack://brightit/./src/app/components/Home/Home.js?");
 
 /***/ }),
 
@@ -840,6 +851,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/dist/cjs.js!./node_modules/material-icons/iconfont/material-icons.css":
+/*!*******************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./node_modules/material-icons/iconfont/material-icons.css ***!
+  \*******************************************************************************************************/
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../css-loader/dist/runtime/getUrl.js */ \"./node_modules/css-loader/dist/runtime/getUrl.js\");\n/* harmony import */ var _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var _MaterialIcons_Regular_eot__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./MaterialIcons-Regular.eot */ \"./node_modules/material-icons/iconfont/MaterialIcons-Regular.eot\");\n/* harmony import */ var _MaterialIcons_Regular_woff2__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./MaterialIcons-Regular.woff2 */ \"./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2\");\n/* harmony import */ var _MaterialIcons_Regular_woff__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./MaterialIcons-Regular.woff */ \"./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff\");\n/* harmony import */ var _MaterialIcons_Regular_ttf__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./MaterialIcons-Regular.ttf */ \"./node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf\");\n/* harmony import */ var _MaterialIconsOutlined_Regular_eot__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./MaterialIconsOutlined-Regular.eot */ \"./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.eot\");\n/* harmony import */ var _MaterialIconsOutlined_Regular_woff2__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./MaterialIconsOutlined-Regular.woff2 */ \"./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff2\");\n/* harmony import */ var _MaterialIconsOutlined_Regular_woff__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./MaterialIconsOutlined-Regular.woff */ \"./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff\");\n/* harmony import */ var _MaterialIconsOutlined_Regular_otf__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./MaterialIconsOutlined-Regular.otf */ \"./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.otf\");\n/* harmony import */ var _MaterialIconsRound_Regular_eot__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./MaterialIconsRound-Regular.eot */ \"./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.eot\");\n/* harmony import */ var _MaterialIconsRound_Regular_woff2__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./MaterialIconsRound-Regular.woff2 */ \"./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff2\");\n/* harmony import */ var _MaterialIconsRound_Regular_woff__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./MaterialIconsRound-Regular.woff */ \"./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff\");\n/* harmony import */ var _MaterialIconsRound_Regular_otf__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./MaterialIconsRound-Regular.otf */ \"./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.otf\");\n/* harmony import */ var _MaterialIconsSharp_Regular_eot__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./MaterialIconsSharp-Regular.eot */ \"./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.eot\");\n/* harmony import */ var _MaterialIconsSharp_Regular_woff2__WEBPACK_IMPORTED_MODULE_15__ = __webpack_require__(/*! ./MaterialIconsSharp-Regular.woff2 */ \"./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff2\");\n/* harmony import */ var _MaterialIconsSharp_Regular_woff__WEBPACK_IMPORTED_MODULE_16__ = __webpack_require__(/*! ./MaterialIconsSharp-Regular.woff */ \"./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff\");\n/* harmony import */ var _MaterialIconsSharp_Regular_otf__WEBPACK_IMPORTED_MODULE_17__ = __webpack_require__(/*! ./MaterialIconsSharp-Regular.otf */ \"./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.otf\");\n/* harmony import */ var _MaterialIconsTwoTone_Regular_eot__WEBPACK_IMPORTED_MODULE_18__ = __webpack_require__(/*! ./MaterialIconsTwoTone-Regular.eot */ \"./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.eot\");\n/* harmony import */ var _MaterialIconsTwoTone_Regular_woff2__WEBPACK_IMPORTED_MODULE_19__ = __webpack_require__(/*! ./MaterialIconsTwoTone-Regular.woff2 */ \"./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff2\");\n/* harmony import */ var _MaterialIconsTwoTone_Regular_woff__WEBPACK_IMPORTED_MODULE_20__ = __webpack_require__(/*! ./MaterialIconsTwoTone-Regular.woff */ \"./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff\");\n/* harmony import */ var _MaterialIconsTwoTone_Regular_otf__WEBPACK_IMPORTED_MODULE_21__ = __webpack_require__(/*! ./MaterialIconsTwoTone-Regular.otf */ \"./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.otf\");\n// Imports\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvar ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\nvar ___CSS_LOADER_URL_REPLACEMENT_0___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIcons_Regular_eot__WEBPACK_IMPORTED_MODULE_2__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_1___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIcons_Regular_woff2__WEBPACK_IMPORTED_MODULE_3__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_2___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIcons_Regular_woff__WEBPACK_IMPORTED_MODULE_4__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_3___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIcons_Regular_ttf__WEBPACK_IMPORTED_MODULE_5__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_4___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsOutlined_Regular_eot__WEBPACK_IMPORTED_MODULE_6__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_5___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsOutlined_Regular_woff2__WEBPACK_IMPORTED_MODULE_7__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_6___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsOutlined_Regular_woff__WEBPACK_IMPORTED_MODULE_8__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_7___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsOutlined_Regular_otf__WEBPACK_IMPORTED_MODULE_9__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_8___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsRound_Regular_eot__WEBPACK_IMPORTED_MODULE_10__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_9___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsRound_Regular_woff2__WEBPACK_IMPORTED_MODULE_11__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_10___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsRound_Regular_woff__WEBPACK_IMPORTED_MODULE_12__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_11___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsRound_Regular_otf__WEBPACK_IMPORTED_MODULE_13__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_12___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsSharp_Regular_eot__WEBPACK_IMPORTED_MODULE_14__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_13___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsSharp_Regular_woff2__WEBPACK_IMPORTED_MODULE_15__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_14___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsSharp_Regular_woff__WEBPACK_IMPORTED_MODULE_16__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_15___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsSharp_Regular_otf__WEBPACK_IMPORTED_MODULE_17__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_16___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsTwoTone_Regular_eot__WEBPACK_IMPORTED_MODULE_18__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_17___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsTwoTone_Regular_woff2__WEBPACK_IMPORTED_MODULE_19__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_18___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsTwoTone_Regular_woff__WEBPACK_IMPORTED_MODULE_20__.default);\nvar ___CSS_LOADER_URL_REPLACEMENT_19___ = _css_loader_dist_runtime_getUrl_js__WEBPACK_IMPORTED_MODULE_1___default()(_MaterialIconsTwoTone_Regular_otf__WEBPACK_IMPORTED_MODULE_21__.default);\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"@font-face {\\n  font-family: \\\"Material Icons\\\";\\n  font-style: normal;\\n  font-weight: 400;\\n  src: url(\" + ___CSS_LOADER_URL_REPLACEMENT_0___ + \");\\n  /* For IE6-8 */\\n  src: local(\\\"Material Icons\\\"), local(\\\"MaterialIcons-Regular\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_1___ + \") format(\\\"woff2\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_2___ + \") format(\\\"woff\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_3___ + \") format(\\\"truetype\\\");\\n}\\n\\n.material-icons, .material-icons-outlined, .material-icons-round, .material-icons-sharp, .material-icons-two-tone {\\n  font-family: \\\"Material Icons\\\";\\n  font-weight: normal;\\n  font-style: normal;\\n  font-size: 24px;\\n  display: inline-block;\\n  line-height: 1;\\n  text-transform: none;\\n  letter-spacing: normal;\\n  word-wrap: normal;\\n  white-space: nowrap;\\n  direction: ltr;\\n  /* Support for all WebKit browsers. */\\n  -webkit-font-smoothing: antialiased;\\n  /* Support for Safari and Chrome. */\\n  text-rendering: optimizeLegibility;\\n  /* Support for Firefox. */\\n  -moz-osx-font-smoothing: grayscale;\\n  /* Support for IE. */\\n  font-feature-settings: 'liga';\\n}\\n\\n@font-face {\\n  font-family: \\\"Material Icons Outlined\\\";\\n  font-style: normal;\\n  font-weight: 400;\\n  src: url(\" + ___CSS_LOADER_URL_REPLACEMENT_4___ + \");\\n  /* For IE6-8 */\\n  src: local(\\\"Material Icons Outlined\\\"), local(\\\"MaterialIconsOutlined-Regular\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_5___ + \") format(\\\"woff2\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_6___ + \") format(\\\"woff\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_7___ + \") format(\\\"opentype\\\");\\n}\\n\\n.material-icons-outlined {\\n  font-family: \\\"Material Icons Outlined\\\";\\n}\\n\\n@font-face {\\n  font-family: \\\"Material Icons Round\\\";\\n  font-style: normal;\\n  font-weight: 400;\\n  src: url(\" + ___CSS_LOADER_URL_REPLACEMENT_8___ + \");\\n  /* For IE6-8 */\\n  src: local(\\\"Material Icons Round\\\"), local(\\\"MaterialIconsRound-Regular\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_9___ + \") format(\\\"woff2\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_10___ + \") format(\\\"woff\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_11___ + \") format(\\\"opentype\\\");\\n}\\n\\n.material-icons-round {\\n  font-family: \\\"Material Icons Round\\\";\\n}\\n\\n@font-face {\\n  font-family: \\\"Material Icons Sharp\\\";\\n  font-style: normal;\\n  font-weight: 400;\\n  src: url(\" + ___CSS_LOADER_URL_REPLACEMENT_12___ + \");\\n  /* For IE6-8 */\\n  src: local(\\\"Material Icons Sharp\\\"), local(\\\"MaterialIconsSharp-Regular\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_13___ + \") format(\\\"woff2\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_14___ + \") format(\\\"woff\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_15___ + \") format(\\\"opentype\\\");\\n}\\n\\n.material-icons-sharp {\\n  font-family: \\\"Material Icons Sharp\\\";\\n}\\n\\n@font-face {\\n  font-family: \\\"Material Icons Two Tone\\\";\\n  font-style: normal;\\n  font-weight: 400;\\n  src: url(\" + ___CSS_LOADER_URL_REPLACEMENT_16___ + \");\\n  /* For IE6-8 */\\n  src: local(\\\"Material Icons Two Tone\\\"), local(\\\"MaterialIconsTwoTone-Regular\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_17___ + \") format(\\\"woff2\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_18___ + \") format(\\\"woff\\\"), url(\" + ___CSS_LOADER_URL_REPLACEMENT_19___ + \") format(\\\"opentype\\\");\\n}\\n\\n.material-icons-two-tone {\\n  font-family: \\\"Material Icons Two Tone\\\";\\n}\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/material-icons.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/dist/cjs.js!./src/app/App.css":
 /*!***************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js!./src/app/App.css ***!
@@ -847,7 +869,29 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _css
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"/* Variables */\\r\\n:root {\\r\\n    --azul: #3E54D3;\\r\\n    --sombra: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;\\r\\n}\\r\\n\\r\\n/* Estilos Generales */\\r\\nbody{\\r\\n    font-family: 'Poppins', sans-serif;\\r\\n}\\r\\n\\r\\nimg {\\r\\n    max-width: 100%;\\r\\n}\\r\\n\\r\\n.btn {\\r\\n    font-weight: bold;\\r\\n}\\r\\n\\r\\n.btn-primary {\\r\\n    background: var(--azul);\\r\\n    border: none;\\r\\n}\\r\\n\\r\\n.btn-light {\\r\\n    color: var(--azul);\\r\\n    border: none;\\r\\n}\\r\\n\\r\\n.titulo {\\r\\n    font-weight: bold;\\r\\n    font-size: 8vmin;\\r\\n}\\r\\n\\r\\n.texto-azul {\\r\\n    color: var(--azul);\\r\\n}\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://brightit/./src/app/App.css?./node_modules/css-loader/dist/cjs.js");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"/* Variables */\\r\\n:root {\\r\\n    --azul: #3E54D3;\\r\\n    --sombra: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;\\r\\n}\\r\\n\\r\\n/* Estilos Generales */\\r\\nbody{\\r\\n    font-family: 'Poppins', sans-serif;\\r\\n}\\r\\n\\r\\nimg {\\r\\n    max-width: 100%;\\r\\n}\\r\\n\\r\\n.btn {\\r\\n    font-weight: bold;\\r\\n}\\r\\n\\r\\n.btn-primary {\\r\\n    background: var(--azul);\\r\\n    border: none;\\r\\n}\\r\\n\\r\\n.btn-light {\\r\\n    color: var(--azul);\\r\\n    border: none;\\r\\n}\\r\\n\\r\\n.titulo {\\r\\n    font-weight: bold;\\r\\n    font-size: 8vmin;\\r\\n}\\r\\n\\r\\n.texto-azul {\\r\\n    color: var(--azul);\\r\\n}\\r\\n\\r\\n/* Formularios */\\r\\nform {\\r\\n    padding: 3rem 3rem 0 3rem;\\r\\n    border-radius: 0 3rem 3rem 0;\\r\\n    box-shadow: var(--sombra);\\r\\n    background-color: #FFF;\\r\\n}\\r\\n\\r\\nform label {\\r\\n    color: #6b6c6d;\\r\\n}\\r\\n\\r\\ninput[type=\\\"text\\\"],\\r\\ninput[type=\\\"email\\\"],\\r\\ninput[type=\\\"password\\\"],\\r\\ntextarea {\\r\\n    display: block;\\r\\n    width: 60vmin;\\r\\n    margin: 3rem 0;\\r\\n    border: none;\\r\\n    border-bottom: 1px solid #D5CFCF;\\r\\n    color: #8D8F92;\\r\\n}\\r\\n\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://brightit/./src/app/App.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/app/components/Footer/Footer.css":
+/*!************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/app/components/Footer/Footer.css ***!
+  \************************************************************************************/
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \"footer {\\r\\n    margin-top: 5vmin;\\r\\n}\\r\\n\\r\\n.footer-logo-redes {\\r\\n    background: #F1F1F1;\\r\\n}\\r\\n\\r\\n.footer-redes a{\\r\\n    margin: 2rem;\\r\\n    background: var(--azul);\\r\\n    color: #FFF;\\r\\n    border-radius: 50%;\\r\\n    width: 10vmin;\\r\\n    height: 10vmin;\\r\\n    text-decoration: none;\\r\\n    display: flex;\\r\\n    justify-content: center;\\r\\n    align-items: center;\\r\\n}\\r\\n\\r\\n.footer-logo-redes img{\\r\\n    width: 30vmin;\\r\\n    margin: 1rem;\\r\\n}\\r\\n\\r\\n.footer-derechos {\\r\\n    background: var(--azul);\\r\\n    color: #FFF;\\r\\n    display: flex;\\r\\n    line-height: 1;\\r\\n    padding: 2rem;\\r\\n}\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://brightit/./src/app/components/Footer/Footer.css?./node_modules/css-loader/dist/cjs.js");
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js!./src/app/components/Home/Contacto/Contacto.css":
+/*!*********************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js!./src/app/components/Home/Contacto/Contacto.css ***!
+  \*********************************************************************************************/
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ \"./node_modules/css-loader/dist/runtime/api.js\");\n/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);\n// Imports\n\nvar ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});\n// Module\n___CSS_LOADER_EXPORT___.push([module.id, \".contacto {\\r\\n    background: rgb(225,242,252);\\r\\n    background: linear-gradient(180deg, rgba(225,242,252,1) 0%, rgba(249,249,249,1) 95%, rgba(249,249,249,1) 100%);\\r\\n    padding-top: 10vmin;\\r\\n}\\r\\n\\r\\n.info {\\r\\n    padding: 3rem;\\r\\n    color: white;\\r\\n    background: var(--azul);\\r\\n    box-shadow: var(--sombra);\\r\\n    border-radius: 3rem 0 0 0;\\r\\n}\\r\\n\\r\\n.bubbles {\\r\\n    background: var(--azul);\\r\\n    box-shadow: var(--sombra);\\r\\n    border-radius: 0 0 0 3rem;\\r\\n}\\r\\n\\r\\n.bubbles img {\\r\\n    border-radius: 0 0 0 3rem;\\r\\n}\\r\\n\\r\\n@media screen and (max-width: 1200px) {\\r\\n    .info-formulario {\\r\\n        width: 100%;\\r\\n    }\\r\\n}\\r\\n\\r\\n@media screen and (max-width: 500px) {\\r\\n    .info-formulario {\\r\\n        flex-direction: column;\\r\\n    }\\r\\n\\r\\n    .info {\\r\\n        border-radius: 3rem 3rem 0 0;\\r\\n        text-align: center;\\r\\n    }\\r\\n\\r\\n    .info-bubbles {\\r\\n        border-radius: 3rem 3rem 0 0;\\r\\n    }\\r\\n\\r\\n    .bubbles {\\r\\n        display: none;\\r\\n    }\\r\\n\\r\\n    form {\\r\\n        border-radius: 0 0 3rem 3rem;\\r\\n        padding: 3rem;\\r\\n    }\\r\\n}\", \"\"]);\n// Exports\n/* harmony default export */ __webpack_exports__[\"default\"] = (___CSS_LOADER_EXPORT___);\n\n\n//# sourceURL=webpack://brightit/./src/app/components/Home/Contacto/Contacto.css?./node_modules/css-loader/dist/cjs.js");
 
 /***/ }),
 
@@ -914,6 +958,226 @@ eval("\n\n/*\n  MIT License http://www.opensource.org/licenses/mit-license.php\n
 
 "use strict";
 eval("\n\nmodule.exports = function (url, options) {\n  if (!options) {\n    // eslint-disable-next-line no-param-reassign\n    options = {};\n  } // eslint-disable-next-line no-underscore-dangle, no-param-reassign\n\n\n  url = url && url.__esModule ? url.default : url;\n\n  if (typeof url !== \"string\") {\n    return url;\n  } // If url is already wrapped in quotes, remove them\n\n\n  if (/^['\"].*['\"]$/.test(url)) {\n    // eslint-disable-next-line no-param-reassign\n    url = url.slice(1, -1);\n  }\n\n  if (options.hash) {\n    // eslint-disable-next-line no-param-reassign\n    url += options.hash;\n  } // Should url be wrapped?\n  // See https://drafts.csswg.org/css-values-3/#urls\n\n\n  if (/[\"'() \\t\\n]/.test(url) || options.needQuotes) {\n    return \"\\\"\".concat(url.replace(/\"/g, '\\\\\"').replace(/\\n/g, \"\\\\n\"), \"\\\"\");\n  }\n\n  return url;\n};\n\n//# sourceURL=webpack://brightit/./node_modules/css-loader/dist/runtime/getUrl.js?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIcons-Regular.eot":
+/*!************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIcons-Regular.eot ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"7956bd661bccc475be652a608076e1fc.eot\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIcons-Regular.eot?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf":
+/*!************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf ***!
+  \************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"93b90c9acd3befd3b5bfaea8ced739b8.ttf\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIcons-Regular.ttf?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff":
+/*!*************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff ***!
+  \*************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"826bfea3e36e74a14558a396ea9c0b54.woff\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2":
+/*!**************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2 ***!
+  \**************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"3effe01b81818d4259b7e71701f0b525.woff2\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIcons-Regular.woff2?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.eot":
+/*!********************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.eot ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"2fb37444bfdf33988bb7789dc69cfb47.eot\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.eot?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.otf":
+/*!********************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.otf ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"0f80bf4ec223c079f824f90ab5eafa38.otf\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.otf?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff ***!
+  \*********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"b9f13a9b613babf7d09514f132676cdb.woff\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff2":
+/*!**********************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff2 ***!
+  \**********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"8279db9dcd9953a230e5092a78941622.woff2\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsOutlined-Regular.woff2?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.eot":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.eot ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"ac70fea20053991c8f30df8c2178b123.eot\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.eot?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.otf":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.otf ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"a1252f821dfd10988f19650a42b75537.otf\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.otf?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff":
+/*!******************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff ***!
+  \******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"d74bab5664a51bb86cf06c06c1dec81c.woff\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff2":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff2 ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"3d92f6f76e8ba450da69c88b088ab846.woff2\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsRound-Regular.woff2?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.eot":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.eot ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"21bc035f30ea7e70d6fc4c867a2f525e.eot\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.eot?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.otf":
+/*!*****************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.otf ***!
+  \*****************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"76b816fb01e591fa40093a6d38ad1e55.otf\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.otf?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff":
+/*!******************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff ***!
+  \******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"2304e89781a0b16689494d4656ad528d.woff\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff2":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff2 ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"57956a8990a237b0f718af28c4700ae8.woff2\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsSharp-Regular.woff2?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.eot":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.eot ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"33c59641f3209d8b52c12225cff30dfa.eot\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.eot?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.otf":
+/*!*******************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.otf ***!
+  \*******************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"c548e22ed6759b853ecdf975821018f9.otf\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.otf?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff":
+/*!********************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff ***!
+  \********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"d9c60c08c65f6db003ab2ed8724a7178.woff\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff?");
+
+/***/ }),
+
+/***/ "./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff2":
+/*!*********************************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff2 ***!
+  \*********************************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ __webpack_exports__[\"default\"] = (__webpack_require__.p + \"295e393eeaf00674277759fc988bf7fd.woff2\");\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/MaterialIconsTwoTone-Regular.woff2?");
 
 /***/ }),
 
@@ -1331,6 +1595,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 
 /***/ }),
 
+/***/ "./node_modules/material-icons/iconfont/material-icons.css":
+/*!*****************************************************************!*\
+  !*** ./node_modules/material-icons/iconfont/material-icons.css ***!
+  \*****************************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _css_loader_dist_cjs_js_material_icons_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../css-loader/dist/cjs.js!./material-icons.css */ \"./node_modules/css-loader/dist/cjs.js!./node_modules/material-icons/iconfont/material-icons.css\");\n\n            \n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = _style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_css_loader_dist_cjs_js_material_icons_css__WEBPACK_IMPORTED_MODULE_1__.default, options);\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_css_loader_dist_cjs_js_material_icons_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});\n\n//# sourceURL=webpack://brightit/./node_modules/material-icons/iconfont/material-icons.css?");
+
+/***/ }),
+
 /***/ "./src/app/App.css":
 /*!*************************!*\
   !*** ./src/app/App.css ***!
@@ -1339,6 +1614,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_App_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../node_modules/css-loader/dist/cjs.js!./App.css */ \"./node_modules/css-loader/dist/cjs.js!./src/app/App.css\");\n\n            \n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_App_css__WEBPACK_IMPORTED_MODULE_1__.default, options);\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_css_loader_dist_cjs_js_App_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});\n\n//# sourceURL=webpack://brightit/./src/app/App.css?");
+
+/***/ }),
+
+/***/ "./src/app/components/Footer/Footer.css":
+/*!**********************************************!*\
+  !*** ./src/app/components/Footer/Footer.css ***!
+  \**********************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Footer_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../node_modules/css-loader/dist/cjs.js!./Footer.css */ \"./node_modules/css-loader/dist/cjs.js!./src/app/components/Footer/Footer.css\");\n\n            \n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Footer_css__WEBPACK_IMPORTED_MODULE_1__.default, options);\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_css_loader_dist_cjs_js_Footer_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});\n\n//# sourceURL=webpack://brightit/./src/app/components/Footer/Footer.css?");
+
+/***/ }),
+
+/***/ "./src/app/components/Home/Contacto/Contacto.css":
+/*!*******************************************************!*\
+  !*** ./src/app/components/Home/Contacto/Contacto.css ***!
+  \*******************************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ \"./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js\");\n/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var _node_modules_css_loader_dist_cjs_js_Contacto_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js!./Contacto.css */ \"./node_modules/css-loader/dist/cjs.js!./src/app/components/Home/Contacto/Contacto.css\");\n\n            \n\nvar options = {};\n\noptions.insert = \"head\";\noptions.singleton = false;\n\nvar update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_Contacto_css__WEBPACK_IMPORTED_MODULE_1__.default, options);\n\n\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (_node_modules_css_loader_dist_cjs_js_Contacto_css__WEBPACK_IMPORTED_MODULE_1__.default.locals || {});\n\n//# sourceURL=webpack://brightit/./src/app/components/Home/Contacto/Contacto.css?");
 
 /***/ }),
 

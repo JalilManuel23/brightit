@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Footer from '../Footer/Footer'
 import Contacto from './Contacto/Contacto'
 import Header from './Header/Header'
 import Nosotros from './Nosotros/Nosotros'
@@ -12,6 +13,7 @@ export default class Home extends Component {
                 <Productos imagenes= { this.props.imagenes } />
                 <Nosotros imagenes = {this.props.imagenes} />
                 <Contacto imagenes = { this.props.imagenes} />
+                <Footer imagenes = { this.props.imagenes } />
             </div>
         )
     }

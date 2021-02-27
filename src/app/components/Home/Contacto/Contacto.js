@@ -1,12 +1,13 @@
-import React from 'react'
+import React from 'react';
+import './Contacto.css';
 
 export default function Contacto(props) {
     return (
-        <section id="contacto" className="contacto">
-            <div className="contenedor contenedor-contacto">
+        <section className="contacto">
+            <div className="container d-flex flex-column justify-content-center align-items-center">
                 <h2 className="titulo texto-azul">Contacto</h2>
-                <div className="info-formulario">
-                    <div className="info-bubbles">
+                <div className="info-formulario d-flex">
+                    <div className="info-bubbles d-flex flex-column">
                         <div class="info">
                             <h3>Información de contacto</h3>
                             <p>¿Tienes alguna duda? Solo escribenos en nuestras
@@ -21,14 +22,14 @@ export default function Contacto(props) {
                             </div>
                         </div>
                     </div>
-                    <form>
+                    <form className="d-flex flex-column align-items-center">
                         <div>
                             <label>Envianos un mensaje</label>
                             <input type="text" placeholder="Nombre"></input>
                             <input type="email" placeholder="Email"></input>
                             <textarea>Mensaje</textarea>
                         </div>
-                        <input type="submit" className="boton-azul btn-enviar" value="Enviar"></input>
+                        <input type="submit" className="btn btn-primary" value="Enviar"></input>
                     </form>
                 </div>
             </div>
