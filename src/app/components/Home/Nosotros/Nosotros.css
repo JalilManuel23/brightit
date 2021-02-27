@@ -1,0 +1,21 @@
+.nosotros {
+    background-image: url('../../../assets/images/background.png');
+    height: 100vh;
+    background-size: cover;
+    color: white;
+}
+
+.workflow-slide, .workflow-items {
+    width: 30vmin;
+    height: 30vmin;
+}
+
+.workflow-slide {
+    margin-top: 40vmin;
+}
+
+@media screen and (max-width: 500px) {
+    .nosotros img {
+        display: none;
+    }
+}

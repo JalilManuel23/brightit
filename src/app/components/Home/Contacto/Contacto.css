@@ -1,0 +1,5 @@
+.contacto {
+    background: rgb(225,242,252);
+    background: linear-gradient(180deg, rgba(225,242,252,1) 0%, rgba(249,249,249,1) 95%, rgba(249,249,249,1) 100%);
+    height: 100vh;
+}

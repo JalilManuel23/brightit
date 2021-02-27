@@ -13,6 +13,10 @@ img {
     max-width: 100%;
 }
 
+.btn {
+    font-weight: bold;
+}
+
 .btn-primary {
     background: var(--azul);
     border: none;
