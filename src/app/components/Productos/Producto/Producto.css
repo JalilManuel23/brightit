@@ -1,0 +1,35 @@
+.contenedor-producto {
+    border: 1px solid #D5CFCF;
+    padding: 4vmin;
+    border-radius: 3vmin;
+    margin-top: 20vmin;
+    box-shadow: var(--sombra);
+}
+
+.contenedor-producto img {
+    width: 50%;
+    height: 50%;
+}
+
+.lista-caracteristicas li{
+    list-style-type: disc;
+}
+
+.caracteristicas {
+    border: 1px solid #D5CFCF;
+    padding: 3vmin;
+    border-radius: 2vmin;
+}
+
+@media screen and (max-width: 500px) {
+    .contenedor-producto {
+        flex-direction: column;
+        box-shadow: none;
+        border: none;
+        padding: 6vmin;
+    }
+
+    .caracteristicas {
+        border: none;
+    }
+}

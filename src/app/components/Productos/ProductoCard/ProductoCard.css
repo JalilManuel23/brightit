@@ -1,0 +1,32 @@
+.tarjeta-producto {
+    background: #FFF;
+    padding: 4vmin;
+    box-shadow: var(--sombra);
+    margin: 10vmin 0;
+    border-radius: 3vmin;
+}
+
+.tarjeta-producto img {
+    width: 60vmin;
+    height: 20vmin;
+}
+
+.nombre-producto {
+    font-weight: bold;
+    font-size: 3vmin;
+}
+
+@media screen and (max-width: 500px) {
+    .nombre-producto {
+        font-size: 4vmin;
+    }
+
+    .descripcion-producto {
+        font-size: 3vmin;
+    }
+
+    .tarjeta-producto img {
+        width: 50vmin;
+        height: 20vmin;
+    }
+}

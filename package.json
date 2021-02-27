@@ -20,6 +20,10 @@
   "homepage": "https://github.com/JalilManuel23/brightit#readme",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-brands-svg-icons": "^5.15.2",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "@popperjs/core": "^2.8.6",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.6.0",
