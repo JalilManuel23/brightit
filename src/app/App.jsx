@@ -6,7 +6,7 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 import './App.css';
 
 import imagenes from './assets/imagenes';
-import icons from './components/Icons/Icons';
+import icons from './assets/Icons/Icons';
 
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
@@ -16,7 +16,7 @@ import CrearCuenta from './components/LoginRegistro/CrearCuenta';
 import Footer from './components/Footer/Footer';
 import Productos from './components/Productos/Productos';
 import Producto from './components/Productos/Producto/Producto';
-// import Dashboard from './components/Dashboard.js';
+import Dashboard from './components/Dashboard/Dashboard';
 
 class App extends Component {
   render() {
@@ -60,7 +60,7 @@ class App extends Component {
         </Route>
         <Route exact path="/dashboard" render={() => {
             return <div>
-              {/* <Dashboard imagenes={imagenes}/> */}
+              <Dashboard imagenes={imagenes} icons = { icons } />
             </div>
           }}>
         </Route>
