@@ -1,0 +1,33 @@
+/* Variables */
+:root {
+    --azul: #3E54D3;
+    --sombra: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+/* Estilos Generales */
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+img {
+    max-width: 100%;
+}
+
+.btn-primary {
+    background: var(--azul);
+    border: none;
+}
+
+.btn-light {
+    color: var(--azul);
+    border: none;
+}
+
+.titulo {
+    font-weight: bold;
+    font-size: 8vmin;
+}
+
+.texto-azul {
+    color: var(--azul);
+}

@@ -1,0 +1,17 @@
+.navbar {
+    background: #FFF;
+    box-shadow: none;
+}
+
+.activo {
+    box-shadow: var(--sombra);
+}
+
+.logo-menu {
+    width: 23vmin;
+    height: 7vmin;
+}
+
+.navbar-nav li:last-of-type {
+    margin-right: 5vmin;
+}

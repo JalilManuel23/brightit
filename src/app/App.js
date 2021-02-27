@@ -1,12 +1,18 @@
 import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css'
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/js/bootstrap.min.js';
+import './App.css';
+
+import imagenes from './assets/imagenes';
+
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home.js';
 // import Login from './components/Login.js';
 // import CrearCuenta from './components/CrearCuenta.js';
-// import imagenes from './assets/imagenes';
-import Productos from './components/Productos/Productos.js';
+
+import Productos from './components/Home/Productos/Productos.js';
 // import Producto from './components/Producto.js';
 // import Dashboard from './components/Dashboard.js';
 
@@ -14,10 +20,10 @@ class App extends Component {
   render() {
     return <div>
       <Router>
-        <Navbar/>
+        <Navbar imagenes = { imagenes } />
         <Route exact path="/" render={() => {
             return <div>
-            	<Home/>
+            	<Home imagenes = { imagenes }/>
             </div>
           }}>
         </Route>
@@ -35,7 +41,7 @@ class App extends Component {
         </Route>
         <Route exact path="/productos" render={() => {
             return <div>
-              <Productos/>
+              <Productos imagenes= { imagenes }/>
             </div>
           }}>
         </Route>
