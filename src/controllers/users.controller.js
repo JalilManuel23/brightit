@@ -3,15 +3,15 @@ const usersCtrl = {};
 const User = require('../models/User');
 var validacion = require('validator');
 
-usersCtrl.agregarUsuario = async (req, res) => {
+usersCtrl.agregarUsuario =  (req, res) => {
     const {name, email, password} = req.body;
 
     const newUser = new User({name, email, password});
 
-    await newUser.save((err, usuarioAgregado) => {
+    newUser.save((err, usuarioAgregado) => {
 
         if (err || !usuarioAgregado) {
-            return res.status(404).send({
+            return res.status(505).send({
                 status: 'error',
                 mensaje: 'El usuario no se ha guardado'
             })

@@ -54,7 +54,8 @@ input[type="password"],
 textarea {
     display: block;
     width: 60vmin;
-    margin: 3rem 0;
+    margin: 3vmin 0;
+    padding: 2vmin;
     border: none;
     border-bottom: 1px solid #D5CFCF;
     color: #8D8F92;
