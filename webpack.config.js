@@ -6,7 +6,7 @@ module.exports = {
   entry: './src/app/index.js',
   output: {
     filename: 'bundle.js',
-    path: path.resolve(__dirname, './src/public/dist'),
+    path: path.resolve(__dirname, './src/public/dist')
   },
   mode: 'production',
   module: {
@@ -28,5 +28,8 @@ module.exports = {
         use: ["file-loader"]
       }
     ]
+  },
+  devServer: {
+    historyApiFallback: true,
   }
 };

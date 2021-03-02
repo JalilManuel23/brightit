@@ -17,6 +17,8 @@ import Footer from './components/Footer/Footer';
 import Productos from './components/Productos/Productos';
 import Producto from './components/Productos/Producto/Producto';
 import Dashboard from './components/Dashboard/Dashboard';
+import Contacto from './components/Home/Contacto/Contacto';
+import Nosotros from './components/Home/Nosotros/Nosotros';
 
 class App extends Component {
   render() {
@@ -26,6 +28,22 @@ class App extends Component {
             return <div>
               <Navbar imagenes = { imagenes } />
             	<Home imagenes = { imagenes }/>
+              <Footer imagenes = { imagenes } icons = { icons } />
+            </div>
+          }}>
+        </Route>
+        <Route exact path="/contacto" render={() => {
+            return <div>
+              <Navbar imagenes = { imagenes } />
+            	<Contacto imagenes = {imagenes} />
+              <Footer imagenes = { imagenes } icons = { icons } />
+            </div>
+          }}>
+        </Route>
+        <Route exact path="/nosotros" render={() => {
+            return <div>
+              <Navbar imagenes = { imagenes } />
+            	<Nosotros imagenes = {imagenes} />
               <Footer imagenes = { imagenes } icons = { icons } />
             </div>
           }}>

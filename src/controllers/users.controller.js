@@ -17,8 +17,10 @@ usersCtrl.agregarUsuario =  (req, res) => {
             })
         }
 
-        return res.status(200).send({
-            //Registro insertado con exito 
+        req.flash('Correcto', 'Usuario agregado correctamente');
+
+        // res.redirect("/users/");
+        return res.status(200).send({     
             status: 'Completado',
             usuarioAgregado
         });
@@ -156,5 +158,4 @@ usersCtrl.eliminarUsuario = (req, res) => {
         });
     });
 }
-
 module.exports = usersCtrl;

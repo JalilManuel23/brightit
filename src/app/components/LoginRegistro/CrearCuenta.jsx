@@ -35,14 +35,22 @@ export default class CrearCuenta extends Component {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
-        }).then(res => res.json()).then(data => {
-            console.log(data);
-
-            Swal.fire(
-                'Usuario creado correctamente',
-                'Da click para continuar',
-                'success'
-            );
+        }).then(res => {
+            res.json();
+        
+            if(res.status == 200) {
+                Swal.fire(
+                    'Usuario creado correctamente',
+                    'Da click para continuar',
+                    'success'
+                );
+            } else {
+                Swal.fire(
+                    'Ya hay una cuenta vinculada a este email',
+                    'Vuelve a intentarlo con otro email',
+                    'warning'
+                );
+            }
         })
         .catch(error => console.error('Error:', error))
     }
@@ -57,7 +65,7 @@ export default class CrearCuenta extends Component {
                     <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.manejador}></input>
                     <input name="password" type="password" placeholder="Contraseña" value={this.state.password} onChange={this.manejador}></input>
                     <input name="confirm-pass" type="password" placeholder="Confirmar contraseña"></input>
-                    <button type="submit" className="btn btn-primary m-3">Crear Cuenta</button>
+                    <input type="submit" className="btn btn-primary m-3" value="Crear Cuenta"></input>
                 </form>
             </div>
         )
