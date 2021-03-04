@@ -8,7 +8,9 @@ import './App.css';
 import imagenes from './assets/imagenes';
 import icons from './assets/Icons/Icons';
 
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import { Router, Route, Link } from 'react-router-dom';
+import history from './history';
+
 import Navbar from './components/Navbar/Navbar';
 import Home from './components/Home/Home';
 import Login from './components/LoginRegistro/Login';
@@ -23,7 +25,7 @@ import Nosotros from './components/Home/Nosotros/Nosotros';
 class App extends Component {
   render() {
     return <div>
-      <Router>
+      <Router history={history}>
         <Route exact path="/" render={() => {
             return <div>
               <Navbar imagenes = { imagenes } />

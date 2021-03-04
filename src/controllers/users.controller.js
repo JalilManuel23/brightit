@@ -2,6 +2,7 @@ const usersCtrl = {};
 
 const User = require('../models/User');
 var validacion = require('validator');
+const passport = require('passport');
 
 usersCtrl.agregarUsuario =  (req, res) => {
     const {name, email, password} = req.body;
@@ -158,4 +159,10 @@ usersCtrl.eliminarUsuario = (req, res) => {
         });
     });
 }
+
+usersCtrl.entrar = passport.authenticate('local', {
+    failureRedirect: '/crear_cuenta',
+    successRedirect: '/dashboard'
+});
+
 module.exports = usersCtrl;

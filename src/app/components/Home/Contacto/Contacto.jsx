@@ -8,14 +8,14 @@ export default function Contacto(props) {
                 <h2 className="titulo texto-azul">Contacto</h2>
                 <div className="info-formulario d-flex">
                     <div className="info-bubbles d-flex flex-column">
-                        <div class="info">
+                        <div className="info">
                             <h3>Información de contacto</h3>
                             <p>¿Tienes alguna duda? Solo escribenos en nuestras
                             redes o en nuestro formulario.</p>
                             <p>6181846889</p>
                             <p>brightit@gmail.com</p>
                         </div>
-                        <div class="bubbles">
+                        <div className="bubbles">
                             <img src={props.imagenes.bubbles}></img>
                             <div>
                                 

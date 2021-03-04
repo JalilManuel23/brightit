@@ -3,11 +3,13 @@ const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const passport = require('passport');
 const flash = require('connect-flash');
 
 
 // Starting
 const app = express();
+require('./config/passport');
 
 // Settings
 app.set('port', process.env.PORT || 3000);
@@ -16,11 +18,12 @@ app.set('port', process.env.PORT || 3000);
 app.use(morgan('dev'));
 app.use(express.json());
 app.use(session({
-    secret: 'secret',
-    cookie: { maxAge: 60000},
-    resave: false,
-    saveUninitialized: false
+     secret: 'secret',
+     resave: true,
+     saveUninitialized: true
 }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(flash());
 // app.use(bodyParser.urlencoded({extended: false}));
 
