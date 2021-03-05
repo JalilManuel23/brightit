@@ -14,7 +14,7 @@ export default class Productos extends Component {
                     </div>
                 </div>
 
-                <div className="container">
+                <div className="container d-flex flex-column flex-md-row justify-content-md-between">
                     <ProductoCard imagenes={this.props.imagenes} />
                     <ProductoCard imagenes={this.props.imagenes} />
                     <ProductoCard imagenes={this.props.imagenes} />

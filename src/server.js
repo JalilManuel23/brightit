@@ -2,8 +2,8 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
-const session = require('express-session');
 const passport = require('passport');
+const session = require('express-session');
 const flash = require('connect-flash');
 
 
@@ -29,6 +29,9 @@ app.use(flash());
 
 
 // Global variables
+app.use((req, res, next) => {
+     next();
+});
 
 // Routes
 app.use(require('./routes/users.routes'));

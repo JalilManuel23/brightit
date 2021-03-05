@@ -2,48 +2,55 @@ import React, { Component } from 'react'
 
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
+import Login from './Login';
+import { Redirect } from "react-router-dom";
 
 const MySwal = withReactContent(Swal)
 
 export default class CrearCuenta extends Component {
 
-    constructor(){
+    constructor() {
         super();
         this.state = {
-            name:'',
-            email:'',
-            password:''
+            name: '',
+            email: '',
+            password: '',
+            redirect: null
         };
         this.agregarUsuario = this.agregarUsuario.bind(this);
         this.manejador = this.manejador.bind(this);
     }
 
-    manejador(e){
+    manejador(e) {
         const { name, value } = e.target;
         this.setState({
             [name]: value
         });
     }
 
-    agregarUsuario(e)  {
+    agregarUsuario(e) {
         e.preventDefault();
-       
+
         fetch('/usuarios/crear_cuenta', {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(this.state), // data can be `string` or {object}!
-            headers:{
+            headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         }).then(res => {
             res.json();
-        
-            if(res.status == 200) {
+
+            if (res.status == 200) {
                 Swal.fire(
                     'Usuario creado correctamente',
                     'Da click para continuar',
                     'success'
-                );
+                ).then((result) => {
+                    if (result.isConfirmed) {
+                        this.setState({ redirect: '/login' });
+                    }
+                });
             } else {
                 Swal.fire(
                     'Ya hay una cuenta vinculada a este email',
@@ -52,10 +59,14 @@ export default class CrearCuenta extends Component {
                 );
             }
         })
-        .catch(error => console.error('Error:', error))
+            .catch(error => console.error('Error:', error))
     }
 
     render() {
+        if(this.state.redirect) {
+            return <Redirect to = { this.state.redirect } />
+        }
+
         return (
             <div className="contenedor-login d-flex justify-content-center align-items-center">
                 <form className="form-login form-reg d-flex flex-column align-items-center" onSubmit={this.agregarUsuario}>

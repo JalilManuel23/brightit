@@ -4,6 +4,12 @@
     box-shadow: var(--sombra);
     margin: 10vmin 0;
     border-radius: 3vmin;
+    width: 30%;
+}
+
+.tarjeta-producto:hover {
+    cursor: pointer;
+    transform: scale(1.01);
 }
 
 .tarjeta-producto img {
@@ -16,17 +22,30 @@
     font-size: 3vmin;
 }
 
+.descripcion-producto {
+    font-size: 1.8vmin;
+}
+
+.precio-producto {
+    font-weight: bold;
+    color: var(--azul);
+}
+
 @media screen and (max-width: 500px) {
     .nombre-producto {
         font-size: 4vmin;
+        padding: 3vmin;
     }
 
     .descripcion-producto {
         font-size: 3vmin;
     }
 
+    .tarjeta-producto {
+        width: 100%
+    }
+
     .tarjeta-producto img {
-        width: 50vmin;
-        height: 20vmin;
+        width: 50%;
     }
 }

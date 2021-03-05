@@ -4,10 +4,18 @@ const User = require('../models/User');
 var validacion = require('validator');
 const passport = require('passport');
 
-usersCtrl.agregarUsuario =  (req, res) => {
-    const {name, email, password} = req.body;
+usersCtrl.agregarUsuario = (req, res) => {
+    const {
+        name,
+        email,
+        password
+    } = req.body;
 
-    const newUser = new User({name, email, password});
+    const newUser = new User({
+        name,
+        email,
+        password
+    });
 
     newUser.save((err, usuarioAgregado) => {
 
@@ -21,7 +29,7 @@ usersCtrl.agregarUsuario =  (req, res) => {
         req.flash('Correcto', 'Usuario agregado correctamente');
 
         // res.redirect("/users/");
-        return res.status(200).send({     
+        return res.status(200).send({
             status: 'Completado',
             usuarioAgregado
         });
@@ -32,7 +40,7 @@ usersCtrl.verUsuarios = (req, res) => {
     var consulta = User.find({});
 
     consulta.exec((err, usuarios) => {
-        if(err) {
+        if (err) {
             return res.status(500).send({
                 // Error
                 status: 'Error',
@@ -40,7 +48,7 @@ usersCtrl.verUsuarios = (req, res) => {
             });
         }
 
-        if(!usuarios) {
+        if (!usuarios) {
             return res.status(404).send({
                 // Error
                 status: 'Error',
@@ -90,8 +98,7 @@ usersCtrl.editarUsuario = (req, res) => {
         var validar_name = !validacion.isEmpty(params.name);
         var validar_email = !validacion.isEmpty(params.email);
         var validar_password = !validacion.isEmpty(params.password);
-    }
-    catch (err) {
+    } catch (err) {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Faltan datos por enviar ... verifique por favor'
@@ -99,7 +106,11 @@ usersCtrl.editarUsuario = (req, res) => {
     }
 
     if (validar_name && validar_email && validar_password) {
-        User.findOneAndUpdate({ _id: id }, params, { new: true }, (err, usuarioActualizado) => {
+        User.findOneAndUpdate({
+            _id: id
+        }, params, {
+            new: true
+        }, (err, usuarioActualizado) => {
 
             if (err) {
                 return res.status(404).send({
@@ -120,8 +131,7 @@ usersCtrl.editarUsuario = (req, res) => {
                 usuarioActualizado
             })
         });
-    }
-    else {
+    } else {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Los datos no son validos verifique por favor'
@@ -132,21 +142,23 @@ usersCtrl.editarUsuario = (req, res) => {
 usersCtrl.eliminarUsuario = (req, res) => {
     var id = req.params.id;
 
-    if(!id || id == null) {
+    if (!id || id == null) {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'No se ingresó un ID del articulo'
         });
     }
-    User.findOneAndDelete({_id: id}, (err, usuarioEliminado) => {
-        if(err) {
+    User.findOneAndDelete({
+        _id: id
+    }, (err, usuarioEliminado) => {
+        if (err) {
             return res.status.send(500).send({
                 status: 'Error',
                 mensaje: 'Error, no se pudo eliminar el usuario'
             });
         }
 
-        if(!usuarioEliminado) {
+        if (!usuarioEliminado) {
             return res.status(404).send({
                 status: 'Error',
                 mensaje: 'Error el usuario a eliminar no existe'
@@ -160,9 +172,34 @@ usersCtrl.eliminarUsuario = (req, res) => {
     });
 }
 
-usersCtrl.entrar = passport.authenticate('local', {
-    failureRedirect: '/crear_cuenta',
-    successRedirect: '/dashboard'
-});
+usersCtrl.entrar = function (req, res, next) {
+    passport.authenticate('local', function (err, user, info) {
+        console.log('/login handler', req.body);
+        if (err) {
+            return next(err);
+        }
+        if (!user) {
+            return res.status(500).json({
+                error: 'User not found.'
+            });
+        }
+        req.session.save((err) => {
+            if (err) {
+                return next(err);
+            }
+            res.status(200).json({
+                success: true
+            });
+        });
+    })(req, res, next);
+}
+
+usersCtrl.dashboard = (req, res) => {
+    if(req.isAuthenticated()){
+        next();
+    } else{
+        res.redirect("/");
+    }
+}
 
 module.exports = usersCtrl;
