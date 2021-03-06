@@ -5,11 +5,14 @@
     margin: 10vmin 0;
     border-radius: 3vmin;
     width: 30%;
+    color: black;
 }
 
 .tarjeta-producto:hover {
     cursor: pointer;
     transform: scale(1.01);
+    color: black;
+    text-decoration: none;
 }
 
 .tarjeta-producto img {
@@ -20,6 +23,7 @@
 .nombre-producto {
     font-weight: bold;
     font-size: 3vmin;
+    padding-top: 3vmin;
 }
 
 .descripcion-producto {
@@ -29,6 +33,12 @@
 .precio-producto {
     font-weight: bold;
     color: var(--azul);
+}
+
+.btn-carrito {
+    width: 100%;
+    font-size: 2vmin;
+    background: rgb(87, 172, 87);
 }
 
 @media screen and (max-width: 500px) {

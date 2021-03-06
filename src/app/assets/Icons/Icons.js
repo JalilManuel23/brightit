@@ -5,7 +5,9 @@ import {
     faDoorOpen,
     faPaw,
     faHome,
-    faSignOutAlt
+    faSignOutAlt,
+    faShoppingCart,
+    faTimes
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -22,5 +24,7 @@ export default {
     "door": faDoorOpen,
     "paw": faPaw,
     "home": faHome,
-    "logout": faSignOutAlt
+    "logout": faSignOutAlt,
+    "shoppingCart": faShoppingCart,
+    "cerrar": faTimes
 }

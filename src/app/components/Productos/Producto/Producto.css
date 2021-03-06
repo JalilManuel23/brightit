@@ -1,9 +1,7 @@
 .contenedor-producto {
-    border: 1px solid #D5CFCF;
     padding: 4vmin;
     border-radius: 3vmin;
-    margin-top: 20vmin;
-    box-shadow: var(--sombra);
+    min-height: 70vh;
 }
 
 .contenedor-producto img {
@@ -19,11 +17,17 @@
     border: 1px solid #D5CFCF;
     padding: 3vmin;
     border-radius: 2vmin;
+    width: 30%;
+    font-size: 2vmin;
+}
+
+.botones, .botones .btn {
+    width: 100%;
+    margin-bottom: 3vmin;
 }
 
 @media screen and (max-width: 500px) {
     .contenedor-producto {
-        flex-direction: column;
         box-shadow: none;
         border: none;
         padding: 6vmin;
@@ -31,5 +35,6 @@
 
     .caracteristicas {
         border: none;
+        width: 100%;
     }
 }

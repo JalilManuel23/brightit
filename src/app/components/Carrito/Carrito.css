@@ -1,0 +1,43 @@
+.carrito {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 3vmin;
+}
+
+.carrito-icono {
+    background: rgb(77,110,208);
+    background: linear-gradient(90deg, rgba(77,110,208,1) 0%, rgba(65,122,222,1) 35%, rgba(52,135,224,1) 100%);
+    border-radius: 50%;
+    padding: 4vmin;
+    color: white;
+    width: 10vmin;
+    height: 10vmin;
+    box-shadow: var(--sombra);
+}
+
+.carrito-icono:hover {
+    cursor: pointer;
+}
+
+.productos {
+    background: #FFF;
+    padding: 3vmin;
+    border-radius: 2vmin;
+    margin-bottom: 2vmin;
+    box-shadow: var(--sombra);
+}
+
+.sub {
+    font-size: 2vmin;
+}
+
+.subtotal-carrito {
+    font-weight: bold;
+    color: var(--azul);
+}
+
+.imagenes-productos-carrito img {
+    width: 15vmin;
+    margin-bottom: 3vmin;
+}

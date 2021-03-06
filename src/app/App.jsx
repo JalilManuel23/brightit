@@ -21,6 +21,8 @@ import Producto from './components/Productos/Producto/Producto';
 import Dashboard from './components/Dashboard/Dashboard';
 import Contacto from './components/Home/Contacto/Contacto';
 import Nosotros from './components/Home/Nosotros/Nosotros';
+import Carrito from "./components/Carrito/Carrito";
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
 class App extends Component {
   render() {
@@ -65,7 +67,8 @@ class App extends Component {
         <Route exact path="/productos" render={() => {
             return <div>
               <Navbar imagenes = { imagenes } />
-              <Productos imagenes= { imagenes }/>
+              <Productos imagenes= { imagenes } icons = { icons } />
+              <Carrito imagenes= { imagenes } icons = { icons } />
               <Footer imagenes = { imagenes } icons = { icons } />
             </div>
           }}>
