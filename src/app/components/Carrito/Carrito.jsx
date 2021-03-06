@@ -22,7 +22,7 @@ export default class Carrito extends Component {
             // <div className="carrito" onClick={() => this.mostrarProductosCarrito()}>
             <div className="carrito d-flex flex-column align-items-end">
                 {this.state.mostrarProductos ? 
-                    <ProductosCarrito imagenes= { this.props.imagenes } /> : 
+                    <ProductosCarrito imagenes= { this.props.imagenes } icons = { this.props.icons } /> : 
                     ''
                 }  
                 <div className="carrito-icono d-flex align-items-center justify-content-center" onClick={() => this.mostrarProductosCarrito()}>

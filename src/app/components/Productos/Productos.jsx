@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import './Productos.css'
-
-import ProductoCard from './ProductoCard/ProductoCard'
+import productos from '../../sample/productos';
+import ProductoCard from './ProductoCard/ProductoCard';
 
 export default class Productos extends Component {
     render() {
@@ -15,9 +15,17 @@ export default class Productos extends Component {
                 </div>
 
                 <div className="container d-flex flex-column flex-md-row justify-content-md-between">
-                    <ProductoCard imagenes={this.props.imagenes} icons = { this.props.icons }/>
-                    <ProductoCard imagenes={this.props.imagenes} icons = { this.props.icons }/>
-                    <ProductoCard imagenes={this.props.imagenes} icons = { this.props.icons }/>
+                    {productos.map(producto => <ProductoCard 
+                        imagenes = { this.props.imagenes }
+                        icons = { this.props.icons }
+                        key = { producto.id }
+                        id = {producto.id }
+                        nombre = { producto.nombre }
+                        descripcion = { producto.descripcion }
+                        ruta = { producto.ruta }
+                        precio = { producto.precio }
+                        imagen = { producto.imagen }
+                    />)}
                 </div>
             </div>
         )

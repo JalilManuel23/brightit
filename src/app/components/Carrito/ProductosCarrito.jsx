@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom';
 import Boton from '../Boton/Boton';
 import './Carrito.css';
-
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class ProductosCarrito extends Component {
 
@@ -12,9 +12,30 @@ export default class ProductosCarrito extends Component {
                 <p className="sub">Subtotal:</p>
                 <p className="subtotal-carrito">$522.00</p>
                 <div className="imagenes-productos-carrito d-flex flex-column">
-                    <img src={this.props.imagenes.producto}></img>
-                    <img src={this.props.imagenes.producto}></img>
-                    <img src={this.props.imagenes.producto}></img>
+                    <div className="producto-carrito d-flex justify-content-around align-items-center">
+                        <Link to="/producto">
+                            <img src={this.props.imagenes.producto}></img>
+                        </Link>
+                        <a href="#">
+                            <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
+                        </a>
+                    </div>
+                    <div className="producto-carrito d-flex justify-content-around align-items-center">
+                        <Link to="/producto">
+                            <img src={this.props.imagenes.producto}></img>
+                        </Link>
+                        <a href="#">
+                            <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
+                        </a>
+                    </div>
+                    <div className="producto-carrito d-flex justify-content-around align-items-center">
+                        <Link to="/producto">
+                            <img src={this.props.imagenes.producto}></img>
+                        </Link>
+                        <a href="#">
+                            <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
+                        </a>
+                    </div>
                 </div>
                 <Boton color="blanco" texto="Proceder al pago"/>
             </div>

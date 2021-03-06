@@ -8,13 +8,13 @@ import './ProductoCard.css'
 export default class ProductoCard extends Component {
     render() {
         return (
-            <Link to="/producto" className="d-flex flex-column align-items-center tarjeta-producto">
-                <img src={this.props.imagenes.producto}></img>
+            <Link to={`/producto/${ this.props.id }`}  className="d-flex flex-column align-items-center tarjeta-producto">
+                <img src={ this.props.imagen }></img>
                 <div className="datos">
-                    <p className="nombre-producto">Alarma antirrobo</p>
-                    <p className="descripcion-producto">Descripción....Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut finibus id massa hendrerit ornare.  </p>
-                    <p className="precio-producto ">$522.00</p>
-                    <Boton className="btn-carrito btn btn-primary" texto="Agregar al carrito" icono={faShoppingCart}></Boton>
+                    <p className="nombre-producto">{ this.props.nombre }</p>
+                    <p className="descripcion-producto">{ this.props.descripcion }</p>
+                    <p className="precio-producto ">$ { this.props.precio } </p>
+                    <Boton className="btn-carrito btn btn-primary" texto="Agregar al carrito"></Boton>
                 </div>
             </Link>
         )

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
@@ -22,70 +22,79 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Contacto from './components/Home/Contacto/Contacto';
 import Nosotros from './components/Home/Nosotros/Nosotros';
 import Carrito from "./components/Carrito/Carrito";
-import { icon } from '@fortawesome/fontawesome-svg-core';
+
+import producto from './sample/productos';
 
 class App extends Component {
   render() {
     return <div>
       <Router history={history}>
         <Route exact path="/" render={() => {
-            return <div>
-              <Navbar imagenes = { imagenes } />
-            	<Home imagenes = { imagenes }/>
-              <Footer imagenes = { imagenes } icons = { icons } />
-            </div>
-          }}>
+          return <div>
+            <Navbar imagenes={imagenes} />
+            <Home imagenes={imagenes} />
+            <Footer imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
         </Route>
         <Route exact path="/contacto" render={() => {
-            return <div>
-              <Navbar imagenes = { imagenes } />
-            	<Contacto imagenes = {imagenes} />
-              <Footer imagenes = { imagenes } icons = { icons } />
-            </div>
-          }}>
+          return <div>
+            <Navbar imagenes={imagenes} />
+            <Contacto imagenes={imagenes} />
+            <Footer imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
         </Route>
         <Route exact path="/nosotros" render={() => {
-            return <div>
-              <Navbar imagenes = { imagenes } />
-            	<Nosotros imagenes = {imagenes} />
-              <Footer imagenes = { imagenes } icons = { icons } />
-            </div>
-          }}>
+          return <div>
+            <Navbar imagenes={imagenes} />
+            <Nosotros imagenes={imagenes} />
+            <Footer imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
         </Route>
         <Route exact path="/login" render={() => {
-            return <div>
-              <Login imagenes={imagenes}/>
-            </div>
-          }}>
+          return <div>
+            <Login imagenes={imagenes} />
+          </div>
+        }}>
         </Route>
         <Route exact path="/crear_cuenta" render={() => {
-            return <div>
-              <CrearCuenta imagenes={imagenes}/>
-            </div>
-          }}>
+          return <div>
+            <CrearCuenta imagenes={imagenes} />
+          </div>
+        }}>
         </Route>
         <Route exact path="/productos" render={() => {
-            return <div>
-              <Navbar imagenes = { imagenes } />
-              <Productos imagenes= { imagenes } icons = { icons } />
-              <Carrito imagenes= { imagenes } icons = { icons } />
-              <Footer imagenes = { imagenes } icons = { icons } />
-            </div>
-          }}>
+          return <div>
+            <Navbar imagenes={imagenes} />
+            <Productos imagenes={imagenes} icons={icons} />
+            <Carrito imagenes={imagenes} icons={icons} />
+            <Footer imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
         </Route>
-        <Route exact path="/producto" render={() => {
-            return <div>
-              <Navbar imagenes = { imagenes } />
-              <Producto imagenes={imagenes}/>
-              <Footer imagenes = { imagenes } icons = { icons } />
-            </div>
-          }}>
+        <Route exact path="/producto/:id" render={({match}) => {
+          return <div>
+            <Navbar imagenes={imagenes} />
+            <Producto
+              imagenes={imagenes}
+              // key={producto.id}
+              // nombre={producto.nombre}
+              // descripcion={producto.descripcion}
+              // precio={producto.precio}
+              // imagen={producto.imagen}
+              match={match}
+            />
+            <Footer imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
         </Route>
         <Route exact path="/dashboard" render={() => {
-            return <div>
-              <Dashboard imagenes={imagenes} icons = { icons } />
-            </div>
-          }}>
+          return <div>
+            <Dashboard imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
         </Route>
       </Router>
     </div>
