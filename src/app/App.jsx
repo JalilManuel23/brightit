@@ -24,6 +24,7 @@ import Nosotros from './components/Home/Nosotros/Nosotros';
 import Carrito from "./components/Carrito/Carrito";
 
 import productos from './sample/productos';
+import ConfirmarCompra from './components/ConfirmarCompra/ConfirmarCompra';
 
 class App extends Component {
 
@@ -54,7 +55,7 @@ class App extends Component {
     var subtotal = this.state.subtotal;
     subtotal += precio;
     subtotal = parseFloat(subtotal.toFixed(2));
-    
+
     this.setState({subtotal: subtotal});
   }
 
@@ -129,6 +130,14 @@ class App extends Component {
             <Producto imagenes={imagenes} match={match} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
             <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} 
             subtotal = {this.state.subtotal} eliminarProducto = {this.eliminarProducto} />
+            <Footer imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
+        </Route>
+        <Route exact path="/confirmar_compra" render={() => {
+          return <div>
+            <Navbar imagenes={imagenes} />
+            <ConfirmarCompra imagenes={imagenes} icons={icons} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>

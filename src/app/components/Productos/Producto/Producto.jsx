@@ -40,7 +40,7 @@ export default function Producto(props) {
                                     <p className="descripcion-producto"> {producto.descripcion}</p>
                                     <p className="precio-producto">${producto.precio}</p>
                                     <div className="botones d-flex flex-column">
-                                        <Boton texto="Comprar" />
+                                        <Boton ruta="/confirmar_compra" texto="Comprar" />
                                         <button className="btn btn-light" onClick={() => agregarProducto( producto.id, producto.precio )} color="blanco">Agregar al carrito</button>
                                     </div>
                                 </div>

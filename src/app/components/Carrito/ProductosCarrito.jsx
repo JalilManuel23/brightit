@@ -66,7 +66,7 @@ export default class ProductosCarrito extends Component {
                             )
                         })}
                     </div>
-                    <Boton ruta="/" color="blanco" texto="Proceder al pago" />
+                    <Boton ruta="/confirmar_compra" color="blanco" texto="Proceder al pago" />
                 </div>
             )
         }
