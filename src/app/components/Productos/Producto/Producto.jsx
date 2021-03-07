@@ -6,8 +6,9 @@ import Swal from 'sweetalert2'
 
 export default function Producto(props) {
     
-    const agregarProducto = (id) => {
+    const agregarProducto = (id, precio) => {
         props.handleCarrito(id);
+        props.sumarSubtotal(precio);
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -40,7 +41,7 @@ export default function Producto(props) {
                                     <p className="precio-producto">${producto.precio}</p>
                                     <div className="botones d-flex flex-column">
                                         <Boton texto="Comprar" />
-                                        <button className="btn btn-light" onClick={() => agregarProducto( producto.id )} color="blanco">Agregar al carrito</button>
+                                        <button className="btn btn-light" onClick={() => agregarProducto( producto.id, producto.precio )} color="blanco">Agregar al carrito</button>
                                     </div>
                                 </div>
                             </div>

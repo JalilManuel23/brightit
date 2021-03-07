@@ -19,6 +19,7 @@ export default class Productos extends Component {
                         imagenes = { this.props.imagenes }
                         icons = { this.props.icons }
                         handleCarrito = { this.props.handleCarrito }
+                        sumarSubtotal = { this.props.sumarSubtotal }
                         key = { producto.id }
                         id = { producto.id }
                         nombre = { producto.nombre }

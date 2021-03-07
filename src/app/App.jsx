@@ -31,9 +31,11 @@ class App extends Component {
     super();
 
     this.state = {
-      carrito: []
+      carrito: [],
+      subtotal: 0
     }
     this.handleCarrito = this.handleCarrito.bind(this);
+    this.sumarSubtotal = this.sumarSubtotal.bind(this);
   }
 
   handleCarrito(producto) {
@@ -41,6 +43,12 @@ class App extends Component {
     carrito.push(producto);
     this.setState({carrito: carrito});
     console.log(this.state.carrito)
+  }
+
+  sumarSubtotal(precio) {
+    var subtotal = this.state.subtotal;
+    subtotal += precio;
+    this.setState({subtotal: subtotal});
   }
 
   render() {
@@ -85,8 +93,8 @@ class App extends Component {
         <Route exact path="/productos" render={() => {
           return <div>
             <Navbar imagenes={imagenes} />
-            <Productos imagenes={imagenes} icons={icons} handleCarrito = {this.handleCarrito} />
-            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.carrito} />
+            <Productos imagenes={imagenes} icons={icons} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
+            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} subtotal = {this.state.subtotal} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>
@@ -94,8 +102,8 @@ class App extends Component {
         <Route exact path="/producto/:id" render={({match}) => {
           return <div>
             <Navbar imagenes={imagenes} />
-            <Producto imagenes={imagenes} match={match} handleCarrito = {this.handleCarrito} />
-            <Carrito imagenes={imagenes} icons={icons} />
+            <Producto imagenes={imagenes} match={match} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
+            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} subtotal = {this.state.subtotal} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>

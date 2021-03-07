@@ -20,8 +20,9 @@ export default class ProductoCard extends Component {
         });
     }
 
-    agregarProducto(id) {
+    agregarProducto(id, precio) {
         this.props.handleCarrito(id);
+        this.props.sumarSubtotal(precio);
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -51,7 +52,7 @@ export default class ProductoCard extends Component {
                     <p className="precio-producto ">$ { this.props.precio } </p>
                 </div>
             </Link>
-            <button className="btn-carrito btn btn-primary" onClick={() => this.agregarProducto( this.props.id )}>Agregar al carrito</button>
+            <button className="btn-carrito btn btn-primary" onClick={() => this.agregarProducto( this.props.id, this.props.precio )}>Agregar al carrito</button>
             </div>
         )
     }
