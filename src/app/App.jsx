@@ -23,7 +23,7 @@ import Contacto from './components/Home/Contacto/Contacto';
 import Nosotros from './components/Home/Nosotros/Nosotros';
 import Carrito from "./components/Carrito/Carrito";
 
-import producto from './sample/productos';
+import productos from './sample/productos';
 
 class App extends Component {
 
@@ -36,12 +36,17 @@ class App extends Component {
     }
     this.handleCarrito = this.handleCarrito.bind(this);
     this.sumarSubtotal = this.sumarSubtotal.bind(this);
+    this.eliminarProducto = this.eliminarProducto.bind(this);
   }
 
   handleCarrito(producto) {
-    var carrito = this.state.carrito;
-    carrito.push(producto);
-    this.setState({carrito: carrito});
+    const newProducto = {
+      id: producto,
+      idProducto: this.state.carrito.length
+    }
+    this.setState({
+      carrito: [...this.state.carrito, newProducto]
+    })
     console.log(this.state.carrito)
   }
 
@@ -49,6 +54,21 @@ class App extends Component {
     var subtotal = this.state.subtotal;
     subtotal += precio;
     this.setState({subtotal: subtotal});
+  }
+
+  eliminarProducto(id, precio) {
+    var carrito = this.state.carrito;
+
+    var newCarrito = carrito.filter(producto => producto.idProducto != id);
+
+    var subtotal = this.state.subtotal;
+
+    subtotal -= precio;
+
+    this.setState({
+      carrito: newCarrito,
+      subtotal: subtotal
+    });
   }
 
   render() {
@@ -94,7 +114,8 @@ class App extends Component {
           return <div>
             <Navbar imagenes={imagenes} />
             <Productos imagenes={imagenes} icons={icons} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
-            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} subtotal = {this.state.subtotal} />
+            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} 
+            subtotal = {this.state.subtotal} eliminarProducto = {this.eliminarProducto} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>
@@ -103,7 +124,8 @@ class App extends Component {
           return <div>
             <Navbar imagenes={imagenes} />
             <Producto imagenes={imagenes} match={match} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
-            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} subtotal = {this.state.subtotal} />
+            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} 
+            subtotal = {this.state.subtotal} eliminarProducto = {this.eliminarProducto} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>

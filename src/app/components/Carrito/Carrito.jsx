@@ -26,6 +26,7 @@ export default class Carrito extends Component {
                         icons = { this.props.icons } 
                         productosCarrito = { this.props.productosCarrito } 
                         subtotal = { this.props.subtotal }
+                        eliminarProducto = { this.props.eliminarProducto }
                     /> : 
                     ''
                 }  

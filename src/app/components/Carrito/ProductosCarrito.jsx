@@ -24,13 +24,13 @@ export default class ProductosCarrito extends Component {
                         {productos.map(producto => {
                             return(
                                 this.props.productosCarrito.map(productoAgregado => {
-                                    if(producto.id == productoAgregado){
+                                    if(producto.id == productoAgregado.id){
                                         return(
-                                            <div key = { producto.id } className="producto-carrito d-flex justify-content-around align-items-center">
+                                            <div key = { productoAgregado.idProducto } className="producto-carrito d-flex justify-content-around align-items-center">
                                                 <Link to={`/producto/${ producto.id }`}>
                                                     <img src={producto.imagen}></img>
                                                 </Link>
-                                                <a href="#">
+                                                <a onClick={ () => this.props.eliminarProducto(productoAgregado.idProducto, producto.precio) }>
                                                     <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
                                                 </a>
                                             </div>

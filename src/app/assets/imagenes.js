@@ -7,9 +7,11 @@ import workflowslide from './images/workflow-slide.png';
 import bubbles from './images/bubbles.png';
 import menu from './images/menu-rounded-solid.png';
 import close from './images/close.png';
-import producto from './images/producto-ejemplo.png';
+import alarma from './images/alarma.png';
 import usuario from './images/usuario.png';
 import girl from './images/girl-flat.png';
+import cerradura from './images/cerradura.jpg';
+import alimentador from './images/alimentador.jpg'
 
 export default {
     "logo": logo,
@@ -21,7 +23,9 @@ export default {
     "bubbles": bubbles,
     "menu": menu,
     "close": close,
-    "producto": producto,
     "usuario": usuario,
-    "girl": girl
+    "girl": girl,
+    "cerradura": cerradura,
+    "alarma": alarma,
+    "alimentador": alimentador
 }

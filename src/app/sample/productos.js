@@ -6,21 +6,21 @@ const productos = [
         "nombre": "Alarma",
         "descripcion": "lorem ipsum",
         "precio": 522.59,
-        "imagen": imagenes.producto
+        "imagen": imagenes.alarma
     },
     {
         "id": 1,
         "nombre": "Cerradura",
         "descripcion": "lorem ipsum",
         "precio": 800.39,
-        "imagen": imagenes.producto
+        "imagen": imagenes.cerradura
     },
     {
         "id": 2,
         "nombre": "Alimentador",
         "descripcion": "lorem ipsum",
         "precio": 699.99,
-        "imagen": imagenes.producto
+        "imagen": imagenes.alimentador
     }
 ]
 
