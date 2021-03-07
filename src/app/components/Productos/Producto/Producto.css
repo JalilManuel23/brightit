@@ -5,8 +5,7 @@
 }
 
 .contenedor-producto img {
-    width: 50%;
-    height: 50%;
+    max-height: 50vh;
 }
 
 .lista-caracteristicas li{
