@@ -1,14 +1,25 @@
-import React from 'react'
 import Boton from '../../Boton/Boton';
 import './Producto.css'
 import productos from '../../../sample/productos';
 import Swal from 'sweetalert2'
+import { Link, Redirect } from "react-router-dom";
 
-export default function Producto(props) {
+import React, { Component } from 'react'
+
+export default class Producto extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            redirect: null
+        }
+
+        this.agregarProducto = this.agregarProducto.bind(this);
+    }
     
-    const agregarProducto = (id, precio) => {
-        props.handleCarrito(id);
-        props.sumarSubtotal(precio);
+    agregarProducto = (id, precio, redirect) => {
+        this.props.handleCarrito(id);
+        this.props.sumarSubtotal(precio);
         const Toast = Swal.mixin({
             toast: true,
             position: 'top-end',
@@ -20,47 +31,47 @@ export default function Producto(props) {
                 toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
         })
-      
+
         Toast.fire({
             icon: 'success',
             title: `¡Producto agregado al carrito!`
-        })
+        });
+
+        redirect ? this.setState({ redirect: "/confirmar_compra" }) : this.setState({ redirect: null });
     }
-    var i = 0;
-    return (
-        <div>
-            {
-                productos.map(producto => {
-                    if (producto.id == props.match.params.id) {
-                        return (
-                            <div className="container contenedor-producto d-flex flex-column flex-md-row justify-content-around align-items-center">
-                                <img src={producto.imagen} />
-                                <div className="caracteristicas">
-                                    <p className="nombre-producto">{producto.nombre}</p>
-                                    <p className="descripcion-producto"> {producto.descripcion}</p>
-                                    <p className="precio-producto">${producto.precio}</p>
-                                    <div className="botones d-flex flex-column">
-                                        <Boton ruta="/confirmar_compra" texto="Comprar" />
-                                        <button className="btn btn-light" onClick={() => agregarProducto( producto.id, producto.precio )} color="blanco">Agregar al carrito</button>
+
+    render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
+
+        return (
+            <div>
+                {
+                    productos.map(producto => {
+                        if (producto.id == this.props.match.params.id) {
+                            return (
+                                <div className="container contenedor-producto d-flex flex-column flex-md-row justify-content-around align-items-center">
+                                    <img src={producto.imagen} />
+                                    <div className="caracteristicas">
+                                        <p className="nombre-producto">{producto.nombre}</p>
+                                        <p className="descripcion-producto"> {producto.descripcion}</p>
+                                        <p className="precio-producto">${producto.precio}</p>
+                                        <div className="botones d-flex flex-column">
+                                            <button className="btn btn-primary" onClick={() => this.agregarProducto(producto.id, producto.precio, true)}>Comprar</button>
+                                            <button className="btn btn-light" onClick={() => this.agregarProducto(producto.id, producto.precio, false)} color="blanco">Agregar al carrito</button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        )
-                    } else {
-                        i++;
-                    }
-
-                    if(i == 3) {
-                        return <div className="no-existe container d-flex flex-column align-items-center justify-content-around">
-                            <h1 className="text-center">Este producto no existe</h1>
-                            <Boton texto="Ir a productos" ruta="/productos"></Boton>
-                        </div>
-                    }
-                })
-            }
-        </div>
-    )
+                            )
+                        }
+                    })
+                }
+            </div>
+        )
+    }
 }
+
 
 
 

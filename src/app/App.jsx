@@ -137,7 +137,8 @@ class App extends Component {
         <Route exact path="/confirmar_compra" render={() => {
           return <div>
             <Navbar imagenes={imagenes} />
-            <ConfirmarCompra imagenes={imagenes} icons={icons} />
+            <ConfirmarCompra imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} eliminarProducto = {this.eliminarProducto}
+            subtotal = {this.state.subtotal} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>

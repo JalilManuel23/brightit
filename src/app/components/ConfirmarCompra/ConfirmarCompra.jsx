@@ -2,26 +2,81 @@ import React, { Component } from 'react'
 import './ConfirmarCompra.css';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Swal from 'sweetalert2'
+import Boton from '../Boton/Boton';
+
+import productos from '../../sample/productos';
 
 export default class ConfirmarCompra extends Component {
+    constructor() {
+        super();
+        this.eliminarProducto = this.eliminarProducto.bind(this);
+    }
+
+    eliminarProducto(idProducto, precio) {
+        this.props.eliminarProducto(idProducto, precio);
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        Toast.fire({
+            icon: 'info',
+            title: `Producto eliminado del carrito`
+        })
+    }
+
     render() {
-        return (
-            <div className="confirmar-compra container d-flex col-12 flex-column align-items-center">
-                <h2>Carrito de compras</h2>
-                <div className="productos-pagar d-flex col-12 col-md-8 flex-column">
-                    <Link to="/producto/1" className="producto-pagar d-flex col-12 flex-column justify-content-between align-items-center flex-md-row">
-                        <img className="col-5 col-md-2" src={this.props.imagenes.alarma}></img>
-                        <div className="d-flex flex-column align-items-center">
-                            <p className="nombre-producto">Alarma</p>
-                            <p>Lorem ipsum!</p>
-                        </div>
-                        <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
-                        <p className="precio-producto">$522.00</p>
-                    </Link>
+        if (this.props.productosCarrito.length == 0) {
+            return (
+                <div className="d-flex flex-column align-items-center justify-content-center pagar-vacio">
+                    <h2>Carrito de compras</h2>
+                    <p>Tu carrito está vacio</p>
+                    <Boton texto="Ir a productos" ruta="/productos"></Boton>
                 </div>
-                <button className="btn btn-primary col-8 col-md-2">Continuar compra</button>
-            </div>
-        )
+            )
+        } else {
+            return (
+                <div className="confirmar-compra container d-flex col-12 flex-column align-items-center">
+                    <h2>Carrito de compras</h2>
+                    <div className="productos-pagar d-flex col-12 col-md-8 flex-column">
+                        {productos.map(producto => {
+                            return (
+                                this.props.productosCarrito.map(productoAgregado => {
+                                    if (producto.id == productoAgregado.id) {
+                                        return (
+                                            <div className="d-flex flex-column flex-md-row align-items-center pagar">
+                                                <Link key={productoAgregado.idProducto} to={`/producto/${producto.id}`} className="producto-pagar d-flex col-12 flex-column justify-content-between align-items-center flex-md-row">
+                                                    <img className="col-5 col-md-2" src={producto.imagen}></img>
+                                                    <div className="d-flex flex-column align-items-center">
+                                                        <p className="nombre-producto">{producto.nombre}</p>
+                                                        <p>{producto.descripcion}</p>
+                                                    </div>
+                                                    <p className="precio-producto">${producto.precio}</p>
+                                                </Link>
+                                                <a onClick={() => this.eliminarProducto(productoAgregado.idProducto, producto.precio)}>
+                                                    <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
+                                                </a>
+                                            </div>
+                                        )
+                                    }
+                                })
+                            )
+                        })}
+                    </div>
+                    <h4 className="precio-producto">Total a pagar: ${this.props.subtotal}</h4>
+                    <button className="btn btn-primary col-8 col-md-2">Continuar compra</button>
+                </div>
+            )
+        }
     }
 }
 

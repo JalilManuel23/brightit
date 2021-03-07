@@ -17,3 +17,15 @@
 .producto-pagar img {
     margin-bottom: 3vmin;
 }
+
+.pagar .quitar {
+    margin: 5vmin;
+}
+
+.pagar-vacio {
+    height: 50vh;
+}
+
+h4 {
+    padding: 5vmin;
+}
