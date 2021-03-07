@@ -16,7 +16,7 @@
     box-shadow: var(--sombra);
 }
 
-.carrito-icono:hover {
+.carrito-icono:hover, .quitar:hover  {
     cursor: pointer;
 }
 
@@ -37,15 +37,6 @@
     color: var(--azul);
 }
 
-.imagenes-productos-carrito {
-    width: 100%;
-}
-
-.imagenes-productos-carrito img {
-    width: 15vmin;
-    margin-bottom: 3vmin;
-}
-
 .quitar {
     color: rgb(200, 117, 117);
     font-size: 2vmin;
@@ -53,4 +44,9 @@
 
 .producto-carrito {
     width: 100%;
+    margin-bottom: 3vmin;
+}
+
+.producto-carrito img {
+    max-width: 8vmin;
 }

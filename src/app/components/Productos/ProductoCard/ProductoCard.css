@@ -21,8 +21,8 @@
     transform: scale(1.01);
 }
 
-.tarjeta-producto img {
-    width: 60vmin;
+.link-producto img {
+    width: 25vmin;
     height: 20vmin;
 }
 

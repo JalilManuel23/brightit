@@ -53,6 +53,8 @@ class App extends Component {
   sumarSubtotal(precio) {
     var subtotal = this.state.subtotal;
     subtotal += precio;
+    subtotal = parseFloat(subtotal.toFixed(2));
+    
     this.setState({subtotal: subtotal});
   }
 
@@ -64,6 +66,7 @@ class App extends Component {
     var subtotal = this.state.subtotal;
 
     subtotal -= precio;
+    subtotal = parseFloat(subtotal.toFixed(2));
 
     this.setState({
       carrito: newCarrito,
