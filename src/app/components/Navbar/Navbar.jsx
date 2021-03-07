@@ -14,7 +14,6 @@ function Navbar(props) {
         } else {
             setNavbar(false);
         }
-        console.log(window.scrollY);
     }
 
     window.addEventListener('scroll', agregarSombra);

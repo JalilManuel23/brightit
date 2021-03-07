@@ -26,6 +26,23 @@ import Carrito from "./components/Carrito/Carrito";
 import producto from './sample/productos';
 
 class App extends Component {
+
+  constructor() {
+    super();
+
+    this.state = {
+      carrito: []
+    }
+    this.handleCarrito = this.handleCarrito.bind(this);
+  }
+
+  handleCarrito(producto) {
+    var carrito = this.state.carrito;
+    carrito.push(producto);
+    this.setState({carrito: carrito});
+    console.log(this.state.carrito)
+  }
+
   render() {
     return <div>
       <Router history={history}>
@@ -68,8 +85,8 @@ class App extends Component {
         <Route exact path="/productos" render={() => {
           return <div>
             <Navbar imagenes={imagenes} />
-            <Productos imagenes={imagenes} icons={icons} />
-            <Carrito imagenes={imagenes} icons={icons} />
+            <Productos imagenes={imagenes} icons={icons} handleCarrito = {this.handleCarrito} />
+            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.carrito} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>
@@ -77,15 +94,8 @@ class App extends Component {
         <Route exact path="/producto/:id" render={({match}) => {
           return <div>
             <Navbar imagenes={imagenes} />
-            <Producto
-              imagenes={imagenes}
-              // key={producto.id}
-              // nombre={producto.nombre}
-              // descripcion={producto.descripcion}
-              // precio={producto.precio}
-              // imagen={producto.imagen}
-              match={match}
-            />
+            <Producto imagenes={imagenes} match={match} handleCarrito = {this.handleCarrito} />
+            <Carrito imagenes={imagenes} icons={icons} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>

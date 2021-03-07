@@ -7,13 +7,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default class ProductosCarrito extends Component {
 
     render() {
+
         return (
             <div className="productos d-flex flex-column align-items-center">
                 <p className="sub">Subtotal:</p>
                 <p className="subtotal-carrito">$522.00</p>
                 <div className="imagenes-productos-carrito d-flex flex-column">
                     <div className="producto-carrito d-flex justify-content-around align-items-center">
-                        <Link to="/producto">
+                        <Link to="/producto/1">
                             <img src={this.props.imagenes.producto}></img>
                         </Link>
                         <a href="#">
@@ -37,7 +38,7 @@ export default class ProductosCarrito extends Component {
                         </a>
                     </div>
                 </div>
-                <Boton color="blanco" texto="Proceder al pago"/>
+                <Boton color="blanco" texto="Proceder al pago" />
             </div>
         )
     }

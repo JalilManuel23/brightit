@@ -18,8 +18,9 @@ export default class Productos extends Component {
                     {productos.map(producto => <ProductoCard 
                         imagenes = { this.props.imagenes }
                         icons = { this.props.icons }
+                        handleCarrito = { this.props.handleCarrito }
                         key = { producto.id }
-                        id = {producto.id }
+                        id = { producto.id }
                         nombre = { producto.nombre }
                         descripcion = { producto.descripcion }
                         ruta = { producto.ruta }

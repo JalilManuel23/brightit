@@ -26,6 +26,10 @@
     margin-bottom: 3vmin;
 }
 
+.no-existe {
+    height: 60vh;
+}
+
 @media screen and (max-width: 500px) {
     .contenedor-producto {
         box-shadow: none;

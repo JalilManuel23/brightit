@@ -2,8 +2,30 @@ import React from 'react'
 import Boton from '../../Boton/Boton';
 import './Producto.css'
 import productos from '../../../sample/productos';
+import Swal from 'sweetalert2'
 
 export default function Producto(props) {
+    
+    const agregarProducto = (id) => {
+        props.handleCarrito(id);
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+      
+        Toast.fire({
+            icon: 'success',
+            title: `¡Producto agregado al carrito!`
+        })
+    }
+    var i = 0;
     return (
         <div>
             {
@@ -17,12 +39,21 @@ export default function Producto(props) {
                                     <p className="descripcion-producto"> {producto.descripcion}</p>
                                     <p className="precio-producto">${producto.precio}</p>
                                     <div className="botones d-flex flex-column">
-                                        <Boton className="btn btn-primary" texto="Comprar" />
-                                        <Boton className="btn btn-primary" color="blanco" texto="Agregar al carrito" />
+                                        <Boton texto="Comprar" />
+                                        <button className="btn btn-light" onClick={() => agregarProducto( producto.id )} color="blanco">Agregar al carrito</button>
                                     </div>
                                 </div>
                             </div>
                         )
+                    } else {
+                        i++;
+                    }
+
+                    if(i == 3) {
+                        return <div className="no-existe container d-flex flex-column align-items-center justify-content-around">
+                            <h1 className="text-center">Este producto no existe</h1>
+                            <Boton texto="Ir a productos" ruta="/productos"></Boton>
+                        </div>
                     }
                 })
             }
