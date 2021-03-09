@@ -39,7 +39,7 @@ export default class ConfirmarCompra extends Component {
             title: `Producto eliminado del carrito`
         })
     }
-
+    
     confirmarCompra() {
         fetch('/compra/agregarCompra', {
             method: 'GET',
