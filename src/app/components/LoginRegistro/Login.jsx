@@ -34,7 +34,8 @@ export default class Login extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
-            }
+            },
+            credentials: 'include'
         }).then(res => {
             res.json();
 

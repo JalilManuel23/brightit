@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(session({
      secret: 'secret',
      resave: true,
-     saveUninitialized: true
+     saveUninitialized: true,
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -39,6 +39,7 @@ app.use(require('./routes/alimentador.routes'));
 app.use(require('./routes/alarma.routes'));
 app.use(require('./routes/cerradura.routes'));
 app.use(require('./routes/empleados.routes'));
+app.use(require('./routes/compra.routes'));
 
 // Static Files
 app.use(express.static(path.join(__dirname,'public')));

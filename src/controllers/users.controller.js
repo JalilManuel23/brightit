@@ -183,7 +183,7 @@ usersCtrl.entrar = function (req, res, next) {
                 error: 'User not found.'
             });
         }
-        req.session.save((err) => {
+        req.logIn(user, (err) => {
             if (err) {
                 return next(err);
             }

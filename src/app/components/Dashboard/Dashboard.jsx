@@ -1,10 +1,25 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 import './Dashboard.css'
 
 import Menu from './Menu/Menu'
 
 export default class Dashboard extends Component {
+    constructor() {
+        super();
+        this.ver = this.ver.bind(this);
+    }
+
+    ver() {
+        fetch('/compra/agregarCompra', {credentials: 'include'}).then(res => {
+            if (res.status == 200) {
+                console.log("adentro");
+            } else {
+                console.log("No entro")
+            }
+        })
+    }
     render() {
         return (
             <div className="d-flex">
@@ -15,8 +30,11 @@ export default class Dashboard extends Component {
                         <div className="seccion-usuario d-flex align-items-center">
                             <img src={this.props.imagenes.usuario} className="usuario-dash"></img>
                             <p>Nombre Usuario</p>
+                            <button onClick={this.ver}>Prueba</button>
                         </div>
                     </div>
+                    <Link to="/productos">Productos</Link>
+                    
                     <div className="main-contenido d-flex flex-column align-items-center justify-content-around">
                         <div className="bienvenida-usuario d-flex justify-content-between">
                             <div>
