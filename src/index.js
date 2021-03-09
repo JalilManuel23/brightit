@@ -1,12 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
-import './styles/fonts.css';
-import './styles/normalize.css';
-import './styles/estilos.css';
-import './assets/styles.css';
+'use stric'
 
-ReactDOM.render(
-   <App />,
-  document.getElementById('root')
-);
+require('dotenv').config();
+
+const app = require('./server');
+require('./database');
+
+app.listen(app.get('port'), () => {
+    console.log('Server on port: ', app.get('port'))
+})

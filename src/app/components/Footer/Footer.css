@@ -1,0 +1,33 @@
+footer {
+    margin-top: 5vmin;
+}
+
+.footer-logo-redes {
+    background: #F1F1F1;
+}
+
+.footer-redes a{
+    margin: 2rem;
+    background: var(--azul);
+    color: #FFF;
+    border-radius: 50%;
+    width: 10vmin;
+    height: 10vmin;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-logo-redes img{
+    width: 30vmin;
+    margin: 1rem;
+}
+
+.footer-derechos {
+    background: var(--azul);
+    color: #FFF;
+    display: flex;
+    line-height: 1;
+    padding: 2rem;
+}
