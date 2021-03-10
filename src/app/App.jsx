@@ -76,6 +76,19 @@ class App extends Component {
       subtotal: subtotal
     });
   }
+  componentDidMount() {
+      this.isLogged();
+  }
+
+  isLogged() {
+    fetch('/usuarios/is_logged').then(res => {
+      if(res.status){
+        this.setState({logged: true});
+      } else {
+        this.setState({logged: false});
+      }
+    });
+  }
 
   handleLogged() {
     this.setState({logged: !this.state.logged});
