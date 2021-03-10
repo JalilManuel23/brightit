@@ -8,7 +8,8 @@ import {
     faSignOutAlt,
     faShoppingCart,
     faTimes,
-    faTrash
+    faTrash,
+    faToolbox
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -28,5 +29,6 @@ export default {
     "logout": faSignOutAlt,
     "shoppingCart": faShoppingCart,
     "cerrar": faTimes,
-    "trash": faTrash
+    "trash": faTrash,
+    "admin": faToolbox
 }

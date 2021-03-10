@@ -194,11 +194,11 @@ usersCtrl.entrar = function (req, res, next) {
     })(req, res, next);
 }
 
-usersCtrl.dashboard = (req, res) => {
+usersCtrl.verificarLogged = (req, res) => {
     if(req.isAuthenticated()){
         next();
     } else{
-        res.redirect("/");
+        res.redirect("/login");
     }
 }
 

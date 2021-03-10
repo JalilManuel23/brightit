@@ -10,7 +10,7 @@ const {
     editarUsuario,
     eliminarUsuario,
     entrar,
-    dashboard,
+    verificarLogged,
     logout,
     isLogged
 } = require('../controllers/users.controller');
@@ -21,7 +21,8 @@ router.get('/usuarios/ver_usuario/:id', verUsuario);
 router.put('/usuarios/editar_usuario/:id', editarUsuario);
 router.delete('/usuarios/eliminar_usuario/:id', eliminarUsuario);
 router.post('/usuarios/entrar', entrar);
-router.get('/dashboard', dashboard);
+router.get('/dashboard', verificarLogged);
+router.get('/opciones', verificarLogged);
 router.get('/usuarios/logout', logout);
 router.get('/usuarios/is_logged', isLogged);
 

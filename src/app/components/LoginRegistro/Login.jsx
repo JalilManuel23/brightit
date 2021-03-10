@@ -57,7 +57,7 @@ export default class Login extends Component {
                     title: `¡Bienvenido ${ this.state.email }!`
                 })
                 this.props.handleLogged();
-                this.setState({ redirect: "/dashboard" });
+                this.setState({ redirect: "/opciones" });
             } else {
                 Swal.fire(
                     'Datos incorrectos',

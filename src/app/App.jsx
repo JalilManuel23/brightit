@@ -25,6 +25,7 @@ import Carrito from "./components/Carrito/Carrito";
 
 import productos from './sample/productos';
 import ConfirmarCompra from './components/ConfirmarCompra/ConfirmarCompra';
+import Opciones from './components/Dashboard/Opciones/Opciones';
 
 class App extends Component {
 
@@ -58,7 +59,7 @@ class App extends Component {
     subtotal += precio;
     subtotal = parseFloat(subtotal.toFixed(2));
 
-    this.setState({subtotal: subtotal});
+    this.setState({ subtotal: subtotal });
   }
 
   eliminarProducto(id, precio) {
@@ -77,21 +78,21 @@ class App extends Component {
     });
   }
   componentDidMount() {
-      this.isLogged();
+    this.isLogged();
   }
 
   isLogged() {
     fetch('/usuarios/is_logged').then(res => {
-      if(res.status){
-        this.setState({logged: true});
+      if (res.status == 200) {
+        this.setState({ logged: true });
       } else {
-        this.setState({logged: false});
+        this.setState({ logged: false });
       }
     });
   }
 
   handleLogged() {
-    this.setState({logged: !this.state.logged});
+    this.setState({ logged: !this.state.logged });
     console.log(this.state.logged);
   }
 
@@ -137,19 +138,19 @@ class App extends Component {
         <Route exact path="/productos" render={() => {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <Productos imagenes={imagenes} icons={icons} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
-            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} 
-            subtotal = {this.state.subtotal} eliminarProducto = {this.eliminarProducto} />
+            <Productos imagenes={imagenes} icons={icons} handleCarrito={this.handleCarrito} sumarSubtotal={this.sumarSubtotal} />
+            <Carrito imagenes={imagenes} icons={icons} productosCarrito={this.state.carrito}
+              subtotal={this.state.subtotal} eliminarProducto={this.eliminarProducto} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>
         </Route>
-        <Route exact path="/producto/:id" render={({match}) => {
+        <Route exact path="/producto/:id" render={({ match }) => {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <Producto imagenes={imagenes} match={match} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
-            <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} 
-            subtotal = {this.state.subtotal} eliminarProducto = {this.eliminarProducto} />
+            <Producto imagenes={imagenes} match={match} handleCarrito={this.handleCarrito} sumarSubtotal={this.sumarSubtotal} />
+            <Carrito imagenes={imagenes} icons={icons} productosCarrito={this.state.carrito}
+              subtotal={this.state.subtotal} eliminarProducto={this.eliminarProducto} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>
@@ -157,8 +158,8 @@ class App extends Component {
         <Route exact path="/confirmar_compra" render={() => {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <ConfirmarCompra imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} eliminarProducto = {this.eliminarProducto}
-            subtotal = {this.state.subtotal} />
+            <ConfirmarCompra imagenes={imagenes} icons={icons} productosCarrito={this.state.carrito} eliminarProducto={this.eliminarProducto}
+              subtotal={this.state.subtotal} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
         }}>
@@ -166,6 +167,12 @@ class App extends Component {
         <Route exact path="/dashboard" render={() => {
           return <div>
             <Dashboard imagenes={imagenes} icons={icons} />
+          </div>
+        }}>
+        </Route>
+        <Route exact path="/opciones" render={() => {
+          return <div>
+            <Opciones imagenes={imagenes} icons={icons} />
           </div>
         }}>
         </Route>

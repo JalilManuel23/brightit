@@ -1,0 +1,33 @@
+.opcs {
+    
+}
+
+.opciones-inicio {
+    max-height: 100vh;
+}
+
+.opciones-inicio * {
+    margin: 2vmin;
+}
+
+.opcion-inicio {
+    min-height: 30vmin;
+    background: var(--azul);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    color: #FFF;
+    border-radius: 3vmin;
+    box-shadow: var(--sombra);
+}
+
+.opcion-inicio:hover {
+    transform: scale(1.05);
+    color: #FFF;
+    text-decoration: none;
+}
+
+.icono-inicio {
+    font-size: 13vmin;
+}
