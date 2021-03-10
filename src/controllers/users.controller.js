@@ -202,4 +202,28 @@ usersCtrl.dashboard = (req, res) => {
     }
 }
 
+usersCtrl.logout = (req, res) => {
+    req.logout();
+
+    if(req.isAuthenticated()){
+        next();
+    } else {
+        console.log('NO');
+        return res.status(505).send({
+            'status': 'No ha iniciado sesión'
+        });
+    }
+}
+
+usersCtrl.isLogged = (req, res, next) => {
+    if(req.isAuthenticated()){
+        next();
+    } else {
+        console.log('NO');
+        return res.status(505).send({
+            'status': 'No ha iniciado sesión'
+        });
+    }
+}
+
 module.exports = usersCtrl;

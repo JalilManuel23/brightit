@@ -1,6 +1,7 @@
 import React, { Component, useState } from 'react'
 import { Link } from 'react-router-dom'
 import Boton from '../Boton/Boton';
+import Swal from 'sweetalert2';
 import { MenuItems } from './MenuItems';
 
 import './Navbar.css';
@@ -14,6 +15,30 @@ function Navbar(props) {
         } else {
             setNavbar(false);
         }
+    }
+
+    const cerrarSesion = () => {
+        fetch('/usuarios/logout').then(res => {
+                if(res.status == 505) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: `Has cerrado sesión correctamente`
+                })
+                props.handleLogged();
+            }
+        })
     }
 
     window.addEventListener('scroll', agregarSombra);
@@ -35,7 +60,9 @@ function Navbar(props) {
                                 </li>
                             )
                         })}
-                        <Boton ruta="login" texto="Iniciar Sesión"/>
+                        {
+                            props.logged ? <button className="btn btn-primary" onClick={cerrarSesion}>Cerrar Sesión</button> : <Boton ruta="login" texto="Iniciar Sesión"/>
+                        }
                     </ul>
                 </div>
             </div>

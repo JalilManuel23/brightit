@@ -41,7 +41,7 @@ export default class ConfirmarCompra extends Component {
     }
     
     confirmarCompra() {
-        fetch('/compra/agregarCompra', {
+        fetch('/usuarios/is_logged', {
             method: 'GET',
             headers: {
                 'Accept': 'application/json',

@@ -56,6 +56,7 @@ export default class Login extends Component {
                     icon: 'success',
                     title: `¡Bienvenido ${ this.state.email }!`
                 })
+                this.props.handleLogged();
                 this.setState({ redirect: "/dashboard" });
             } else {
                 Swal.fire(

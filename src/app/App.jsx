@@ -33,9 +33,11 @@ class App extends Component {
 
     this.state = {
       carrito: [],
-      subtotal: 0
+      subtotal: 0,
+      logged: false
     }
     this.handleCarrito = this.handleCarrito.bind(this);
+    this.handleLogged = this.handleLogged.bind(this);
     this.sumarSubtotal = this.sumarSubtotal.bind(this);
     this.eliminarProducto = this.eliminarProducto.bind(this);
   }
@@ -75,12 +77,17 @@ class App extends Component {
     });
   }
 
+  handleLogged() {
+    this.setState({logged: !this.state.logged});
+    console.log(this.state.logged);
+  }
+
   render() {
     return <div>
       <Router history={history}>
         <Route exact path="/" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} />
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
             <Home imagenes={imagenes} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
@@ -88,7 +95,7 @@ class App extends Component {
         </Route>
         <Route exact path="/contacto" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} />
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
             <Contacto imagenes={imagenes} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
@@ -96,7 +103,7 @@ class App extends Component {
         </Route>
         <Route exact path="/nosotros" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} />
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
             <Nosotros imagenes={imagenes} />
             <Footer imagenes={imagenes} icons={icons} />
           </div>
@@ -104,7 +111,7 @@ class App extends Component {
         </Route>
         <Route exact path="/login" render={() => {
           return <div>
-            <Login imagenes={imagenes} />
+            <Login imagenes={imagenes} handleLogged={this.handleLogged} />
           </div>
         }}>
         </Route>
@@ -116,7 +123,7 @@ class App extends Component {
         </Route>
         <Route exact path="/productos" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} />
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
             <Productos imagenes={imagenes} icons={icons} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
             <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} 
             subtotal = {this.state.subtotal} eliminarProducto = {this.eliminarProducto} />
@@ -126,7 +133,7 @@ class App extends Component {
         </Route>
         <Route exact path="/producto/:id" render={({match}) => {
           return <div>
-            <Navbar imagenes={imagenes} />
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
             <Producto imagenes={imagenes} match={match} handleCarrito = {this.handleCarrito} sumarSubtotal = {this.sumarSubtotal} />
             <Carrito imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} 
             subtotal = {this.state.subtotal} eliminarProducto = {this.eliminarProducto} />
@@ -136,7 +143,7 @@ class App extends Component {
         </Route>
         <Route exact path="/confirmar_compra" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} />
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
             <ConfirmarCompra imagenes={imagenes} icons={icons} productosCarrito = {this.state.carrito} eliminarProducto = {this.eliminarProducto}
             subtotal = {this.state.subtotal} />
             <Footer imagenes={imagenes} icons={icons} />
