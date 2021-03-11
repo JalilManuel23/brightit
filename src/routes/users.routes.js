@@ -12,7 +12,8 @@ const {
     entrar,
     verificarLogged,
     logout,
-    isLogged
+    isLogged,
+    cargarDatos
 } = require('../controllers/users.controller');
 
 router.post('/usuarios/crear_cuenta', agregarUsuario);
@@ -25,5 +26,6 @@ router.get('/dashboard', verificarLogged);
 router.get('/opciones', verificarLogged);
 router.get('/usuarios/logout', logout);
 router.get('/usuarios/is_logged', isLogged);
+router.get('/usuarios/cargar_datos/:email', cargarDatos);
 
 module.exports = router;

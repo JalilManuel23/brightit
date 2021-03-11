@@ -4,7 +4,7 @@ const User = require('../models/User');
 var validacion = require('validator');
 const passport = require('passport');
 
-usersCtrl.agregarUsuario = (req, res) => {
+usersCtrl.agregarUsuario = async (req, res) => {
     const {
         name,
         email,
@@ -16,7 +16,7 @@ usersCtrl.agregarUsuario = (req, res) => {
         email,
         password
     });
-
+    newUser.password = await newUser.encryptPassword(password);
     newUser.save((err, usuarioAgregado) => {
 
         if (err || !usuarioAgregado) {
@@ -75,6 +75,31 @@ usersCtrl.verUsuario = (req, res) => {
     }
 
     User.findById(id, (err, usuario) => {
+        if (err || !usuario) {
+            return res.status(404).send({
+                status: 'Error: ',
+                mensaje: 'No existe el usuario a buscar en la colección'
+            })
+        }
+
+        return res.status(200).send({
+            status: 'Busqueda del usuario de forma exitosa',
+            usuario
+        })
+    });
+}
+
+usersCtrl.cargarDatos = (req, res) => {
+    var email = req.params.email;
+
+    if (!email || email == null) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'No se ingreso email de usuario a buscar'
+        });
+    }
+
+    User.find({email}, (err, usuario) => {
         if (err || !usuario) {
             return res.status(404).send({
                 status: 'Error: ',
@@ -197,6 +222,9 @@ usersCtrl.entrar = function (req, res, next) {
 usersCtrl.verificarLogged = (req, res) => {
     if(req.isAuthenticated()){
         next();
+        res.send({
+            user: req.user
+        });
     } else{
         res.redirect("/login");
     }

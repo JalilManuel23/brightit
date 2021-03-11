@@ -35,12 +35,15 @@ class App extends Component {
     this.state = {
       carrito: [],
       subtotal: 0,
-      logged: false
+      logged: false,
+      usuario: null
     }
+
     this.handleCarrito = this.handleCarrito.bind(this);
     this.handleLogged = this.handleLogged.bind(this);
     this.sumarSubtotal = this.sumarSubtotal.bind(this);
     this.eliminarProducto = this.eliminarProducto.bind(this);
+    this.handleUsuario = this.handleUsuario.bind(this);
   }
 
   handleCarrito(producto) {
@@ -87,6 +90,7 @@ class App extends Component {
         this.setState({ logged: true });
       } else {
         this.setState({ logged: false });
+        this.setState({usuario: null});
       }
     });
   }
@@ -94,6 +98,11 @@ class App extends Component {
   handleLogged() {
     this.setState({ logged: !this.state.logged });
     console.log(this.state.logged);
+  }
+
+  handleUsuario(datos) {
+    this.setState({ usuario: datos });
+    console.log(this.state.usuario);
   }
 
   render() {
@@ -125,7 +134,7 @@ class App extends Component {
         </Route>
         <Route exact path="/login" render={() => {
           return <div>
-            <Login imagenes={imagenes} handleLogged={this.handleLogged} />
+            <Login imagenes={imagenes} handleLogged={this.handleLogged} handleUsuario={this.handleUsuario} />
           </div>
         }}>
         </Route>
@@ -172,7 +181,10 @@ class App extends Component {
         </Route>
         <Route exact path="/opciones" render={() => {
           return <div>
-            <Opciones imagenes={imagenes} icons={icons} />
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Opciones imagenes={imagenes} icons={icons}
+            usuario={this.state.usuario}
+            />
           </div>
         }}>
         </Route>

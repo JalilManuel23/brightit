@@ -16,6 +16,7 @@ export default class Login extends Component {
         };
         this.iniciarSesion = this.iniciarSesion.bind(this);
         this.manejador = this.manejador.bind(this);
+        this.cargarDatos = this.cargarDatos.bind(this);
     }
 
     manejador(e) {
@@ -23,6 +24,16 @@ export default class Login extends Component {
         this.setState({
             [name]: value
         });
+    }
+
+    cargarDatos(email) {
+        fetch(`/usuarios/cargar_datos/${email}`).then(
+            res => {
+                res.json().then((data) => {
+                    this.props.handleUsuario(data.usuario[0].name);
+                });
+            }
+        )
     }
 
     iniciarSesion = (e) => {
@@ -54,9 +65,10 @@ export default class Login extends Component {
 
                 Toast.fire({
                     icon: 'success',
-                    title: `¡Bienvenido ${ this.state.email }!`
+                    title: `¡Sesión iniciada correctamente!`
                 })
                 this.props.handleLogged();
+                this.cargarDatos(this.state.email);
                 this.setState({ redirect: "/opciones" });
             } else {
                 Swal.fire(
