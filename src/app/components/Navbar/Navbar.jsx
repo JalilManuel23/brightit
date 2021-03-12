@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import Boton from '../Boton/Boton';
 import Swal from 'sweetalert2';
 import { MenuItems } from './MenuItems';
+import { MenuItemsDash } from './MenuItemsDash';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import './Navbar.css';
 
@@ -53,13 +55,30 @@ function Navbar(props) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
-                        {MenuItems.map((item, index) => {
-                            return (
-                                <li className="nav-item" key={index}>
-                                    <Link className="nav-link" to={item.ruta}>{item.titulo}</Link>
-                                </li>
-                            )
-                        })}
+                        {props.dash ?                             
+                            <li className="nav-item">
+                                <Link className="nav-link" to='/dashboard'><FontAwesomeIcon icon={ props.icons.home }/></Link>
+                            </li>
+                            : ''
+                        }
+                        {
+                            !props.dash ?
+                                MenuItems.map((item, index) => {
+                                    return (
+                                        <li className="nav-item" key={index}>
+                                            <Link className="nav-link" to={item.ruta}>{item.titulo}</Link>
+                                        </li>
+                                    )
+                                })
+                            : 
+                            MenuItemsDash.map((item, index) => {
+                                return (
+                                    <li className="nav-item" key={index}>
+                                        <Link className="nav-link" to={item.ruta}>{item.titulo}</Link>
+                                    </li>
+                                )
+                            })
+                        }
                         {
                             props.logged ? <button className="btn btn-primary" onClick={cerrarSesion}>Cerrar Sesión</button> : <Boton ruta="login" texto="Iniciar Sesión"/>
                         }

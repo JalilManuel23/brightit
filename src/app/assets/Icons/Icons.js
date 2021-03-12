@@ -9,7 +9,8 @@ import {
     faShoppingCart,
     faTimes,
     faTrash,
-    faToolbox
+    faToolbox,
+    faShoppingBag
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -30,5 +31,6 @@ export default {
     "shoppingCart": faShoppingCart,
     "cerrar": faTimes,
     "trash": faTrash,
-    "admin": faToolbox
+    "admin": faToolbox,
+    "shoppingBag": faShoppingBag
 }

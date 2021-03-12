@@ -8,8 +8,13 @@ export default function Menu(props) {
         <div className="menu-dash d-flex flex-column justify-content-between align-items-center">
             <ul>
                 <li>
-                    <Link className="icon">
+                    <Link to="/dashboard" className="icon">
                         <FontAwesomeIcon icon={ props.icons.home } ></FontAwesomeIcon>
+                    </Link>
+                </li>
+                <li>
+                    <Link className="icon">
+                        <FontAwesomeIcon icon={ props.icons.shoppingBag } ></FontAwesomeIcon>
                     </Link>
                 </li>
             </ul>
@@ -27,13 +32,6 @@ export default function Menu(props) {
                 <li>
                     <Link>
                         <FontAwesomeIcon icon={ props.icons.clock } className="icon"></FontAwesomeIcon>
-                    </Link>
-                </li>
-            </ul>
-            <ul>
-                <li>
-                    <Link className="icon">
-                        <FontAwesomeIcon icon={ props.icons.logout } ></FontAwesomeIcon>
                     </Link>
                 </li>
             </ul>
