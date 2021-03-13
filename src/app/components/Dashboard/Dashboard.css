@@ -1,0 +1,58 @@
+.container-info-user {
+    background: #F7F7F9;
+    border-radius: 4vmin;
+    padding-bottom: 2vmin;
+}
+
+.info-user {
+    font-size: 2vmin;
+}
+
+.dispositivos {
+    background: #FFF;
+    padding: 3vmin 3vmin 0 3vmin;
+    border-radius: 4vmin;
+}
+
+.li-dis {
+    margin: 0 0.5vmin 0 0.5vmin;
+}
+
+.disp {
+    color: #657a8b;
+    padding: 1vmin;
+    font-size: 4vmin;
+    height: 4rem;
+    width: 4rem;
+    border-radius: 2vmin;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.disp:hover {
+    text-decoration: none;
+    color: #657a8b;
+}
+
+.nombre-disp {
+    font-size: 1.8vmin;
+    color: #000;
+    margin-top: 1vmin;
+}
+
+.rosa {
+    background: #FFE0E0;
+}
+
+.verde {
+    background: #E0FFDE;
+}
+
+.azul {
+    background: #D8F6FF;
+}
+
+.gris {
+    background: #EEF2F3;
+}

@@ -12,7 +12,8 @@ import usuario from './images/usuario.png';
 import girl from './images/girl-flat.png';
 import cerradura from './images/cerradura.jpg';
 import alimentador from './images/alimentador.jpg'
-import user from './images/user.png'
+import userMale from './images/user-male.png'
+import userGirl from './images/user-girl.png'
 import userGif from './images/user.gif'
 
 export default {
@@ -30,6 +31,7 @@ export default {
     "cerradura": cerradura,
     "alarma": alarma,
     "alimentador": alimentador,
-    "user": user,
+    "userMale": userMale,
+    "userGirl": userGirl,
     "userGif": userGif
 }
