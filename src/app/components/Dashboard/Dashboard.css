@@ -18,16 +18,28 @@
     margin: 0 0.5vmin 0 0.5vmin;
 }
 
-.disp {
+.li-dis:hover {
+    text-decoration: none;
+}
+
+.disp, .icono-disp {
     color: #657a8b;
-    padding: 1vmin;
-    font-size: 4vmin;
-    height: 4rem;
-    width: 4rem;
+    padding: 1vmin 3vmin;
     border-radius: 2vmin;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 4rem;
+    width: 4rem;
+}
+
+.disp {
+    font-size: 4vmin;
+}
+
+.icono-disp {
+    font-size: 4vmin;
+    box-shadow: var(--sombra);
 }
 
 .disp:hover {
@@ -55,4 +67,55 @@
 
 .gris {
     background: #EEF2F3;
+}
+
+.container-info-main {
+    padding: 3vmin;
+    border-radius: 4vmin;
+    background: #F4F9FD;
+    min-height: 100%;
+    color: #657a8b;
+}
+
+.alimen, .cerradura, .alarma, .welcome {
+    background: #FFF;
+    border-radius: 4vmin;
+    padding: 1.5vmin;
+}
+
+.welcome, .datos-disp {
+    width: 100%;
+    min-height: 48%;
+}
+
+.frase{
+    font-size: 2vmin;
+}
+
+.alimen-cerradura, .alarma {
+    width: 47%;
+}
+
+
+.alimen, .cerradura {
+    min-height: 48%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.dato-disp {
+    font-size: 5vmin;
+    font-weight: 700;
+}
+
+@media (max-width: 576px) {
+    .alimen-cerradura, .alarma {
+        width: 100%;
+        margin-top: 2vmin;
+    }
+
+    .cerradura {
+        margin-top: 2vmin;
+    }
 }
