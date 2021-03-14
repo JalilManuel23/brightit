@@ -45,10 +45,14 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                     <div className="container-info-main col-12 col-md-8 d-flex flex-column align-items-center justify-content-between">
-                        <div className="welcome d-flex align-items-center">
+                        <div className="welcome d-flex align-items-center justify-content-around">
                             <div className="d-flex flex-column align-items-start justify-content-around">
-                                <p>¡Buenos días!</p>
+                                <p className="titulo-welcome">¡Buenos días!</p>
                                 <p className="frase">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                            <div className="d-flex flex-column align-items-center justify-content-around">
+                                <FontAwesomeIcon icon={this.props.icons.cloud} className="icono-temperatura"></FontAwesomeIcon>
+                                <p className="dato-disp">25°c</p>
                             </div>
                         </div>
                         <div className="datos-disp d-flex flex-column flex-md-row justify-content-md-between">
@@ -57,7 +61,7 @@ export default class Dashboard extends Component {
                                     <div className="icono-disp">
                                         <FontAwesomeIcon icon={this.props.icons.paw} ></FontAwesomeIcon>
                                     </div>
-                                    <div>
+                                    <div className="dato-cantidad">
                                         <p>Porciones de alimento</p>
                                         <p className="dato-disp">10</p>
                                     </div>
@@ -66,12 +70,20 @@ export default class Dashboard extends Component {
                                     <div className="icono-disp">
                                         <FontAwesomeIcon icon={this.props.icons.temperatura} ></FontAwesomeIcon>
                                     </div>
+                                    <div className="dato-cantidad">
+                                        <p>Temperatura cuarto frio</p>
+                                        <p className="dato-disp">15°c</p>
+                                    </div>
                                 </div>
                             </div>
-                            <div className="alarma">
+                            <div className="alarma d-flex flex-row align-items-center justify-content-around flex-md-column alig-items-md-center justify-content-md-around">
                                 <div className="icono-disp">
                                     <FontAwesomeIcon icon={this.props.icons.clock} ></FontAwesomeIcon>
                                 </div>
+                                <div className="dato-cantidad">
+                                        <p>Hora de activación de alarma</p>
+                                        <p className="dato-disp">7:30am</p>
+                                    </div>
                             </div>
                         </div>
                     </div>
