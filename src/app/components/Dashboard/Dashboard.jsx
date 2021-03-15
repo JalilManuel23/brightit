@@ -14,7 +14,7 @@ export default class Dashboard extends Component {
                     <div className="container-info-user col-12 col-md-3">
                         <div className="info-user col-12 d-flex flex-column align-items-center p-2">
                             <img src={this.props.imagenes.userMale} className="col-3 col-md-7 p-3" alt="Usuario" />
-                            <p>¡Bienvenido Manuel!</p>
+                            <p>¡Bienvenido {this.props.usuario}!</p>
                             <div className="col-12 dispositivos d-flex flex-column align-items-center justify-content-between">
                                 <p>Mis dispositivos</p>
                                 <div className="d-flex flex-wrap justify-content-between">

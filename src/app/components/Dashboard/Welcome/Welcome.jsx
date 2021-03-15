@@ -16,14 +16,17 @@ export default class Welcome extends Component {
         this.state = {
             temperature: '',
             description: '',
+            saludo: ''
         };
 
         this.cargarClima = this.cargarClima.bind(this);
         this.icono = this.icono.bind(this);
+        this.saludo = this.saludo.bind(this);
     }
 
     componentDidMount() {
         this.cargarClima();
+        this.saludo();
     }
 
     cargarClima = async () => {
@@ -37,6 +40,25 @@ export default class Welcome extends Component {
             temperature: Math.floor(data.main.temp * 1) / 1,
             description: data.weather[0].main,
         });
+    }
+
+    saludo() {
+        var date = new Date();
+        var hrs = date.getHours();
+        var saludo = '';
+
+        if(hrs >= 0 && hrs < 12) {
+            saludo = '¡Buenos días!';
+        } else {
+            if(hrs >= 12 && hrs <= 19) {
+                saludo = '¡Buenas tardes!';
+            } else {
+                if(hrs >= 20 && hrs < 0) {
+                    saludo = '¡Buenas noches!';
+                }
+            }
+        }
+        this.setState({saludo: saludo});
     }
 
     icono(main) {
@@ -62,8 +84,8 @@ export default class Welcome extends Component {
         return (
             <div className="welcome d-flex align-items-center justify-content-around">
                 <div className="d-flex flex-column align-items-start justify-content-around">
-                    <p className="titulo-welcome">¡Buenos días!</p>
-                    <p className="frase">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <p className="titulo-welcome">{this.state.saludo}</p>
+                    <p className="frase">Administra tus dispositvos y mira sus estadísticas desde este panel.</p>
                 </div>
                 <div className="d-flex flex-column align-items-center justify-content-around">
                     {this.icono(this.state.description)}

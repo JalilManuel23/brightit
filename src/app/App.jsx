@@ -176,7 +176,7 @@ class App extends Component {
         <Route exact path="/dashboard" render={() => {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
-            <Dashboard imagenes={imagenes} icons={icons} />
+            <Dashboard imagenes={imagenes} icons={icons} usuario={this.state.usuario} />
           </div>
         }}>
         </Route>
