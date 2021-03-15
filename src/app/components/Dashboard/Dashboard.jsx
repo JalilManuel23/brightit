@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+
 import './Dashboard.css'
+import Welcome from './Welcome/Welcome';
 
 export default class Dashboard extends Component {
     render() {
@@ -45,16 +47,7 @@ export default class Dashboard extends Component {
                         </div>
                     </div>
                     <div className="container-info-main col-12 col-md-8 d-flex flex-column align-items-center justify-content-between">
-                        <div className="welcome d-flex align-items-center justify-content-around">
-                            <div className="d-flex flex-column align-items-start justify-content-around">
-                                <p className="titulo-welcome">¡Buenos días!</p>
-                                <p className="frase">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                            <div className="d-flex flex-column align-items-center justify-content-around">
-                                <FontAwesomeIcon icon={this.props.icons.cloud} className="icono-temperatura"></FontAwesomeIcon>
-                                <p className="dato-disp">25°c</p>
-                            </div>
-                        </div>
+                        <Welcome/>
                         <div className="datos-disp d-flex flex-column flex-md-row justify-content-md-between">
                             <div className="d-flex flex-column alimen-cerradura justify-content-between">
                                 <div className="alimen">
@@ -81,9 +74,9 @@ export default class Dashboard extends Component {
                                     <FontAwesomeIcon icon={this.props.icons.clock} ></FontAwesomeIcon>
                                 </div>
                                 <div className="dato-cantidad">
-                                        <p>Hora de activación de alarma</p>
-                                        <p className="dato-disp">7:30am</p>
-                                    </div>
+                                    <p>Hora de activación de alarma</p>
+                                    <p className="dato-disp">7:30am</p>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { MONGODB_URI } = process.env;
 
-mongoose.connect('mongodb://localhost:27017/api_restb', {
+mongoose.connect(MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true,
     useCreateIndex: true
