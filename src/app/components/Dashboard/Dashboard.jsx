@@ -18,13 +18,13 @@ export default class Dashboard extends Component {
                             <div className="col-12 dispositivos d-flex flex-column align-items-center justify-content-between">
                                 <p>Mis dispositivos</p>
                                 <div className="d-flex flex-wrap justify-content-between">
-                                    <Link className="li-dis d-flex flex-column align-items-center">
+                                    <Link to='/dashboard/alarma' className="li-dis d-flex flex-column align-items-center">
                                         <div className="disp rosa">
                                             <FontAwesomeIcon icon={this.props.icons.clock} ></FontAwesomeIcon>
                                         </div>
                                         <p className="nombre-disp">Alarma</p>
                                     </Link>
-                                    <Link className="li-dis  d-flex flex-column align-items-center">
+                                    <Link to='/dashboard/cerradura' className="li-dis  d-flex flex-column align-items-center">
                                         <div className="disp verde">
                                             <FontAwesomeIcon icon={this.props.icons.door} ></FontAwesomeIcon>
                                         </div>

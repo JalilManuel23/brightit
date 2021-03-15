@@ -1,0 +1,38 @@
+.data-card {
+    padding: 3vmin;
+    border-radius: 2vmin;
+    box-shadow: var(--sombra);
+    margin-top: 5vmin;
+    color: #657a8b;
+}
+
+.titulo-prototipo {
+    font-size: 5vmin;
+    font-weight: 700;
+    color: var(--azul);
+}
+
+.img-prototipo {
+    max-height: 20vmin;
+}
+
+.icono-prototipo {
+    font-size: 10vmin;
+    margin-right: 4vmin;
+}
+
+.dc-prototipo {
+    font-size: 2vmin;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 576px) {
+    .img-prototipo {
+        max-height: 40vmin;
+    }
+
+    .dc-prototipo {
+        font-size: 4vmin;
+    }
+}

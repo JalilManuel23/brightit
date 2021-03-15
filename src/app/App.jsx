@@ -26,6 +26,8 @@ import Carrito from "./components/Carrito/Carrito";
 import productos from './sample/productos';
 import ConfirmarCompra from './components/ConfirmarCompra/ConfirmarCompra';
 import Opciones from './components/Dashboard/Opciones/Opciones';
+import Alarma from './components/Dashboard/Prototipos/Alarma/Alarma';
+import Cerradura from './components/Dashboard/Prototipos/Cerradura/Cerradura';
 
 class App extends Component {
 
@@ -184,6 +186,24 @@ class App extends Component {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
             <Opciones imagenes={imagenes} icons={icons}
+            usuario={this.state.usuario}
+            />
+          </div>
+        }}>
+        </Route>
+        <Route exact path="/dashboard/alarma" render={() => {
+          return <div>
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
+            <Alarma imagenes={imagenes} icons={icons}
+            usuario={this.state.usuario}
+            />
+          </div>
+        }}>
+        </Route>
+        <Route exact path="/dashboard/cerradura" render={() => {
+          return <div>
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
+            <Cerradura imagenes={imagenes} icons={icons}
             usuario={this.state.usuario}
             />
           </div>
