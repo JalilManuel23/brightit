@@ -1,12 +1,20 @@
 const registrosAlimentador = {};
 
 const Registro = require('../models/RegistrosAlimentador');
+const RegistroPorcion = require('../models/RegistroPorcion');
+
 var validacion = require('validator');
 
 registrosAlimentador.agregarRegistro = async (req, res) => {
-    const {horaUltimoUso, numeroPorcion} = req.body;
+    const {
+        horaUltimoUso,
+        numeroPorcion
+    } = req.body;
 
-    const newRegistro = new Registro({horaUltimoUso, numeroPorcion});
+    const newRegistro = new Registro({
+        horaUltimoUso,
+        numeroPorcion
+    });
 
     await newRegistro.save((err, registroAgregado) => {
 
@@ -29,7 +37,7 @@ registrosAlimentador.verRegistros = (req, res) => {
     var consulta = Registro.find({});
 
     consulta.exec((err, registros) => {
-        if(err) {
+        if (err) {
             return res.status(500).send({
                 // Error
                 status: 'Error',
@@ -37,7 +45,7 @@ registrosAlimentador.verRegistros = (req, res) => {
             });
         }
 
-        if(!registros) {
+        if (!registros) {
             return res.status(404).send({
                 // Error
                 status: 'Error',
@@ -86,8 +94,7 @@ registrosAlimentador.editarRegistro = (req, res) => {
     try {
         var horaUltimoUso = !validacion.isEmpty(params.horaUltimoUso);
         var numeroPorcion = !validacion.isEmpty(params.numeroPorcion);
-    }
-    catch (err) {
+    } catch (err) {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Faltan datos por enviar ... verifique por favor'
@@ -95,7 +102,11 @@ registrosAlimentador.editarRegistro = (req, res) => {
     }
 
     if (horaUltimoUso && numeroPorcion) {
-        Registro.findOneAndUpdate({ _id: id }, params, { new: true }, (err, registroActualizado) => {
+        Registro.findOneAndUpdate({
+            _id: id
+        }, params, {
+            new: true
+        }, (err, registroActualizado) => {
 
             if (err) {
                 return res.status(404).send({
@@ -116,8 +127,7 @@ registrosAlimentador.editarRegistro = (req, res) => {
                 registroActualizado
             })
         });
-    }
-    else {
+    } else {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Los datos no son validos verifique por favor'
@@ -128,22 +138,24 @@ registrosAlimentador.editarRegistro = (req, res) => {
 registrosAlimentador.eliminarRegistro = (req, res) => {
     var id = req.params.id;
 
-    if(!id || id == null) {
+    if (!id || id == null) {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'No se ingresó un ID del registro'
         });
     }
-    
-    Registro.findOneAndDelete({_id: id}, (err, registroEliminado) => {
-        if(err) {
+
+    Registro.findOneAndDelete({
+        _id: id
+    }, (err, registroEliminado) => {
+        if (err) {
             return res.status.send(500).send({
                 status: 'Error',
                 mensaje: 'Error, no se pudo eliminar el registro'
             });
         }
 
-        if(!registroEliminado) {
+        if (!registroEliminado) {
             return res.status(404).send({
                 status: 'Error',
                 mensaje: 'Error el registro a eliminar no existe'
@@ -155,6 +167,112 @@ registrosAlimentador.eliminarRegistro = (req, res) => {
             registroEliminado
         });
     });
+}
+
+registrosAlimentador.registrarPorcion = async (req, res) => {
+    var date = new Date();
+    var numMes = date.getMonth();
+    var mes = '';
+
+    switch (numMes) {
+        case 0: {
+            mes = 'Enero';
+        }
+        break;
+    case 1: {
+        mes = 'Febrero';
+    }
+    break;
+    case 2: {
+        mes = 'Marzo';
+    }
+    break;
+    case 3: {
+        mes = 'Abril';
+    }
+    break;
+    case 4: {
+        mes = 'Mayo';
+    }
+    break;
+    case 5: {
+        mes = 'Junio';
+    }
+    break;
+    case 6: {
+        mes = 'Julio';
+    }
+    break;
+    case 7: {
+        mes = 'Agosto';
+    }
+    break;
+    case 8: {
+        mes = 'Septiembre';
+    }
+    break;
+    case 9: {
+        mes = 'Octubre';
+    }
+    break;
+    case 10: {
+        mes = 'Noviembre';
+    }
+    break;
+    case 11: {
+        mes = 'Diciembre';
+    }
+    break;
+    }
+
+    const newRegistro = new RegistroPorcion({
+        mes
+    });
+
+    await newRegistro.save((err, registroAgregado) => {
+
+        if (err || !registroAgregado) {
+            return res.status(404).send({
+                status: 'error',
+                mensaje: 'El registro no se ha guardado'
+            })
+        }
+
+        return res.status(200).send({
+            //Registro insertado con exito 
+            status: 'Completado',
+            registroAgregado
+        });
+    });
+}
+
+registrosAlimentador.obtenerPorciones = async (req, res) => {
+    let meses = [];
+    let valores = [];
+
+    RegistroPorcion.aggregate([
+        {
+            $group: {
+                _id: "$mes",
+                count: {
+                    $sum: 1
+                }
+            }
+        }
+    ], (err, registros) => {
+        if(err) {
+            res.status(404).send({
+                'status': 'ERROR'
+            });
+        }
+
+        registros.map((registro) => {
+            meses.push(registro._id);
+            valores.push(registro.count);
+        });
+
+        res.status(200).send({meses, valores});
+    })
 }
 
 module.exports = registrosAlimentador;
