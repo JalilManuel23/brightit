@@ -6,7 +6,7 @@ const state = {
         'April', 'May'],
     datasets: [
         {
-            label: 'Rainfall',
+            label: 'Porciones',
             backgroundColor: 'rgba(75,192,192,1)',
             borderColor: 'rgba(75,192,192,1)',
             borderWidth: 2,
@@ -24,7 +24,7 @@ export default class AlimentadorChart extends Component {
                     options={{
                         title: {
                             display: true,
-                            text: 'Average Rainfall per month',
+                            text: 'Uso de los últimos 5 días',
                             fontSize: 20
                         },
                         legend: {

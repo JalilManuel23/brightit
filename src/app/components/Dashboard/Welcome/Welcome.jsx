@@ -53,7 +53,7 @@ export default class Welcome extends Component {
             if(hrs >= 12 && hrs <= 19) {
                 saludo = '¡Buenas tardes!';
             } else {
-                if(hrs >= 20 && hrs < 0) {
+                if(hrs >= 20) {
                     saludo = '¡Buenas noches!';
                 }
             }
