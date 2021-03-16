@@ -30,7 +30,7 @@ export default class Dashboard extends Component {
                                         </div>
                                         <p className="nombre-disp">Cerradura</p>
                                     </Link>
-                                    <Link className="li-dis d-flex flex-column align-items-center">
+                                    <Link to='/dashboard/alimentador' className="li-dis d-flex flex-column align-items-center">
                                         <div className="disp azul">
                                             <FontAwesomeIcon icon={this.props.icons.paw} ></FontAwesomeIcon>
                                         </div>

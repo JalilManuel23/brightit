@@ -11,7 +11,7 @@ export default class Alarma extends Component {
                 <div className="row d-flex justify-content-center justify-content-md-between">
                     <div className="data-card col-11 col-md-4 d-flex flex-column align-items-center">
                         <p className="titulo-prototipo">Alarma</p>
-                        <img className="img-prototipo" src={this.props.imagenes.alimentador} />
+                        <img className="img-prototipo" src={this.props.imagenes.alarma} />
                     </div>
                     <div className="data-card col-11 col-md-7">
                         2
