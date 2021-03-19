@@ -46,13 +46,12 @@ export default class AlimentadorChart extends Component {
     render() {
         return (
             <div>
-                hola
                 <Bar
                     data={this.state}
                     options={{
                         title: {
                             display: true,
-                            text: 'Uso de los últimos 5 meses',
+                            text: 'Uso por mes',
                             fontSize: 20
                         },
                         legend: {
