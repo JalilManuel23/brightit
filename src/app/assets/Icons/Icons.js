@@ -13,7 +13,11 @@ import {
     faShoppingBag,
     faPlus,
     faThermometerEmpty,
-    faCloud
+    faCloud,
+    faPercentage,
+    faPlay,
+    faPencilAlt,
+    faListOl
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -38,5 +42,9 @@ export default {
     "shoppingBag": faShoppingBag,
     "plus": faPlus,
     "temperatura": faThermometerEmpty,
-    "cloud": faCloud
+    "cloud": faCloud,
+    "porcentaje": faPercentage,
+    "play": faPlay,
+    "pencil": faPencilAlt,
+    "listOl": faListOl
 }

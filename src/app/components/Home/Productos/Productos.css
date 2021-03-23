@@ -1,14 +1,7 @@
 .conoce-productos {
-    background-image: url(../../../assets/images/conoce_productos.svg);
-    color: #FFF;
-    padding: 5rem 0;
     margin: 10rem 0;
 }
 
 .conoce-productos img{
     height: 30vmin;
-}
-
-.conoce-productos .titulo {
-    
 }

@@ -41,3 +41,17 @@ table {
         font-size: 4vmin;
     }
 }
+
+.card {
+    margin-top: 10vmin;
+}
+
+.setting-header {
+    font-size: 4vmin;
+    color: #657a8b;
+}
+
+.setting-header svg {
+    margin-right: 2vmin;
+}
+

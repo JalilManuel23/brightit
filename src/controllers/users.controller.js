@@ -16,6 +16,7 @@ usersCtrl.agregarUsuario = async (req, res) => {
         email,
         password
     });
+    
     newUser.password = await newUser.encryptPassword(password);
     newUser.save((err, usuarioAgregado) => {
 
