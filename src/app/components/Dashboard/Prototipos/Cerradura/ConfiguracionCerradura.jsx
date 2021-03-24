@@ -103,7 +103,7 @@ export default class ConfiguracionCerradura extends Component {
                         <div className="col-12 col-md-6">
                             <div class="card">
                                 <h5 class="card-header setting-header">
-                                    <FontAwesomeIcon icon={this.props.icons.listOl} ></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={this.props.icons.alerta} ></FontAwesomeIcon>
                                     Agregar alerta
                                 </h5>
                                 <div class="card-body">

@@ -20,7 +20,8 @@ import {
     faListOl,
     faUsers,
     faUsersCog,
-    faEllipsisH
+    faEllipsisH,
+    faExclamationCircle
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -52,5 +53,6 @@ export default {
     "listOl": faListOl,
     "empleados": faUsers,
     "settings": faUsersCog,
-    "puntos": faEllipsisH
+    "puntos": faEllipsisH,
+    "alerta": faExclamationCircle
 }
