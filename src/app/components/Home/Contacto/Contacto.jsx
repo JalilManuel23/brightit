@@ -22,7 +22,7 @@ export default function Contacto(props) {
                             </div>
                         </div>
                     </div>
-                    <form className="d-flex flex-column align-items-center">
+                    <form className="form d-flex flex-column align-items-center">
                         <div>
                             <label>Envianos un mensaje</label>
                             <input type="text" placeholder="Nombre"></input>

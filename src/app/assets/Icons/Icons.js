@@ -17,7 +17,10 @@ import {
     faPercentage,
     faPlay,
     faPencilAlt,
-    faListOl
+    faListOl,
+    faUsers,
+    faUsersCog,
+    faEllipsisH
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -46,5 +49,8 @@ export default {
     "porcentaje": faPercentage,
     "play": faPlay,
     "pencil": faPencilAlt,
-    "listOl": faListOl
+    "listOl": faListOl,
+    "empleados": faUsers,
+    "settings": faUsersCog,
+    "puntos": faEllipsisH
 }

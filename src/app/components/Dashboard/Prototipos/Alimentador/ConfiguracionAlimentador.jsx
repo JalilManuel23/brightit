@@ -1,8 +1,34 @@
 import React, { Component } from 'react'
 import './Alimentador.css';
+import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default class ConfiguracionAlimentador extends Component {
+    constructor() {
+        super();
+        this.state = {
+        }
+        this.formularioHora = this.formularioHora.bind(this);
+    }
+
+    async formularioHora() {
+        const { value: formValues } = await Swal.fire({
+            title: 'Agregar alerta',
+            html:
+                '<input id="hora-nueva" type="time" class="swal2-input" placeholder="Ingresa la hora" />',
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                    document.getElementById('hora-nueva').value
+                ]
+            }
+        })
+
+        // if (formValues) {
+        //     Swal.fire(JSON.stringify(formValues))
+        // }
+    }
+
     render() {
         return (
             <div>
@@ -37,16 +63,9 @@ export default class ConfiguracionAlimentador extends Component {
                                             <p className="hora">7:30pm</p>
                                             <FontAwesomeIcon icon={this.props.icons.trash} ></FontAwesomeIcon>
                                         </div>
-                                        <button class="btn btn-primary mt-4" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                        <button class="btn btn-primary mt-4" type="button" onClick={this.formularioHora}>
                                             Agregar Hora
                                         </button>
-                                        <div class="collapse" id="collapseExample">
-                                            <div class="card card-body">
-                                                <label htmlFor="hora">Establecer hora:</label>
-                                                <input type="time" name="hora" id="hora" className="mb-4"/>
-                                                <button className="btn btn-primary mt-2">Agregar</button>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>

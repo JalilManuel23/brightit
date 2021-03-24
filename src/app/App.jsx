@@ -30,6 +30,7 @@ import Alarma from './components/Dashboard/Prototipos/Alarma/Alarma';
 import Cerradura from './components/Dashboard/Prototipos/Cerradura/Cerradura';
 import Alimentador from './components/Dashboard/Prototipos/Alimentador/Alimentador';
 import ConfiguracionAlimentador from './components/Dashboard/Prototipos/Alimentador/ConfiguracionAlimentador';
+import ConfiguracionCerradura from './components/Dashboard/Prototipos/Cerradura/ConfiguracionCerradura';
 import AlimentadorChart from './components/Charts/AlimentadorChart';
 
 class App extends Component {
@@ -225,6 +226,15 @@ class App extends Component {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
             <ConfiguracionAlimentador imagenes={imagenes} icons={icons}
+            usuario={this.state.usuario}
+            />
+          </div>
+        }}>
+        </Route>
+        <Route exact path="/dashboard/cerradura/configuracion" render={() => {
+          return <div>
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
+            <ConfiguracionCerradura imagenes={imagenes} icons={icons}
             usuario={this.state.usuario}
             />
           </div>

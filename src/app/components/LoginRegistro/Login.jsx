@@ -87,7 +87,7 @@ export default class Login extends Component {
         }
         return (
             <div className="contenedor-login d-flex justify-content-center align-items-center">
-                <form className="form-login d-flex flex-column align-items-center" method="POST" onSubmit={this.iniciarSesion}>
+                <form className="form form-login d-flex flex-column align-items-center" method="POST" onSubmit={this.iniciarSesion}>
                     <img src={this.props.imagenes.logo}></img>
                     <p>Inicia sesión para administrar tus productos</p>
                     <input type="email" placeholder="Email" name="email" onChange={this.manejador}></input>

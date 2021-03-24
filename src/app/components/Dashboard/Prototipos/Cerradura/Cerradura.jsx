@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import '../Prototipos.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from 'react-router-dom';
 
 export default class Cerradura extends Component {
     render() {
@@ -13,10 +14,7 @@ export default class Cerradura extends Component {
                             <div className="data-card d-flex flex-column align-items-center">
                                 <p className="titulo-prototipo">Cerradura</p>
                                 <img className="img-prototipo" src={this.props.imagenes.cerradura} />
-                                <label class="switch">
-                                    <input type="checkbox" />
-                                    <span class="slider round"></span>
-                                </label>
+                                <Link to="/dashboard/cerradura/configuracion" className="btn btn-primary btn-config">Configurar</Link>
                             </div>
                             <div className="data-card d-flex align-items-center">
                                 <FontAwesomeIcon className="icono-prototipo" icon={this.props.icons.temperatura} ></FontAwesomeIcon>
@@ -27,36 +25,7 @@ export default class Cerradura extends Component {
                             </div>
                         </div>
                         <div className="data-card col-11 col-md-7">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">Empleado</th>
-                                        <th scope="col">Entrada</th>
-                                        <th scope="col">Salida</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Juan</td>
-                                        <td>7:30am</td>
-                                        <td>10:50pm</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Juan</td>
-                                        <td>7:30am</td>
-                                        <td>10:50pm</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Juan</td>
-                                        <td>7:30am</td>
-                                        <td>10:50pm</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            
                         </div>
                     </div>
                 </div>
