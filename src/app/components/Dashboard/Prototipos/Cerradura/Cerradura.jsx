@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import '../Prototipos.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from 'react-router-dom';
+import CerraduraChart from '../../../Charts/CerraduraChart';
 
 export default class Cerradura extends Component {
     render() {
@@ -16,7 +17,7 @@ export default class Cerradura extends Component {
                             <Link to="/dashboard/cerradura/configuracion" className="btn btn-primary btn-config">Configurar</Link>
                         </div>
                         <div className="data-card col-11 col-md-7">
-
+                            <CerraduraChart />
                         </div>
                     </div>
                     <div className="row d-flex justify-content-center justify-content-md-between">

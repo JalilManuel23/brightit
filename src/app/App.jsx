@@ -32,6 +32,9 @@ import Alimentador from './components/Dashboard/Prototipos/Alimentador/Alimentad
 import ConfiguracionAlimentador from './components/Dashboard/Prototipos/Alimentador/ConfiguracionAlimentador';
 import ConfiguracionCerradura from './components/Dashboard/Prototipos/Cerradura/ConfiguracionCerradura';
 import AlimentadorChart from './components/Charts/AlimentadorChart';
+import CerraduraChart from './components/Charts/CerraduraChart';
+import AlarmaChart from './components/Charts/AlarmaChart';
+import ConfiguracionAlarma from './components/Dashboard/Prototipos/Alarma/ConfiguracionAlarma';
 
 class App extends Component {
 
@@ -222,6 +225,15 @@ class App extends Component {
           </div>
         }}>
         </Route>
+        <Route exact path="/dashboard/alarma/configuracion" render={() => {
+          return <div>
+            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
+            <ConfiguracionAlarma imagenes={imagenes} icons={icons}
+            usuario={this.state.usuario}
+            />
+          </div>
+        }}>
+        </Route>
         <Route exact path="/dashboard/alimentador/configuracion" render={() => {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
@@ -243,7 +255,7 @@ class App extends Component {
         <Route exact path="/chart" render={() => {
           return <div>
             <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} />
-            <AlimentadorChart imagenes={imagenes} icons={icons}
+            <AlarmaChart imagenes={imagenes} icons={icons}
             usuario={this.state.usuario}
             />
           </div>

@@ -21,7 +21,8 @@ import {
     faUsers,
     faUsersCog,
     faEllipsisH,
-    faExclamationCircle
+    faExclamationCircle,
+    faEye
 } from "@fortawesome/free-solid-svg-icons";
 
 import { 
@@ -54,5 +55,6 @@ export default {
     "empleados": faUsers,
     "settings": faUsersCog,
     "puntos": faEllipsisH,
-    "alerta": faExclamationCircle
+    "alerta": faExclamationCircle,
+    "ver": faEye
 }

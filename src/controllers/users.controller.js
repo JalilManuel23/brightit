@@ -237,7 +237,6 @@ usersCtrl.logout = (req, res) => {
     if(req.isAuthenticated()){
         next();
     } else {
-        console.log('NO');
         return res.status(505).send({
             'status': 'No ha iniciado sesión'
         });

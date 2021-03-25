@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AlimentadorChart from '../Charts/AlimentadorChart';
+import CerraduraChart from '../Charts/CerraduraChart';
 
 import './Dashboard.css'
 import Welcome from './Welcome/Welcome';
@@ -71,7 +71,7 @@ export default class Dashboard extends Component {
                                     </div>
                                 </div>
                                 <div className="alarma d-flex flex-row align-items-center justify-content-around flex-md-column alig-items-md-center justify-content-md-around">
-                                    <AlimentadorChart/>
+                                    <CerraduraChart/>
                                 </div>
                             </div>
                         </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Bar } from 'react-chartjs-2';
 
-
 export default class AlimentadorChart extends Component {
     constructor() {
         super();
@@ -10,8 +9,8 @@ export default class AlimentadorChart extends Component {
             datasets: [
                 {
                     label: 'Porciones',
-                    backgroundColor: 'rgba(75,192,192,1)',
-                    borderColor: 'rgba(75,192,192,1)',
+                    backgroundColor: ['rgba(104,183,220,255)','rgba(104,148,220,255)', 'rgba(104,113,220,255)', 'rgba(128,104,220,255)', 'rgba(163,104,220,255)', 'rgba(199,104,220,255)'],
+                    borderColor: ['rgba(104,183,220,255)','rgba(104,148,220,255)', 'rgba(104,113,220,255)', 'rgba(128,104,220,255)', 'rgba(163,104,220,255)', 'rgba(199,104,220,255)'],
                     borderWidth: 2,
                     data: null
                 }
@@ -28,8 +27,8 @@ export default class AlimentadorChart extends Component {
                     datasets: [{
                         data: data.valores,
                         label: 'Porciones',
-                        backgroundColor: 'rgba(75,192,192,1)',
-                        borderColor: 'rgba(75,192,192,1)',
+                        backgroundColor: ['rgba(104,183,220,255)','rgba(104,148,220,255)', 'rgba(104,113,220,255)', 'rgba(128,104,220,255)', 'rgba(163,104,220,255)', 'rgba(199,104,220,255)'],
+                        borderColor: ['rgba(104,183,220,255)','rgba(104,148,220,255)', 'rgba(104,113,220,255)', 'rgba(128,104,220,255)', 'rgba(163,104,220,255)', 'rgba(199,104,220,255)'],
                         borderWidth: 2,
                     }] 
                 })
