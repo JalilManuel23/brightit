@@ -12,6 +12,10 @@
     height: 6vmin;
 }
 
+.navbar-user {
+    color: var(--azul);
+}
+
 .navbar-nav li:last-of-type {
     margin-right: 5vmin;
 }

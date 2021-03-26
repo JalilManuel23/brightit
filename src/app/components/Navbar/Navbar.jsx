@@ -9,10 +9,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Navbar.css';
 
 function Navbar(props) {
-    const [navbar,setNavbar] = useState(false);
+    const [navbar, setNavbar] = useState(false);
 
     const agregarSombra = () => {
-        if(window.scrollY != 0) {
+        if (window.scrollY != 0) {
             setNavbar(true);
         } else {
             setNavbar(false);
@@ -21,7 +21,7 @@ function Navbar(props) {
 
     const cerrarSesion = () => {
         fetch('/usuarios/logout').then(res => {
-                if(res.status == 505) {
+            if (res.status == 505) {
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -45,19 +45,19 @@ function Navbar(props) {
 
     window.addEventListener('scroll', agregarSombra);
     return (
-        <nav className= {navbar ? 'navbar sticky-top navbar-expand-lg navbar-light p-3 activo' : 'navbar sticky-top navbar-expand-lg navbar-light p-3'}>
+        <nav className={navbar ? 'navbar sticky-top navbar-expand-lg navbar-light p-3 activo' : 'navbar sticky-top navbar-expand-lg navbar-light p-3'}>
             <div className="container">
                 <Link className="navbar-brand" to="/">
-                    <img src={ props.imagenes.logo } className="logo-menu"></img>
+                    <img src={props.imagenes.logo} className="logo-menu"></img>
                 </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarNav">
                     <ul className="navbar-nav ml-auto">
-                        {props.dash ?                             
+                        {props.dash ?
                             <li className="nav-item">
-                                <Link className="nav-link" to='/dashboard'><FontAwesomeIcon icon={ props.icons.home }/></Link>
+                                <Link className="nav-link" to='/dashboard'><FontAwesomeIcon icon={props.icons.home} /></Link>
                             </li>
                             : ''
                         }
@@ -70,17 +70,30 @@ function Navbar(props) {
                                         </li>
                                     )
                                 })
-                            : 
-                            MenuItemsDash.map((item, index) => {
-                                return (
-                                    <li className="nav-item" key={index}>
-                                        <Link className="nav-link" to={item.ruta}>{item.titulo}</Link>
-                                    </li>
-                                )
-                            })
+                                :
+                                MenuItemsDash.map((item, index) => {
+                                    return (
+                                        <li className="nav-item" key={index}>
+                                            <Link className="nav-link" to={item.ruta}>{item.titulo}</Link>
+                                        </li>
+                                    )
+                                })
                         }
                         {
-                            props.logged ? <button className="btn btn-primary" onClick={cerrarSesion}>Cerrar Sesión</button> : <Boton ruta="login" texto="Iniciar Sesión"/>
+                            props.logged ?
+                                // <button className="btn btn-primary" onClick={cerrarSesion}>Cerrar Sesión</button>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle navbar-user" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {props.usuario}
+                                    </a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                        <Link to="/productos" class="dropdown-item" href="#">Comprar Productos</Link>
+                                        <Link to="/dashboard" class="dropdown-item" href="#">Administrar mis disp.</Link>
+                                        <Link to="/cuenta" class="dropdown-item" href="#">Mi cuenta</Link>
+                                        <a class="dropdown-item" onClick={cerrarSesion}>Cerrar Sesión</a>
+                                    </div>
+                                </li>
+                                : <Boton ruta="login" texto="Iniciar Sesión" />
                         }
                     </ul>
                 </div>

@@ -19,6 +19,10 @@ img {
     width: 100%;
 }
 
+.btn-auto {
+    width: auto;
+}
+
 .btn-primary {
     background: var(--azul);
     border: none;
