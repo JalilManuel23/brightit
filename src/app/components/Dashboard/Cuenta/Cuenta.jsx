@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
 import './Cuenta.css';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons"
 
 export default class Cuenta extends Component {
     render() {
         return (
             <div className="container">
                 <div className="d-flex flex-column align-items-center">
-                    <img className="img-user-e" src={this.props.imagenes.userMale} alt="usuario" />
+                    <div className="img-edit">
+                        <img className="img-user-e" src={this.props.imagenes.userMale} alt="usuario" />
+                        <div className="edit d-flex align-items-center justify-content-center">
+                            <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
+                        </div>
+                    </div>
                     <div className="datos-user-e mt-3">
                         <p className="nombre-user-e">{this.props.usuario}</p>
                     </div>
@@ -21,7 +28,7 @@ export default class Cuenta extends Component {
                             <label for="inputEmail4">Contraseña</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
-                                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">Ver</button>
+                                    <button class="btn btn-info" type="button" id="button-addon1">Ver</button>
                                 </div>
                                 <input type="password" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1" />
                             </div>
