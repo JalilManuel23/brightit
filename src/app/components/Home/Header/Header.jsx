@@ -1,5 +1,6 @@
 import React from 'react'
 import './Header.css';
+import imagenes from '../../../assets/imagenes';
 
 export default function Header(props) {
     return (
@@ -9,7 +10,7 @@ export default function Header(props) {
                 <p>Los mejores productos de IoT para el hogar.</p>
                 <p>Innovación, calidad y compromiso.</p>
             </div>
-            <img src={ props.imagenes.iot } />
+            <img src={ imagenes.iot } />
         </header>
     )
 }

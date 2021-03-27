@@ -4,6 +4,7 @@ import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
 import Login from './Login';
 import { Redirect } from "react-router-dom";
+import imagenes from '../../assets/imagenes';
 
 const MySwal = withReactContent(Swal)
 
@@ -70,7 +71,7 @@ export default class CrearCuenta extends Component {
         return (
             <div className="contenedor-login d-flex justify-content-center align-items-center">
                 <form className="form form-login form-reg d-flex flex-column align-items-center" onSubmit={this.agregarUsuario}>
-                    <img src={this.props.imagenes.logo}></img>
+                    <img src={ imagenes.logo }></img>
                     <p>Ingresa tus datos para crear una cuenta</p>
                     <input name="name" type="text" placeholder="Usuario" value={this.state.user} onChange={this.manejador}></input>
                     <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.manejador}></input>

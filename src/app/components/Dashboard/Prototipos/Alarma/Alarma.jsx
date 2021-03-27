@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-
 import '../Prototipos.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faClock } from "@fortawesome/free-solid-svg-icons"
+import imagenes from '../../../../assets/imagenes';
 import { Link } from 'react-router-dom';
 import AlarmaChart from '../../../Charts/AlarmaChart';
 
@@ -13,7 +14,7 @@ export default class Alarma extends Component {
                     <div className="row d-flex justify-content-center justify-content-md-between">
                         <div className="data-card col-11 col-md-4 d-flex flex-column align-items-center">
                             <p className="titulo-prototipo">Alarma</p>
-                            <img className="img-prototipo" src={this.props.imagenes.alarma} />
+                            <img className="img-prototipo" src={imagenes.alarma} />
                             <Link to="/dashboard/alarma/configuracion" className="btn btn-primary btn-config mt-4">Configurar</Link>
                         </div>
                         <div className="data-card col-11 col-md-7">
@@ -22,14 +23,14 @@ export default class Alarma extends Component {
                     </div>
                     <div className="row d-flex justify-content-center justify-content-md-between">
                         <div className="data-card col-11 col-md-4 d-flex align-items-center">
-                            <FontAwesomeIcon className="icono-prototipo" icon={this.props.icons.clock} ></FontAwesomeIcon>
+                            <FontAwesomeIcon className="icono-prototipo" icon={faClock} ></FontAwesomeIcon>
                             <div className="dc-prototipo">
                                 <p>Hora encendido</p>
                                 <p className="dato-disp">7:30am</p>
                             </div>
                         </div>
                         <div className="data-card col-11 col-md-4 d-flex align-items-center">
-                            <FontAwesomeIcon className="icono-prototipo" icon={this.props.icons.clock} ></FontAwesomeIcon>
+                            <FontAwesomeIcon className="icono-prototipo" icon={faClock} ></FontAwesomeIcon>
                             <div className="dc-prototipo">
                                 <p>Hora apagado</p>
                                 <p className="dato-disp">10:30am</p>

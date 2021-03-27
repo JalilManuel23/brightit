@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import './Alimentador.css';
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faListOl, faClock } from "@fortawesome/free-solid-svg-icons"
+import imagenes from '../../../../assets/imagenes';
 
 export default class ConfiguracionAlimentador extends Component {
     constructor() {
@@ -45,7 +47,7 @@ export default class ConfiguracionAlimentador extends Component {
                         <div className="col-12 col-md-6">
                             <div class="card">
                                 <h5 class="card-header setting-header">
-                                    <FontAwesomeIcon icon={this.props.icons.clock} ></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faClock} ></FontAwesomeIcon>
                                     Programar dispositivo
                                 </h5>
                                 <div class="card-body">
@@ -53,15 +55,15 @@ export default class ConfiguracionAlimentador extends Component {
                                     <div className="mt-4 d-flex flex-column">
                                         <div className="hora-programada">
                                             <p className="hora">7:30pm</p>
-                                            <FontAwesomeIcon icon={this.props.icons.trash} ></FontAwesomeIcon>
+                                            <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
                                         </div>
                                         <div className="hora-programada">
                                             <p className="hora">7:30pm</p>
-                                            <FontAwesomeIcon icon={this.props.icons.trash} ></FontAwesomeIcon>
+                                            <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
                                         </div>
                                         <div className="hora-programada">
                                             <p className="hora">7:30pm</p>
-                                            <FontAwesomeIcon icon={this.props.icons.trash} ></FontAwesomeIcon>
+                                            <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
                                         </div>
                                         <button class="btn btn-primary mt-4" type="button" onClick={this.formularioHora}>
                                             Agregar Hora
@@ -73,7 +75,7 @@ export default class ConfiguracionAlimentador extends Component {
                         <div className="col-12 col-md-6">
                             <div class="card">
                                 <h5 class="card-header setting-header">
-                                    <FontAwesomeIcon icon={this.props.icons.listOl} ></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faListOl} ></FontAwesomeIcon>
                                     Porciones disponibles
                                 </h5>
                                 <div class="card-body">

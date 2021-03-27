@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './Cerradura.css';
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers, faUsersCog, faEllipsisH, faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 
 export default class ConfiguracionCerradura extends Component {
     constructor() {
@@ -65,7 +66,7 @@ export default class ConfiguracionCerradura extends Component {
                         <div className="col-12 col-md-6">
                             <div class="card">
                                 <h5 class="card-header setting-header">
-                                    <FontAwesomeIcon icon={this.props.icons.empleados} ></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faUsers} ></FontAwesomeIcon>
                                     Empleados
                                 </h5>
                                 <div class="card-body">
@@ -76,7 +77,7 @@ export default class ConfiguracionCerradura extends Component {
                                                 <th scope="col">Empleado</th>
                                                 <th scope="col">Entrada</th>
                                                 <th scope="col">Salida</th>
-                                                <th scope="col"><FontAwesomeIcon icon={this.props.icons.settings}></FontAwesomeIcon></th>
+                                                <th scope="col"><FontAwesomeIcon icon={faUsersCog}></FontAwesomeIcon></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -85,7 +86,7 @@ export default class ConfiguracionCerradura extends Component {
                                                 <td>7:30am</td>
                                                 <td>10:50pm</td>
                                                 <td>
-                                                    <FontAwesomeIcon icon={this.props.icons.puntos} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
+                                                    <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item" href="#">Editar</a>
                                                         <a class="dropdown-item" href="#">Eliminar</a>
@@ -103,7 +104,7 @@ export default class ConfiguracionCerradura extends Component {
                         <div className="col-12 col-md-6">
                             <div class="card">
                                 <h5 class="card-header setting-header">
-                                    <FontAwesomeIcon icon={this.props.icons.alerta} ></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faExclamationCircle} ></FontAwesomeIcon>
                                     Agregar alerta
                                 </h5>
                                 <div class="card-body">

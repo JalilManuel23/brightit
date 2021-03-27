@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Boton from '../../Boton/Boton';
 import Swal from 'sweetalert2'
-
 import './ProductoCard.css'
 
 export default class ProductoCard extends Component {

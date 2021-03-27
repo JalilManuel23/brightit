@@ -100,7 +100,7 @@ class App extends Component {
         this.setState({ logged: true });
       } else {
         this.setState({ logged: false });
-        this.setState({usuario: null});
+        this.setState({ usuario: null });
       }
     });
   }
@@ -120,154 +120,137 @@ class App extends Component {
       <Router history={history}>
         <Route exact path="/" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
             <Home imagenes={imagenes} />
-            <Footer imagenes={imagenes} icons={icons} />
+            <Footer/>
           </div>
         }}>
         </Route>
         <Route exact path="/contacto" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <Contacto imagenes={imagenes} />
-            <Footer imagenes={imagenes} icons={icons} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Contacto/>
+            <Footer/>
           </div>
         }}>
         </Route>
         <Route exact path="/nosotros" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <Nosotros imagenes={imagenes} />
-            <Footer imagenes={imagenes} icons={icons} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Nosotros/>
+            <Footer/>
           </div>
         }}>
         </Route>
         <Route exact path="/login" render={() => {
           return <div>
-            <Login imagenes={imagenes} handleLogged={this.handleLogged} handleUsuario={this.handleUsuario} />
+            <Login handleLogged={this.handleLogged} handleUsuario={this.handleUsuario} />
           </div>
         }}>
         </Route>
         <Route exact path="/crear_cuenta" render={() => {
           return <div>
-            <CrearCuenta imagenes={imagenes} />
+            <CrearCuenta/>
           </div>
         }}>
         </Route>
         <Route exact path="/productos" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <Productos imagenes={imagenes} icons={icons} handleCarrito={this.handleCarrito} sumarSubtotal={this.sumarSubtotal} />
-            <Carrito imagenes={imagenes} icons={icons} productosCarrito={this.state.carrito}
-              subtotal={this.state.subtotal} eliminarProducto={this.eliminarProducto} />
-            <Footer imagenes={imagenes} icons={icons} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Productos handleCarrito={ this.handleCarrito } sumarSubtotal={ this.sumarSubtotal } />
+            <Carrito productosCarrito={ this.state.carrito } subtotal={ this.state.subtotal } eliminarProducto={ this.eliminarProducto } />
+            <Footer/>
           </div>
         }}>
         </Route>
         <Route exact path="/producto/:id" render={({ match }) => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <Producto imagenes={imagenes} match={match} handleCarrito={this.handleCarrito} sumarSubtotal={this.sumarSubtotal} />
-            <Carrito imagenes={imagenes} icons={icons} productosCarrito={this.state.carrito}
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Producto match={match} handleCarrito={this.handleCarrito} sumarSubtotal={this.sumarSubtotal} />
+            <Carrito productosCarrito={this.state.carrito}
               subtotal={this.state.subtotal} eliminarProducto={this.eliminarProducto} />
-            <Footer imagenes={imagenes} icons={icons} />
+            <Footer/>
           </div>
         }}>
         </Route>
         <Route exact path="/confirmar_compra" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} />
-            <ConfirmarCompra imagenes={imagenes} icons={icons} productosCarrito={this.state.carrito} eliminarProducto={this.eliminarProducto}
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <ConfirmarCompra productosCarrito={this.state.carrito} eliminarProducto={this.eliminarProducto}
               subtotal={this.state.subtotal} />
-            <Footer imagenes={imagenes} icons={icons} />
+            <Footer/>
           </div>
         }}>
         </Route>
         <Route exact path="/dashboard" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <Dashboard imagenes={imagenes} icons={icons} usuario={this.state.usuario} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <Dashboard usuario={this.state.usuario} />
           </div>
         }}>
         </Route>
         <Route exact path="/opciones" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <Opciones imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <Opciones usuario={this.state.usuario}/>
           </div>
         }}>
         </Route>
         <Route exact path="/dashboard/alarma" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <Alarma imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true}  usuario={this.state.usuario} />
+            <Alarma usuario={this.state.usuario}/>
           </div>
         }}>
         </Route>
         <Route exact path="/dashboard/cerradura" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <Cerradura imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <Cerradura usuario={this.state.usuario}/>
           </div>
         }}>
         </Route>
         <Route exact path="/dashboard/alimentador" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <Alimentador imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <Alimentador usuario={this.state.usuario}/>
           </div>
         }}>
         </Route>
         <Route exact path="/dashboard/alarma/configuracion" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <ConfiguracionAlarma imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <ConfiguracionAlarma usuario={this.state.usuario}/>
           </div>
         }}>
         </Route>
         <Route exact path="/dashboard/alimentador/configuracion" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <ConfiguracionAlimentador imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <ConfiguracionAlimentador usuario={this.state.usuario}/>
           </div>
         }}>
         </Route>
         <Route exact path="/dashboard/cerradura/configuracion" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <ConfiguracionCerradura imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <ConfiguracionCerradura usuario={this.state.usuario}/>
           </div>
         }}>
         </Route>
         <Route exact path="/chart" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
             <AlarmaChart imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
+              usuario={this.state.usuario}
             />
           </div>
         }}>
         </Route>
         <Route exact path="/cuenta" render={() => {
           return <div>
-            <Navbar imagenes={imagenes} handleLogged={this.handleLogged} logged={this.state.logged} dash={true} icons={icons} usuario={this.state.usuario} />
-            <Cuenta imagenes={imagenes} icons={icons}
-            usuario={this.state.usuario}
-            />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
+            <Cuenta usuario={this.state.usuario} />
           </div>
         }}>
         </Route>

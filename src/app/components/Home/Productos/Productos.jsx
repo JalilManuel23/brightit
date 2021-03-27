@@ -1,6 +1,7 @@
 import React from 'react';
 import './Productos.css';
 import Boton from '../../Boton/Boton';
+import imagenes from '../../../assets/imagenes';
 
 export default function Productos(props) {
     return (
@@ -10,7 +11,7 @@ export default function Productos(props) {
                     <h2 className="titulo text-center text-md-left">Conoce nuestros productos</h2>
                     <Boton ruta="productos" color="blanco" texto="Ver productos" />
                 </div>
-                <img src={props.imagenes.smarthome}></img>
+                <img src={ imagenes.smarthome }></img>
             </div>
         </div>
     )

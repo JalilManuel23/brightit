@@ -3,7 +3,7 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 import './LoginRegistro.css';
 import { Link, Redirect } from "react-router-dom";
-import { faThemeisle } from '@fortawesome/free-brands-svg-icons';
+import imagenes from '../../assets/imagenes';
 
 export default class Login extends Component {
 
@@ -88,10 +88,10 @@ export default class Login extends Component {
         return (
             <div className="contenedor-login d-flex justify-content-center align-items-center">
                 <form className="form form-login d-flex flex-column align-items-center" method="POST" onSubmit={this.iniciarSesion}>
-                    <img src={this.props.imagenes.logo}></img>
+                    <img src={ imagenes.logo }></img>
                     <p>Inicia sesión para administrar tus productos</p>
-                    <input type="email" placeholder="Email" name="email" onChange={this.manejador}></input>
-                    <input type="password" placeholder="Contraseña" name="password" onChange={this.manejador}></input>
+                    <input type="email" placeholder="Email" name="email" onChange={ this.manejador }></input>
+                    <input type="password" placeholder="Contraseña" name="password" onChange={ this.manejador }></input>
                     <input type="submit" className="btn btn-primary" value="Iniciar Sesión"></input>
                     <p className="p-3">Si no tienes cuenta <span className="enlace-login"><Link to="crear_cuenta">crea una aquí</Link></span></p>
                 </form>

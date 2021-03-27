@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-
 import '../Prototipos.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaw, faClock } from "@fortawesome/free-solid-svg-icons"
+import imagenes from '../../../../assets/imagenes';
 import { Link } from 'react-router-dom';
 import AlimentadorChart from '../../../Charts/AlimentadorChart';
 
@@ -13,7 +14,7 @@ export default class Cerradura extends Component {
                     <div className="row d-flex justify-content-center justify-content-md-between">
                         <div className="col-11 col-md-4 data-card d-flex flex-column align-items-center justify-content-between">
                             <p className="titulo-prototipo">Alimentador</p>
-                            <img className="img-prototipo" src={this.props.imagenes.alimentador} />
+                            <img className="img-prototipo" src={imagenes.alimentador} />
                             <Link to="/dashboard/alimentador/configuracion" className="btn btn-primary btn-config">Configurar</Link>
                         </div>
                         <div className="data-card col-11 col-md-7">
@@ -22,14 +23,14 @@ export default class Cerradura extends Component {
                     </div>
                     <div className="row d-flex justify-content-center justify-content-md-between">
                         <div className="data-card d-flex align-items-center col-11 col-md-4">
-                            <FontAwesomeIcon className="icono-prototipo" icon={this.props.icons.paw} ></FontAwesomeIcon>
+                            <FontAwesomeIcon className="icono-prototipo" icon={faPaw} ></FontAwesomeIcon>
                             <div className="dc-prototipo d-flex flex-column align-items-center">
                                 <p>Porciones disponibles:</p>
                                 <p className="dato-disp">10</p>
                             </div>
                         </div>
                         <div className="data-card d-flex align-items-center col-11 col-md-4">
-                            <FontAwesomeIcon className="icono-prototipo" icon={this.props.icons.clock} ></FontAwesomeIcon>
+                            <FontAwesomeIcon className="icono-prototipo" icon={faClock} ></FontAwesomeIcon>
                             <div className="dc-prototipo d-flex flex-column align-items-center">
                                 <p>Último uso:</p>
                                 <p className="dato-disp">10:45pm</p>

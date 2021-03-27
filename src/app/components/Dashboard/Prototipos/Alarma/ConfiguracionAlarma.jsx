@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUsers, faUsersCog, faEllipsisH, faExclamationCircle} from "@fortawesome/free-solid-svg-icons"
 import './Alarma.css';
 
 export default class ConfiguracionAlarma extends Component {
@@ -69,7 +70,7 @@ export default class ConfiguracionAlarma extends Component {
                         <div className="col-12 col-md-6">
                             <div class="card">
                                 <h5 class="card-header setting-header">
-                                    <FontAwesomeIcon icon={this.props.icons.empleados} ></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faUsers} ></FontAwesomeIcon>
                                     Empleados
                                 </h5>
                                 <div class="card-body">
@@ -79,7 +80,7 @@ export default class ConfiguracionAlarma extends Component {
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Usuario</th>
-                                                <th scope="col">Configurar <FontAwesomeIcon icon={this.props.icons.settings}></FontAwesomeIcon></th>
+                                                <th scope="col">Configurar <FontAwesomeIcon icon={faUsersCog}></FontAwesomeIcon></th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -87,7 +88,7 @@ export default class ConfiguracionAlarma extends Component {
                                                 <td>1</td>
                                                 <td>Juan</td>
                                                 <td>
-                                                    <FontAwesomeIcon icon={this.props.icons.puntos} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
+                                                    <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
                                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                                         <a class="dropdown-item" href="#">Editar</a>
                                                         <a class="dropdown-item" href="#">Eliminar</a>
@@ -105,7 +106,7 @@ export default class ConfiguracionAlarma extends Component {
                         <div className="col-12 col-md-6">
                             <div class="card">
                                 <h5 class="card-header setting-header">
-                                    <FontAwesomeIcon icon={this.props.icons.alerta} ></FontAwesomeIcon>
+                                    <FontAwesomeIcon icon={faExclamationCircle} ></FontAwesomeIcon>
                                     Cambiar Código
                                 </h5>
                                 <div class="card-body">

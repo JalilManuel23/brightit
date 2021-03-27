@@ -8,10 +8,10 @@ export default class Home extends Component {
     render() {
         return (
             <div>
-                <Header imagenes= { this.props.imagenes } />
-                <Productos imagenes= { this.props.imagenes } />
-                <Nosotros imagenes = {this.props.imagenes} />
-                <Contacto imagenes = { this.props.imagenes} />
+                <Header/>
+                <Productos/>
+                <Nosotros/>
+                <Contacto/>
             </div>
         )
     }

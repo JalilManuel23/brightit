@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import Boton from '../Boton/Boton';
 import './Carrito.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Swal from 'sweetalert2'
-
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import Swal from 'sweetalert2';
 import productos from '../../sample/productos';
 
 export default class ProductosCarrito extends Component {
@@ -57,7 +57,7 @@ export default class ProductosCarrito extends Component {
                                                     <img src={producto.imagen}></img>
                                                 </Link>
                                                 <a onClick={() => this.eliminarProducto(productoAgregado.idProducto, producto.precio)}>
-                                                    <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
+                                                    <FontAwesomeIcon className="quitar" icon={ faTrash } />
                                                 </a>
                                             </div>
                                         )

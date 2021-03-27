@@ -1,10 +1,10 @@
-import Boton from '../../Boton/Boton';
 import './Producto.css'
 import productos from '../../../sample/productos';
 import Swal from 'sweetalert2'
 import { Link, Redirect } from "react-router-dom";
-
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons"
 
 export default class Producto extends Component {
     constructor() {

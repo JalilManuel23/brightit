@@ -1,5 +1,6 @@
 import React from 'react';
 import './Contacto.css';
+import imagenes from '../../../assets/imagenes';
 
 export default function Contacto(props) {
     return (
@@ -16,7 +17,7 @@ export default function Contacto(props) {
                             <p>brightit@gmail.com</p>
                         </div>
                         <div className="bubbles">
-                            <img src={props.imagenes.bubbles}></img>
+                            <img src={ imagenes.bubbles }></img>
                             <div>
                                 
                             </div>

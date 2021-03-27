@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './Cuenta.css';
+import imagenes from '../../../assets/imagenes.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons"
 
@@ -9,7 +10,7 @@ export default class Cuenta extends Component {
             <div className="container">
                 <div className="d-flex flex-column align-items-center">
                     <div className="img-edit">
-                        <img className="img-user-e" src={this.props.imagenes.userMale} alt="usuario" />
+                        <img className="img-user-e" src={imagenes.userMale} alt="usuario" />
                         <div className="edit d-flex align-items-center justify-content-center">
                             <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
                         </div>

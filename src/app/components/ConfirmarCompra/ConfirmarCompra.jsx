@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './ConfirmarCompra.css';
 import { Link, Redirect } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import Swal from 'sweetalert2'
 import Boton from '../Boton/Boton';
 
@@ -126,7 +127,7 @@ export default class ConfirmarCompra extends Component {
                                                     <p className="precio-producto">${producto.precio}</p>
                                                 </Link>
                                                 <a onClick={() => this.eliminarProducto(productoAgregado.idProducto, producto.precio)}>
-                                                    <FontAwesomeIcon className="quitar" icon={this.props.icons.trash} />
+                                                    <FontAwesomeIcon className="quitar" icon={faTrash} />
                                                 </a>
                                             </div>
                                         )

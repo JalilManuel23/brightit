@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Carrito.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { faTimes, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import ProductosCarrito from './ProductosCarrito';
 
 export default class Carrito extends Component {
@@ -22,8 +22,6 @@ export default class Carrito extends Component {
             <div className="carrito d-flex flex-column align-items-end">
                 {this.state.mostrarProductos ? 
                     <ProductosCarrito 
-                        imagenes= { this.props.imagenes } 
-                        icons = { this.props.icons } 
                         productosCarrito = { this.props.productosCarrito } 
                         subtotal = { this.props.subtotal }
                         eliminarProducto = { this.props.eliminarProducto }
@@ -32,8 +30,8 @@ export default class Carrito extends Component {
                 }  
                 <div className="carrito-icono d-flex align-items-center justify-content-center" onClick={() => this.mostrarProductosCarrito()}>
                 {this.state.mostrarProductos ? 
-                    <FontAwesomeIcon icon={this.props.icons.cerrar} /> : 
-                    <FontAwesomeIcon icon={this.props.icons.shoppingCart} />
+                    <FontAwesomeIcon icon={ faTimes } /> : 
+                    <FontAwesomeIcon icon={ faShoppingCart } />
                 }    
                 </div>
             </div>
