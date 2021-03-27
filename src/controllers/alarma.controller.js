@@ -54,16 +54,7 @@ registrosAlarma.verRegistros = (req, res) => {
 }
 
 registrosAlarma.verRegistro = (req, res) => {
-    var id = req.params.id;
-
-    if (!id || id == null) {
-        return res.status(404).send({
-            status: 'Error',
-            mensaje: 'No se ingreso ID de registro a buscar'
-        });
-    }
-
-    RegistroAlarma.findById(id, (err, registro) => {
+    RegistroAlarma.find({},(err, registro) => {
         if (err || !registro) {
             return res.status(404).send({
                 status: 'Error: ',
@@ -75,7 +66,7 @@ registrosAlarma.verRegistro = (req, res) => {
             status: 'Busqueda del registro de forma exitosa',
             registro
         })
-    });
+    }).sort({_id: -1}).limit(1);
 }
 
 registrosAlarma.editarRegistro = (req, res) => {

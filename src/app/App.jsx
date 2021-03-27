@@ -5,9 +5,6 @@ import 'bootstrap/dist/js/bootstrap.min.js';
 
 import './App.css';
 
-import imagenes from './assets/imagenes';
-import icons from './assets/Icons/Icons';
-
 import { Router, Route, Link } from 'react-router-dom';
 import history from './history';
 
@@ -121,7 +118,7 @@ class App extends Component {
         <Route exact path="/" render={() => {
           return <div>
             <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
-            <Home imagenes={imagenes} />
+            <Home/>
             <Footer/>
           </div>
         }}>
@@ -235,15 +232,6 @@ class App extends Component {
           return <div>
             <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
             <ConfiguracionCerradura usuario={this.state.usuario}/>
-          </div>
-        }}>
-        </Route>
-        <Route exact path="/chart" render={() => {
-          return <div>
-            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
-            <AlarmaChart imagenes={imagenes} icons={icons}
-              usuario={this.state.usuario}
-            />
           </div>
         }}>
         </Route>

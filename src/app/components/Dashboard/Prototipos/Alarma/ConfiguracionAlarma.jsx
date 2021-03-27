@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faUsersCog, faEllipsisH, faExclamationCircle} from "@fortawesome/free-solid-svg-icons"
+import { faUsers, faUsersCog, faEllipsisH, faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
 import './Alarma.css';
 
 export default class ConfiguracionAlarma extends Component {
@@ -52,7 +52,7 @@ export default class ConfiguracionAlarma extends Component {
     }
 
     toggleCodigo() {
-        this.setState({codigoVisible: !this.state.codigoVisible});
+        this.setState({ codigoVisible: !this.state.codigoVisible });
     }
 
     render() {
@@ -71,7 +71,7 @@ export default class ConfiguracionAlarma extends Component {
                             <div class="card">
                                 <h5 class="card-header setting-header">
                                     <FontAwesomeIcon icon={faUsers} ></FontAwesomeIcon>
-                                    Empleados
+                                    Usuarios
                                 </h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Administra a los usuarios del dispositivo</h5>
@@ -97,9 +97,11 @@ export default class ConfiguracionAlarma extends Component {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <button class="btn btn-primary mt-4" type="button" onClick={this.formularioUsuario}>
-                                        Agregar Usuario
-                                    </button>
+                                    <div className="text-center">
+                                        <button class="btn btn-primary mt-4 col-12 col-md-6" type="button" onClick={this.formularioUsuario}>
+                                            Agregar Usuario
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -111,20 +113,22 @@ export default class ConfiguracionAlarma extends Component {
                                 </h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Establece el código para acceder</h5>
-                                    <div className="mt-4 d-flex flex-column">
-                                        <div className="porciones-restantes">
-                                            {
-                                                (this.state.codigoVisible) ? 
+                                    <div className="porciones-restantes">
+                                        {
+                                            (this.state.codigoVisible) ?
                                                 <p className="numero-porcion codigo-alarma">1234</p> :
-                                                <input type="password" className="numero-porcion codigo-alarma" value="1234" disabled></input> 
-                                            }  
+                                                <input type="password" className="numero-porcion codigo-alarma" value="1234" disabled></input>
+                                        }
+                                    </div>
+                                    <div className="d-flex justify-content-center">
+                                        <div className="d-flex flex-column col-12 col-md-6">
+                                            <button class="btn btn-primary" type="button" onClick={this.toggleCodigo}>
+                                                {(this.state.codigoVisible) ? 'Ocultar código' : 'Ver código'}
+                                            </button>
+                                            <button class="btn btn-primary mt-4" type="button" onClick={this.formularioCodigo}>
+                                                Cambiar código
+                                            </button>
                                         </div>
-                                        <button class="btn btn-primary" type="button" onClick={this.toggleCodigo}>
-                                            {(this.state.codigoVisible) ? 'Ocultar código' : 'Ver código'}         
-                                        </button>
-                                        <button class="btn btn-primary mt-4" type="button" onClick={this.formularioCodigo}>
-                                            Cambiar código
-                                        </button>
                                     </div>
                                 </div>
                             </div>

@@ -95,9 +95,11 @@ export default class ConfiguracionCerradura extends Component {
                                             </tr>
                                         </tbody>
                                     </table>
-                                    <button class="btn btn-primary mt-4" type="button" onClick={this.formularioEmpleado}>
-                                        Agregar Empleado
-                                    </button>
+                                    <div className="text-center">
+                                        <button class="btn btn-primary mt-4" type="button" onClick={this.formularioEmpleado}>
+                                            Agregar Empleado
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -109,10 +111,10 @@ export default class ConfiguracionCerradura extends Component {
                                 </h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Establece la temperatura máxima para mostrar una alerta</h5>
-                                    <div className="mt-4 d-flex flex-column">
-                                        <div className="porciones-restantes">
-                                            <p className="numero-porcion">15°C</p>
-                                        </div>
+                                    <div className="porciones-restantes">
+                                        <p className="numero-porcion">15°C</p>
+                                    </div>
+                                    <div className="text-center">
                                         <button class="btn btn-primary" type="button" onClick={this.formularioAlerta}>
                                             Agregar Alerta
                                         </button>

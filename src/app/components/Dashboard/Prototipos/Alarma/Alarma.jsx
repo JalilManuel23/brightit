@@ -7,6 +7,33 @@ import { Link } from 'react-router-dom';
 import AlarmaChart from '../../../Charts/AlarmaChart';
 
 export default class Alarma extends Component {
+    constructor() {
+        super();
+        this.state = {
+            horaActiva: null,
+            horaDesactivada: null
+        }
+        this.getData = this.getData.bind(this);
+    }
+
+    componentDidMount() {
+        this.getData();
+    }
+
+    getData() {
+        fetch('/alarma/ver_registro').then(res => {
+            res.json().then((data) => {
+                console.log(data);
+                var horaActiva = data.registro[0].horaActiva.substring(11, 16);
+                var horaDesactivada = data.registro[0].horaDesactivada.substring(11, 16);
+                this.setState({
+                    horaActiva,
+                    horaDesactivada
+                })
+            });
+        });
+    }
+
     render() {
         return (
             <div className="fondo">
@@ -26,14 +53,14 @@ export default class Alarma extends Component {
                             <FontAwesomeIcon className="icono-prototipo" icon={faClock} ></FontAwesomeIcon>
                             <div className="dc-prototipo">
                                 <p>Hora encendido</p>
-                                <p className="dato-disp">7:30am</p>
+                                <p className="dato-disp">{this.state.horaActiva}</p>
                             </div>
                         </div>
                         <div className="data-card col-11 col-md-4 d-flex align-items-center">
                             <FontAwesomeIcon className="icono-prototipo" icon={faClock} ></FontAwesomeIcon>
                             <div className="dc-prototipo">
                                 <p>Hora apagado</p>
-                                <p className="dato-disp">10:30am</p>
+                                <p className="dato-disp">{this.state.horaDesactivada}</p>
                             </div>
                         </div>
                         <div className="data-card d-flex align-items-center col-11 col-md-3">

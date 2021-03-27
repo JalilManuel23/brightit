@@ -52,19 +52,19 @@ export default class ConfiguracionAlimentador extends Component {
                                 </h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Establece las horas en las que quieres alimentar a tu mascota</h5>
-                                    <div className="mt-4 d-flex flex-column">
-                                        <div className="hora-programada">
-                                            <p className="hora">7:30pm</p>
-                                            <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
-                                        </div>
-                                        <div className="hora-programada">
-                                            <p className="hora">7:30pm</p>
-                                            <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
-                                        </div>
-                                        <div className="hora-programada">
-                                            <p className="hora">7:30pm</p>
-                                            <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
-                                        </div>
+                                    <div className="hora-programada">
+                                        <p className="hora">7:30pm</p>
+                                        <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
+                                    </div>
+                                    <div className="hora-programada">
+                                        <p className="hora">7:30pm</p>
+                                        <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
+                                    </div>
+                                    <div className="hora-programada">
+                                        <p className="hora">7:30pm</p>
+                                        <FontAwesomeIcon icon={faTrash} ></FontAwesomeIcon>
+                                    </div>
+                                    <div className="text-center">
                                         <button class="btn btn-primary mt-4" type="button" onClick={this.formularioHora}>
                                             Agregar Hora
                                         </button>
@@ -80,10 +80,11 @@ export default class ConfiguracionAlimentador extends Component {
                                 </h5>
                                 <div class="card-body">
                                     <h5 class="card-title">Restablece el número de porciones que contiene el alimentador</h5>
-                                    <div className="mt-4 d-flex flex-column">
-                                        <div className="porciones-restantes">
-                                            <p className="numero-porcion">10 disp.</p>
-                                        </div>
+
+                                    <div className="porciones-restantes">
+                                        <p className="numero-porcion">10 disp.</p>
+                                    </div>
+                                    <div className="text-center">
                                         <button class="btn btn-primary" type="button">
                                             Restablecer
                                         </button>
