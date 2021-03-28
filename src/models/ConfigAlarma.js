@@ -1,7 +1,9 @@
 const { Schema, model } = require('mongoose');
 
 const ConfigAlarmaSchema = new Schema({
-    codigo: {type: String, required: true}
+    horaActiva: {type: Date, required: true},
+    horaDesactivada: {type: Date, required: true},
+    codigo: {type: String}
 }, {
     timestamps: true
 });

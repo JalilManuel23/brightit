@@ -21,12 +21,16 @@ export default class ConfiguracionAlarma extends Component {
     }
 
     cargarDatosUsuarios() {
-        fetch('/alarma/numero_usos').then(res => {
+        fetch('/alarma/ver_datos_usuarios').then(res => {
             res.json().then((data) => {
-                this.setState({
-                    usuarios: data.usuarios,
-                    valores: data.valores
+                console.log(data);
+                data.registros.map(registro => {
+                    this.setState({
+                        usuarios: [...this.state.usuarios, registro.nombre],
+                        valores: [...this.state.valores, registro.contador]
+                    }) 
                 })
+                console.log(this.state);
             });
         })
     }

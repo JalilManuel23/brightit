@@ -24,8 +24,8 @@ export default class Alarma extends Component {
         fetch('/alarma/ver_registro').then(res => {
             res.json().then((data) => {
                 console.log(data);
-                var horaActiva = data.registro[0].horaActiva.substring(11, 16);
-                var horaDesactivada = data.registro[0].horaDesactivada.substring(11, 16);
+                var horaActiva = data.registros[0].horaActiva.substring(11, 16);
+                var horaDesactivada = data.registros[0].horaDesactivada.substring(11, 16);
                 this.setState({
                     horaActiva,
                     horaDesactivada
