@@ -67,7 +67,8 @@ export default class ConfiguracionAlarma extends Component {
         if (formValues) {
             this.setState({
                 usuarios: [...this.state.usuarios, formValues[0]],
-                valores: [...this.state.valores, 0]
+                valores: [...this.state.valores, 0],
+                idUsuarios: [...this.state.idUsuarios, this.state.usuarios.length + 1]
             })
             var usuarioNuevo = {
                 idUsuario: this.state.usuarios.length,
@@ -169,7 +170,11 @@ export default class ConfiguracionAlarma extends Component {
     }
 
     eliminarUsuario(id) {
-        fetch(`/alarma/eliminar_usuario/${id}`, {
+        var listaId = this.state.idUsuarios;
+        console.log(`ID de la BD: ${listaId[id]}`);
+        console.log(`ID arrays: ${id}`);
+
+        fetch(`/alarma/eliminar_usuario/${listaId[id]}`, {
             method: 'DELETE', 
             headers: {
                 'Accept': 'application/json',
@@ -177,9 +182,14 @@ export default class ConfiguracionAlarma extends Component {
             }
         }).then(res => {
             res.json();
-            var listaId = this.state.idUsuarios;
-            var idEliminado = listaId.indexOf(id);
-            console.log(idEliminado);
+
+            this.setState({
+                usuarios: [],
+                valores: [],
+                idUsuarios: []
+            })
+
+            this.cargarDatosUsuarios();
 
             if (res.status == 200) {
                 const Toast = Swal.mixin({
@@ -225,7 +235,7 @@ export default class ConfiguracionAlarma extends Component {
                     <td>{value}</td>
                     <td>{listaValores[index]}</td>
                     <td>
-                        <FontAwesomeIcon onClick={() => this.eliminarUsuario(listaId[index])} icon={faTrash} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
+                        <FontAwesomeIcon onClick={() => this.eliminarUsuario(index)} icon={faTrash} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
                     </td>
                 </tr>
             )
@@ -256,11 +266,15 @@ export default class ConfiguracionAlarma extends Component {
                                                 <th scope="col">#</th>
                                                 <th scope="col">Usuario</th>
                                                 <th scope="col">Usos</th>
-                                                <th scope="col">Configurar</th>
+                                                <th scope="col">Borrar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {usuarios}
+                                            {usuarios.length > 0 ? usuarios : 
+                                                <tr><th scope="col">Sin</th>
+                                                    <th scope="col">usuarios</th>
+                                                </tr>
+                                            }
                                         </tbody>
                                     </table>
                                     <div className="text-center">
