@@ -8,11 +8,40 @@ export default class ConfiguracionAlarma extends Component {
     constructor() {
         super();
         this.state = {
-            codigoVisible: false
+            codigoVisible: false,
+            usuarios: [],
+            valores: [],
+            codigo: null
         }
         this.formularioUsuario = this.formularioUsuario.bind(this);
         this.formularioCodigo = this.formularioCodigo.bind(this);
         this.toggleCodigo = this.toggleCodigo.bind(this);
+        this.cargarDatosUsuarios = this.cargarDatosUsuarios.bind(this);
+        this.cargarCodigoAlarma = this.cargarCodigoAlarma.bind(this);
+    }
+
+    cargarDatosUsuarios() {
+        fetch('/alarma/numero_usos').then(res => {
+            res.json().then((data) => {
+                this.setState({
+                    usuarios: data.usuarios,
+                    valores: data.valores
+                })
+            });
+        })
+    }
+
+    cargarCodigoAlarma() {
+        fetch('/alarma/ver_codigo').then(res => {
+            res.json().then((data) => {
+                this.setState({codigo: data.registros[0].codigo})
+            });
+        })
+    }
+
+    componentDidMount() {
+        this.cargarDatosUsuarios();
+        this.cargarCodigoAlarma();
     }
 
     async formularioUsuario() {
@@ -37,18 +66,56 @@ export default class ConfiguracionAlarma extends Component {
         const { value: formValues } = await Swal.fire({
             title: 'Cambiar código',
             html:
-                '<input id="codigo-alarma" type="text" class="swal2-input" placeholder="Cambia el código de la alarma" />',
+                '<input id="codigo" type="text" class="swal2-input" placeholder="Cambia el código de la alarma" />',
             focusConfirm: false,
             preConfirm: () => {
                 return [
-                    document.getElementById('codigo-alarma').value
+                    document.getElementById('codigo').value
                 ]
             }
         })
 
-        // if (formValues) {
-        //     Swal.fire(JSON.stringify(formValues))
-        // }
+        if (formValues) {
+            this.setState({codigo: formValues[0]});
+            var codigoNuevo = {
+                codigo: formValues[0]
+            }
+            fetch('/alarma/cambiar_codigo', {
+                method: 'PUT', // or 'PUT'
+                body: JSON.stringify(codigoNuevo), // data can be `string` or {object}!
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                res.json();
+    
+                if (res.status == 200) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+    
+                    Toast.fire({
+                        icon: 'success',
+                        title: `¡Código modificado!`
+                    })
+                } else {
+                    Swal.fire(
+                        'Ha ocurrido un error',
+                        'Intentalo de nuevo',
+                        'warning'
+                    );
+                }
+            }).catch(error => console.error('Error:', error));
+        }
     }
 
     toggleCodigo() {
@@ -56,6 +123,27 @@ export default class ConfiguracionAlarma extends Component {
     }
 
     render() {
+        var listaUsuarios = this.state.usuarios;
+        var listaValores = this.state.valores;
+        const usuarios = [];
+
+        for (const [index, value] of listaUsuarios.entries()) {
+            usuarios.push(
+                <tr key={index}>
+                <td>{index + 1}</td>
+                <td>{value}</td>
+                <td>{listaValores[index]}</td>
+                <td>
+                    <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">Editar</a>
+                        <a class="dropdown-item" href="#">Eliminar</a>
+                    </div>
+                </td>
+            </tr>
+            )
+        }
+
         return (
             <div>
                 <div className="banner">
@@ -80,21 +168,12 @@ export default class ConfiguracionAlarma extends Component {
                                             <tr>
                                                 <th scope="col">#</th>
                                                 <th scope="col">Usuario</th>
-                                                <th scope="col">Configurar <FontAwesomeIcon icon={faUsersCog}></FontAwesomeIcon></th>
+                                                <th scope="col">Usos</th>
+                                                <th scope="col">Configurar</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Juan</td>
-                                                <td>
-                                                    <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
-                                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        <a class="dropdown-item" href="#">Editar</a>
-                                                        <a class="dropdown-item" href="#">Eliminar</a>
-                                                    </div>
-                                                </td>
-                                            </tr>
+                                            {usuarios}
                                         </tbody>
                                     </table>
                                     <div className="text-center">
@@ -116,8 +195,8 @@ export default class ConfiguracionAlarma extends Component {
                                     <div className="porciones-restantes">
                                         {
                                             (this.state.codigoVisible) ?
-                                                <p className="numero-porcion codigo-alarma">1234</p> :
-                                                <input type="password" className="numero-porcion codigo-alarma" value="1234" disabled></input>
+                                                <p className="numero-porcion codigo-alarma">{this.state.codigo}</p> :
+                                                <input type="password" className="numero-porcion codigo-alarma" value={this.state.codigo} disabled></input>
                                         }
                                     </div>
                                     <div className="d-flex justify-content-center">

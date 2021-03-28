@@ -19,10 +19,10 @@ export default class CerraduraChart extends Component {
     }
 
     cargarDatos() {
-        fetch('/alimentador/obtener_porciones').then(res => {
+        fetch('/alarma/numero_usos').then(res => {
             res.json().then((data) => {
                 this.setState({
-                    labels: data.meses,
+                    labels: data.usuarios,
                     datasets: [{
                         data: data.valores,
                         label: 'Usuario',
