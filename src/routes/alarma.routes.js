@@ -11,7 +11,7 @@ const {
     cambiarCodigo,
     verCodigo,
     actualizarContador,
-    editarUsuario,
+    actualizarUsuario,
     eliminarUsuario,
 } = require('../controllers/alarma.controller');
 
@@ -23,11 +23,7 @@ router.put('/alarma/cambiar_codigo', cambiarCodigo);
 router.post('/alarma/agregar_usuario', agregarUsuario);
 router.get('/alarma/ver_datos_usuarios', verUsuarios);
 router.put('/alarma/actualizar_contador/:idUsuario', actualizarContador);
+router.put('/alarma/actualizar_usuario/:idUsuario', actualizarUsuario);
 router.delete('/alarma/eliminar_usuario/:idUsuario', eliminarUsuario);
-
-// router.post('/alarma/crear_registro', agregarRegistro);
-// router.get('/alarma', verRegistros);
-// router.put('/alarma/editar_registro/:id', editarRegistro);
-// router.get('/alarma/numero_usos', obtenerNumeroUsos);
 
 module.exports = router;

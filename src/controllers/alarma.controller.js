@@ -288,53 +288,44 @@ registrosAlarma.eliminarUsuario = (req, res) => {
     });
 }
 
-// registrosAlarma.verRegistro = (req, res) => {
-//     RegistroAlarma.find({},(err, registro) => {
-//         if (err || !registro) {
-//             return res.status(404).send({
-//                 status: 'Error: ',
-//                 mensaje: 'No existe el registro a buscar en la colección'
-//             })
-//         }
+registrosAlarma.actualizarUsuario = (req, res) => {
+    var idUsuario = req.params.idUsuario;
+    var params = req.body;
+    
+    if (idUsuario) {
+        UserAlarma.findOneAndUpdate({
+            idUsuario: idUsuario
+        }, 
+            params
+        , {
+            new: true
+        }, (err, registroActualizado) => {
 
-//         return res.status(200).send({
-//             status: 'Busqueda del registro de forma exitosa',
-//             registro
-//         })
-//     }).sort({_id: -1}).limit(1);
-// }
+            if (err) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'Error al actualizar'
+                })
+            }
 
-// 
+            if (!registroActualizado) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'No existe el registro a actualizar'
+                })
+            }
 
-
-
-// registrosAlarma.obtenerNumeroUsos = (req, res) => { 
-//     let usuarios = [];
-//     let valores = [];
-
-//     RegistroAlarma.aggregate([
-//         {
-//             $group: {
-//                 _id: "$usuario",
-//                 count: {
-//                     $sum: 1
-//                 }
-//             }
-//         }
-//     ], (err, registros) => {
-//         if(err) {
-//             res.status(404).send({
-//                 'status': 'ERROR'
-//             });
-//         }
-
-//         registros.map((registro) => {
-//             usuarios.push(registro._id);
-//             valores.push(registro.count);
-//         });
-
-//         res.status(200).send({usuarios, valores});
-//     })
-// }
+            return res.status(200).send({
+                status: 'Registro Actualizado con éxito',
+                registroActualizado
+            })
+        });
+    } else {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Los datos no son validos verifique por favor'
+        })
+    }
+}
 
 module.exports = registrosAlarma;

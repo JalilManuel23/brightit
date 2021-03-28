@@ -20,6 +20,7 @@ export default class ConfiguracionAlarma extends Component {
         this.cargarDatosUsuarios = this.cargarDatosUsuarios.bind(this);
         this.cargarCodigoAlarma = this.cargarCodigoAlarma.bind(this);
         this.eliminarUsuario = this.eliminarUsuario.bind(this);
+        this.editarUsuario = this.editarUsuario.bind(this);
     }
 
     cargarDatosUsuarios() {
@@ -218,6 +219,72 @@ export default class ConfiguracionAlarma extends Component {
         }).catch(error => console.error('Error:', error));
     }
 
+    async editarUsuario(id, nombre, valor) {
+        var listaId = this.state.idUsuarios;
+        const { value: formValues } = await Swal.fire({
+            title: 'Agregar empleado',
+            html:
+                `<input id="usuario-alarma" type="text" value=${nombre} class="swal2-input" placeholder="Nombre del usuario" />` +
+                `<input id="usos-alarma" type="number" value=${valor} class="swal2-input" placeholder="Usos" />`,
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                    document.getElementById('usuario-alarma').value,
+                    document.getElementById('usos-alarma').value,
+                ]
+            }
+        });
+
+        let newUser = {
+            nombre: formValues[0],
+            contador: formValues[1]
+        }
+
+        fetch(`/alarma/actualizar_usuario/${listaId[id]}`, {
+            method: 'PUT',
+            body:  JSON.stringify(newUser),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            res.json();
+
+            this.setState({
+                usuarios: [],
+                valores: [],
+                idUsuarios: []
+            })
+
+            this.cargarDatosUsuarios();
+
+            if (res.status == 200) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: `¡Usuario agregado!`
+                })
+            } else {
+                Swal.fire(
+                    'Ha ocurrido un error',
+                    'Intentalo de nuevo',
+                    'warning'
+                );
+            }
+        }).catch(error => console.error('Error:', error));
+    }
+
     toggleCodigo() {
         this.setState({ codigoVisible: !this.state.codigoVisible });
     }
@@ -225,7 +292,6 @@ export default class ConfiguracionAlarma extends Component {
     render() {
         var listaUsuarios = this.state.usuarios;
         var listaValores = this.state.valores;
-        var listaId = this.state.idUsuarios;
         const usuarios = [];
 
         for (const [index, value] of listaUsuarios.entries()) {
@@ -235,7 +301,11 @@ export default class ConfiguracionAlarma extends Component {
                     <td>{value}</td>
                     <td>{listaValores[index]}</td>
                     <td>
-                        <FontAwesomeIcon onClick={() => this.eliminarUsuario(index)} icon={faTrash} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" onClick={() => this.editarUsuario(index, value, listaValores[index])}>Editar</a>
+                            <a class="dropdown-item" onClick={() => this.eliminarUsuario(index)}>Eliminar</a>
+                        </div>
                     </td>
                 </tr>
             )
@@ -266,7 +336,7 @@ export default class ConfiguracionAlarma extends Component {
                                                 <th scope="col">#</th>
                                                 <th scope="col">Usuario</th>
                                                 <th scope="col">Usos</th>
-                                                <th scope="col">Borrar</th>
+                                                <th scope="col">Configuración</th>
                                             </tr>
                                         </thead>
                                         <tbody>
