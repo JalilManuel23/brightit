@@ -19,12 +19,20 @@ export default class CerraduraChart extends Component {
     }
 
     cargarDatos() {
-        fetch('/alarma/numero_usos').then(res => {
+        fetch('/alarma/ver_datos_usuarios').then(res => {
             res.json().then((data) => {
+                const usuarios = [];
+                const valores = [];
+        
+                data.registros.map(registro => {
+                    usuarios.push(registro.nombre);
+                    valores.push(registro.contador);
+                })
+
                 this.setState({
-                    labels: data.usuarios,
+                    labels: usuarios,
                     datasets: [{
-                        data: data.valores,
+                        data: valores,
                         label: 'Usuario',
                         borderWidth: 2,
                     }] 

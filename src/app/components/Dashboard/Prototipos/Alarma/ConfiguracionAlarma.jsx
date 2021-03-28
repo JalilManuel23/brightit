@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Swal from 'sweetalert2';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUsers, faUsersCog, faEllipsisH, faExclamationCircle } from "@fortawesome/free-solid-svg-icons"
+import { faUsers, faUsersCog, faEllipsisH, faExclamationCircle, faTrash } from "@fortawesome/free-solid-svg-icons"
 import './Alarma.css';
 
 export default class ConfiguracionAlarma extends Component {
@@ -11,6 +11,7 @@ export default class ConfiguracionAlarma extends Component {
             codigoVisible: false,
             usuarios: [],
             valores: [],
+            idUsuarios: [],
             codigo: null
         }
         this.formularioUsuario = this.formularioUsuario.bind(this);
@@ -18,6 +19,7 @@ export default class ConfiguracionAlarma extends Component {
         this.toggleCodigo = this.toggleCodigo.bind(this);
         this.cargarDatosUsuarios = this.cargarDatosUsuarios.bind(this);
         this.cargarCodigoAlarma = this.cargarCodigoAlarma.bind(this);
+        this.eliminarUsuario = this.eliminarUsuario.bind(this);
     }
 
     cargarDatosUsuarios() {
@@ -27,8 +29,9 @@ export default class ConfiguracionAlarma extends Component {
                 data.registros.map(registro => {
                     this.setState({
                         usuarios: [...this.state.usuarios, registro.nombre],
-                        valores: [...this.state.valores, registro.contador]
-                    }) 
+                        valores: [...this.state.valores, registro.contador],
+                        idUsuarios: [...this.state.idUsuarios, registro.idUsuario]
+                    })
                 })
                 console.log(this.state);
             });
@@ -38,7 +41,7 @@ export default class ConfiguracionAlarma extends Component {
     cargarCodigoAlarma() {
         fetch('/alarma/ver_codigo').then(res => {
             res.json().then((data) => {
-                this.setState({codigo: data.registros[0].codigo})
+                this.setState({ codigo: data.registros[0].codigo })
             });
         })
     }
@@ -61,11 +64,54 @@ export default class ConfiguracionAlarma extends Component {
             }
         })
 
-        // if (formValues) {
-        //     Swal.fire(JSON.stringify(formValues))
-        // }
-    }
+        if (formValues) {
+            this.setState({
+                usuarios: [...this.state.usuarios, formValues[0]],
+                valores: [...this.state.valores, 0]
+            })
+            var usuarioNuevo = {
+                idUsuario: this.state.usuarios.length,
+                nombre: formValues[0],
+                contador: 0
+            }
+            fetch('/alarma/agregar_usuario', {
+                method: 'POST', // or 'PUT'
+                body: JSON.stringify(usuarioNuevo), // data can be `string` or {object}!
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                res.json();
 
+                if (res.status == 200) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: `¡Usuario agregado!`
+                    })
+                } else {
+                    Swal.fire(
+                        'Ha ocurrido un error',
+                        'Intentalo de nuevo',
+                        'warning'
+                    );
+                }
+            }).catch(error => console.error('Error:', error));
+        }
+    }
+    
     async formularioCodigo() {
         const { value: formValues } = await Swal.fire({
             title: 'Cambiar código',
@@ -80,7 +126,7 @@ export default class ConfiguracionAlarma extends Component {
         })
 
         if (formValues) {
-            this.setState({codigo: formValues[0]});
+            this.setState({ codigo: formValues[0] });
             var codigoNuevo = {
                 codigo: formValues[0]
             }
@@ -93,7 +139,7 @@ export default class ConfiguracionAlarma extends Component {
                 }
             }).then(res => {
                 res.json();
-    
+
                 if (res.status == 200) {
                     const Toast = Swal.mixin({
                         toast: true,
@@ -106,7 +152,7 @@ export default class ConfiguracionAlarma extends Component {
                             toast.addEventListener('mouseleave', Swal.resumeTimer)
                         }
                     })
-    
+
                     Toast.fire({
                         icon: 'success',
                         title: `¡Código modificado!`
@@ -122,6 +168,46 @@ export default class ConfiguracionAlarma extends Component {
         }
     }
 
+    eliminarUsuario(id) {
+        fetch(`/alarma/eliminar_usuario/${id}`, {
+            method: 'DELETE', 
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            res.json();
+            var listaId = this.state.idUsuarios;
+            var idEliminado = listaId.indexOf(id);
+            console.log(idEliminado);
+
+            if (res.status == 200) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: `¡Usuario agregado!`
+                })
+            } else {
+                Swal.fire(
+                    'Ha ocurrido un error',
+                    'Intentalo de nuevo',
+                    'warning'
+                );
+            }
+        }).catch(error => console.error('Error:', error));
+    }
+
     toggleCodigo() {
         this.setState({ codigoVisible: !this.state.codigoVisible });
     }
@@ -129,22 +215,19 @@ export default class ConfiguracionAlarma extends Component {
     render() {
         var listaUsuarios = this.state.usuarios;
         var listaValores = this.state.valores;
+        var listaId = this.state.idUsuarios;
         const usuarios = [];
 
         for (const [index, value] of listaUsuarios.entries()) {
             usuarios.push(
                 <tr key={index}>
-                <td>{index + 1}</td>
-                <td>{value}</td>
-                <td>{listaValores[index]}</td>
-                <td>
-                    <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Editar</a>
-                        <a class="dropdown-item" href="#">Eliminar</a>
-                    </div>
-                </td>
-            </tr>
+                    <td>{index + 1}</td>
+                    <td>{value}</td>
+                    <td>{listaValores[index]}</td>
+                    <td>
+                        <FontAwesomeIcon onClick={() => this.eliminarUsuario(listaId[index])} icon={faTrash} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
+                    </td>
+                </tr>
             )
         }
 

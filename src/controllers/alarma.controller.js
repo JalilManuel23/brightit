@@ -9,10 +9,9 @@ registrosAlarma.actualizarHoras = async (req, res) => {
     var params = req.body;
 
     try {
-        var horaActiva = !validacion.isEmpty(params.horaActiva);  
-        var horaDesactivada = !validacion.isEmpty(params.horaDesactivada);  
-    }
-    catch (err) {
+        var horaActiva = !validacion.isEmpty(params.horaActiva);
+        var horaDesactivada = !validacion.isEmpty(params.horaDesactivada);
+    } catch (err) {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Faltan datos por enviar ... verifique por favor'
@@ -20,7 +19,11 @@ registrosAlarma.actualizarHoras = async (req, res) => {
     }
 
     if (horaActiva && horaDesactivada) {
-        ConfigAlarma.findOneAndUpdate({ _id: "605fe9ebdba0045904d35d1c" }, params, { new: true }, (err, registroActualizado) => {
+        ConfigAlarma.findOneAndUpdate({
+            _id: "605fe9ebdba0045904d35d1c"
+        }, params, {
+            new: true
+        }, (err, registroActualizado) => {
 
             if (err) {
                 return res.status(404).send({
@@ -41,8 +44,7 @@ registrosAlarma.actualizarHoras = async (req, res) => {
                 registroActualizado
             })
         });
-    }
-    else {
+    } else {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Los datos no son validos verifique por favor'
@@ -55,8 +57,7 @@ registrosAlarma.cambiarCodigo = (req, res) => {
 
     try {
         var codigo = !validacion.isEmpty(params.codigo);
-    }
-    catch (err) {
+    } catch (err) {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Faltan datos por enviar ... verifique por favor'
@@ -64,7 +65,11 @@ registrosAlarma.cambiarCodigo = (req, res) => {
     }
 
     if (codigo) {
-        ConfigAlarma.findOneAndUpdate({ _id: "605fe9ebdba0045904d35d1c" }, params, { new: true }, (err, registroActualizado) => {
+        ConfigAlarma.findOneAndUpdate({
+            _id: "605fe9ebdba0045904d35d1c"
+        }, params, {
+            new: true
+        }, (err, registroActualizado) => {
 
             if (err) {
                 return res.status(404).send({
@@ -85,21 +90,20 @@ registrosAlarma.cambiarCodigo = (req, res) => {
                 registroActualizado
             })
         });
-    }
-    else {
+    } else {
         return res.status(404).send({
             status: 'Error',
             mensaje: 'Los datos no son validos verifique por favor'
         })
     }
- }
+}
 
 
- registrosAlarma.verRegistro = (req, res) => {
+registrosAlarma.verRegistro = (req, res) => {
     var consulta = ConfigAlarma.find({});
 
     consulta.exec((err, registros) => {
-        if(err) {
+        if (err) {
             return res.status(500).send({
                 // Error
                 status: 'Error',
@@ -107,7 +111,7 @@ registrosAlarma.cambiarCodigo = (req, res) => {
             });
         }
 
-        if(!registros) {
+        if (!registros) {
             return res.status(404).send({
                 // Error
                 status: 'Error',
@@ -121,13 +125,13 @@ registrosAlarma.cambiarCodigo = (req, res) => {
             registros
         });
     });
- }
+}
 
- registrosAlarma.verCodigo = (req, res) => {
+registrosAlarma.verCodigo = (req, res) => {
     var consulta = ConfigAlarma.find({});
 
     consulta.exec((err, registros) => {
-        if(err) {
+        if (err) {
             return res.status(500).send({
                 // Error
                 status: 'Error',
@@ -135,7 +139,7 @@ registrosAlarma.cambiarCodigo = (req, res) => {
             });
         }
 
-        if(!registros) {
+        if (!registros) {
             return res.status(404).send({
                 // Error
                 status: 'Error',
@@ -149,12 +153,20 @@ registrosAlarma.cambiarCodigo = (req, res) => {
             registros
         });
     });
- }
+}
 
 registrosAlarma.agregarUsuario = async (req, res) => {
-    const {idUsuario, nombre, contador} = req.body;
+    const {
+        idUsuario,
+        nombre,
+        contador
+    } = req.body;
 
-    const newRegistro = new UserAlarma({idUsuario, nombre, contador});
+    const newRegistro = new UserAlarma({
+        idUsuario,
+        nombre,
+        contador
+    });
 
     await newRegistro.save((err, registroAgregado) => {
 
@@ -177,7 +189,7 @@ registrosAlarma.verUsuarios = (req, res) => {
     var consulta = UserAlarma.find({});
 
     consulta.exec((err, registros) => {
-        if(err) {
+        if (err) {
             return res.status(500).send({
                 // Error
                 status: 'Error',
@@ -185,7 +197,7 @@ registrosAlarma.verUsuarios = (req, res) => {
             });
         }
 
-        if(!registros) {
+        if (!registros) {
             return res.status(404).send({
                 // Error
                 status: 'Error',
@@ -197,6 +209,81 @@ registrosAlarma.verUsuarios = (req, res) => {
             // Registros consultados con éxito
             status: 'Busqueda Correcta',
             registros
+        });
+    });
+}
+
+registrosAlarma.actualizarContador = (req, res) => {
+    var idUsuario = req.params.idUsuario;
+
+    if (idUsuario) {
+        UserAlarma.findOneAndUpdate({
+            idUsuario: idUsuario
+        }, {
+            $inc: {
+                contador: 1
+            }
+        }, {
+            new: true
+        }, (err, registroActualizado) => {
+
+            if (err) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'Error al actualizar'
+                })
+            }
+
+            if (!registroActualizado) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'No existe el registro a actualizar'
+                })
+            }
+
+            return res.status(200).send({
+                status: 'Registro Actualizado con éxito',
+                registroActualizado
+            })
+        });
+    } else {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Los datos no son validos verifique por favor'
+        })
+    }
+}
+
+registrosAlarma.eliminarUsuario = (req, res) => {
+    var id = req.params.idUsuario;
+
+    if (!id || id == null) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'No se ingresó un ID del registro'
+        });
+    }
+
+    UserAlarma.findOneAndDelete({
+        idUsuario: id
+    }, (err, registroEliminado) => {
+        if (err) {
+            return res.status.send(500).send({
+                status: 'Error',
+                mensaje: 'Error, no se pudo eliminar el registro'
+            });
+        }
+
+        if (!registroEliminado) {
+            return res.status(404).send({
+                status: 'Error',
+                mensaje: 'Error el registro a eliminar no existe'
+            });
+        }
+
+        return res.status(200).send({
+            status: 'Registro eliminado con éxito',
+            registroEliminado
         });
     });
 }
@@ -217,84 +304,9 @@ registrosAlarma.verUsuarios = (req, res) => {
 //     }).sort({_id: -1}).limit(1);
 // }
 
-// registrosAlarma.editarRegistro = (req, res) => {
-//     var id = req.params.id;
+// 
 
-//     var params = req.body;
 
-//     try {
-//         var horaActiva = !validacion.isEmpty(params.horaActiva);
-//         var horaDesactivada = !validacion.isEmpty(params.horaDesactivada);
-//     }
-//     catch (err) {
-//         return res.status(404).send({
-//             status: 'Error',
-//             mensaje: 'Faltan datos por enviar ... verifique por favor'
-//         })
-//     }
-
-//     if (horaActiva && horaDesactivada) {
-//         RegistroAlarma.findOneAndUpdate({ _id: id }, params, { new: true }, (err, registroActualizado) => {
-
-//             if (err) {
-//                 return res.status(404).send({
-//                     status: 'Error',
-//                     mensaje: 'Error al actualizar'
-//                 })
-//             }
-
-//             if (!registroActualizado) {
-//                 return res.status(404).send({
-//                     status: 'Error',
-//                     mensaje: 'No existe el registro a actualizar'
-//                 })
-//             }
-
-//             return res.status(200).send({
-//                 status: 'Registro Actualizado con éxito',
-//                 registroActualizado
-//             })
-//         });
-//     }
-//     else {
-//         return res.status(404).send({
-//             status: 'Error',
-//             mensaje: 'Los datos no son validos verifique por favor'
-//         })
-//     }
-// }
-
-// registrosAlarma.eliminarRegistro = (req, res) => {
-//     var id = req.params.id;
-
-//     if(!id || id == null) {
-//         return res.status(404).send({
-//             status: 'Error',
-//             mensaje: 'No se ingresó un ID del registro'
-//         });
-//     }
-    
-//     RegistroAlarma.findOneAndDelete({_id: id}, (err, registroEliminado) => {
-//         if(err) {
-//             return res.status.send(500).send({
-//                 status: 'Error',
-//                 mensaje: 'Error, no se pudo eliminar el registro'
-//             });
-//         }
-
-//         if(!registroEliminado) {
-//             return res.status(404).send({
-//                 status: 'Error',
-//                 mensaje: 'Error el registro a eliminar no existe'
-//             });
-//         }
-
-//         return res.status(200).send({
-//             status: 'Registro eliminado con éxito',
-//             registroEliminado
-//         });
-//     });
-// }
 
 // registrosAlarma.obtenerNumeroUsos = (req, res) => { 
 //     let usuarios = [];
