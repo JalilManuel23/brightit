@@ -5,8 +5,6 @@ const ConfigCerradura = require('../models/ConfigCerradura');
 var validacion = require('validator');
 
 registrosCerradura.editarAlerta = (req, res) => {
-    var id = req.params.id;
-
     var params = req.body;
 
     try {

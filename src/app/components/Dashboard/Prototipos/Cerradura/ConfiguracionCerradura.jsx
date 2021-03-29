@@ -121,10 +121,49 @@ export default class ConfiguracionCerradura extends Component {
                 ]
             }
         })
+    
+        if (formValues) {
+            const temperatura = {
+                temperaturaAlerta: formValues[0]
+            }
 
-        // if (formValues) {
-        //     Swal.fire(JSON.stringify(formValues))
-        // }
+            fetch(`/cerradura/actualizar_alerta`, {
+                method: 'PUT', // or 'PUT'
+                body: JSON.stringify(temperatura), // data can be `string` or {object}!
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                res.json();
+                this.setState({temperaturaAlerta: null});
+                this.cargarDataConfig();
+                if (res.status == 200) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: `¡Configuración actualizada!`
+                    })
+                } else {
+                    Swal.fire(
+                        'Ha ocurrido un error',
+                        'Intentalo de nuevo',
+                        'warning'
+                    );
+                }
+            }).catch(error => console.error('Error:', error));
+        }
     }
 
     verPIN(usuario, pin) {
