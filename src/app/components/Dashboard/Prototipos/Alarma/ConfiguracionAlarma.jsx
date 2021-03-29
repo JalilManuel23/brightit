@@ -207,7 +207,7 @@ export default class ConfiguracionAlarma extends Component {
 
                 Toast.fire({
                     icon: 'success',
-                    title: `¡Usuario agregado!`
+                    title: `¡Usuario eliminado!`
                 })
             } else {
                 Swal.fire(
@@ -273,7 +273,7 @@ export default class ConfiguracionAlarma extends Component {
 
                 Toast.fire({
                     icon: 'success',
-                    title: `¡Usuario agregado!`
+                    title: `¡Usuario editado!`
                 })
             } else {
                 Swal.fire(

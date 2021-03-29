@@ -4,9 +4,9 @@ const Empleado = require('../models/Empleado');
 var validacion = require('validator');
 
 ctrlEmpleados.agregarRegistro = async (req, res) => {
-    const {pinEmpleado, horaIngreso, horaSalida} = req.body;
+    const {nombre, pinEmpleado, horaIngreso, horaSalida} = req.body;
 
-    const newRegistro = new Empleado({pinEmpleado, horaIngreso, horaSalida});
+    const newRegistro = new Empleado({nombre, pinEmpleado, horaIngreso, horaSalida});
 
     await newRegistro.save((err, registroAgregado) => {
 
