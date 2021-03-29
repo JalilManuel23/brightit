@@ -169,6 +169,73 @@ export default class ConfiguracionCerradura extends Component {
         }).catch(error => console.error('Error:', error));
     }
 
+    async editarEmpleado(id, nombre, pin) {
+        const empleados = this.state.empleados;
+
+        const { value: formValues } = await Swal.fire({
+            title: 'Agregar empleado',
+            html:
+                `<input id="nombre" value=${nombre} type="text" class="swal2-input" placeholder="Nombre del empleado" />` +
+                `<input id="codigo" value=${pin} type="password" class="swal2-input" id="exampleInputPassword1" placeholder="Código" />` +
+                `<input id="ingreso" type="datetime-local" class="swal2-input" id="exampleInputPassword1" placeholder="Ingreso" />` +
+                `<input id="salida" type="datetime-local" class="swal2-input" id="exampleInputPassword1" placeholder="Salida" />`,
+            focusConfirm: false,
+            preConfirm: () => {
+                return [
+                    document.getElementById('nombre').value,
+                    document.getElementById('codigo').value,
+                    document.getElementById('ingreso').value,
+                    document.getElementById('salida').value
+                ]
+            }
+        })
+
+        if (formValues) {
+            const empleadoNuevo = {
+                nombre: formValues[0],
+                pinEmpleado: formValues[1],
+                horaIngreso: formValues[2],
+                horaSalida: formValues[3]
+            }
+            fetch(`/empleados/editar_registro/${id}`, {
+                method: 'PUT', // or 'PUT'
+                body: JSON.stringify(empleadoNuevo), // data can be `string` or {object}!
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                res.json();
+                this.setState({empleados: []});
+                this.cargarDataEmpleados();
+                if (res.status == 200) {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: `¡Empleado editado!`
+                    })
+                } else {
+                    Swal.fire(
+                        'Ha ocurrido un error',
+                        'Intentalo de nuevo',
+                        'warning'
+                    );
+                }
+            }).catch(error => console.error('Error:', error));
+        }
+    }
+
     render() {
         const empleados = [];
         let listaUsuarios = this.state.empleados;
@@ -184,7 +251,7 @@ export default class ConfiguracionCerradura extends Component {
                         <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" onClick={() => this.verPIN(value.nombre, value.pinEmpleado)}>Ver PIN</a>
-                            <a class="dropdown-item">Editar</a>
+                            <a class="dropdown-item" onClick={() => this.editarEmpleado(value._id, value.nombre, value.pinEmpleado)}>Editar</a>
                             <a class="dropdown-item" onClick={() => this.eliminarEmpleado(value._id)}>Eliminar</a>
                         </div>
                     </td>

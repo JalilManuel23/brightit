@@ -84,6 +84,7 @@ ctrlEmpleados.editarRegistro = (req, res) => {
     var params = req.body;
 
     try {
+        var nombre = !validacion.isEmpty(params.nombre);
         var pinEmpleado = !validacion.isEmpty(params.pinEmpleado);
         var horaIngreso = !validacion.isEmpty(params.horaIngreso);
         var horaSalida = !validacion.isEmpty(params.horaSalida);
@@ -95,7 +96,7 @@ ctrlEmpleados.editarRegistro = (req, res) => {
         })
     }
 
-    if (pinEmpleado && horaIngreso && horaSalida) {
+    if (nombre && pinEmpleado && horaIngreso && horaSalida) {
         Empleado.findOneAndUpdate({ _id: id }, params, { new: true }, (err, registroActualizado) => {
 
             if (err) {
