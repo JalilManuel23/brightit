@@ -17,6 +17,7 @@ export default class ConfiguracionCerradura extends Component {
         this.verPIN = this.verPIN.bind(this);
         this.cargarDataConfig = this.cargarDataConfig.bind(this);
         this.cargarDataEmpleados = this.cargarDataEmpleados.bind(this);
+        this.eliminarEmpleado = this.eliminarEmpleado.bind(this);
     }
 
     componentDidMount() {
@@ -130,6 +131,44 @@ export default class ConfiguracionCerradura extends Component {
         Swal.fire(`El PIN de ${usuario} es: ${pin}`);
     }
 
+    eliminarEmpleado(id) {
+        fetch(`/empleados/eliminar_registro/${id}`, {
+            method: 'DELETE', // or 'PUT'
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            res.json();
+            this.setState({empleados: []});
+            this.cargarDataEmpleados();
+            if (res.status == 200) {
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: 'top-end',
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                    }
+                })
+
+                Toast.fire({
+                    icon: 'success',
+                    title: `¡Empleado eliminado!`
+                })
+            } else {
+                Swal.fire(
+                    'Ha ocurrido un error',
+                    'Intentalo de nuevo',
+                    'warning'
+                );
+            }
+        }).catch(error => console.error('Error:', error));
+    }
+
     render() {
         const empleados = [];
         let listaUsuarios = this.state.empleados;
@@ -145,8 +184,8 @@ export default class ConfiguracionCerradura extends Component {
                         <FontAwesomeIcon icon={faEllipsisH} id="opciones-usuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></FontAwesomeIcon>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" onClick={() => this.verPIN(value.nombre, value.pinEmpleado)}>Ver PIN</a>
-                            <a class="dropdown-item" href="#">Editar</a>
-                            <a class="dropdown-item" href="#">Eliminar</a>
+                            <a class="dropdown-item">Editar</a>
+                            <a class="dropdown-item" onClick={() => this.eliminarEmpleado(value._id)}>Eliminar</a>
                         </div>
                     </td>
                 </tr>
