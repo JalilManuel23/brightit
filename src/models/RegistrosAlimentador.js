@@ -7,4 +7,4 @@ const RegistroAlimentadorSchema = new Schema({
     timestamps: true
 });
 
-module.exports = model('Registro', RegistroAlimentadorSchema);
+module.exports = model('RegistroAlimentador', RegistroAlimentadorSchema);

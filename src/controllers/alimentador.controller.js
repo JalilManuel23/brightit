@@ -2,6 +2,7 @@ const registrosAlimentador = {};
 
 const Registro = require('../models/RegistrosAlimentador');
 const RegistroPorcion = require('../models/RegistroPorcion');
+const RegistroHora = require('../models/ConfigAlimentador');
 
 var validacion = require('validator');
 
@@ -63,6 +64,7 @@ registrosAlimentador.verRegistros = (req, res) => {
 
 registrosAlimentador.verRegistro = (req, res) => {
     var id = req.params.id;
+    console.log(id);
 
     if (!id || id == null) {
         return res.status(404).send({
@@ -273,6 +275,188 @@ registrosAlimentador.obtenerPorciones = async (req, res) => {
 
         res.status(200).send({meses, valores});
     })
+}
+
+registrosAlimentador.reiniciarPorciones = (req, res) => {
+    var id = req.params.id;
+
+    var params = req.body;
+
+    try {
+        var numeroPorcion = !validacion.isEmpty(params.numeroPorcion);
+    } catch (err) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Faltan datos por enviar ... verifique por favor'
+        })
+    }
+
+    if (numeroPorcion) {
+        Registro.findOneAndUpdate({
+            _id: id
+        }, params, {
+            new: true
+        }, (err, registroActualizado) => {
+            if (err) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'Error al actualizar'
+                })
+            }
+
+            if (!registroActualizado) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'No existe el registro a actualizar'
+                })
+            }
+
+            return res.status(200).send({
+                status: 'Registro Actualizado con éxito',
+                registroActualizado
+            })
+        });
+    } else {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Los datos no son validos verifique por favor'
+        })
+    }
+}
+
+registrosAlimentador.agregarHora = async (req, res) => {
+    const {
+        hora
+    } = req.body;
+
+    const newRegistro = new RegistroHora({
+        hora
+    });
+
+    await newRegistro.save((err, registroAgregado) => {
+
+        if (err || !registroAgregado) {
+            return res.status(404).send({
+                status: 'error',
+                mensaje: 'El registro no se ha guardado'
+            })
+        }
+
+        return res.status(200).send({
+            //Registro insertado con exito 
+            status: 'Completado',
+            registroAgregado
+        });
+    });
+}
+
+registrosAlimentador.verHoras = (req, res) => {
+    var consulta = RegistroHora.find({});
+
+    consulta.exec((err, registros) => {
+        if (err) {
+            return res.status(500).send({
+                // Error
+                status: 'Error',
+                mensaje: 'Error al devolver registros'
+            });
+        }
+
+        if (!registros) {
+            return res.status(404).send({
+                // Error
+                status: 'Error',
+                mensaje: 'No existen registros en la colección'
+            });
+        }
+
+        return res.status(200).send({
+            // Registros consultados con éxito
+            status: 'Busqueda Correcta',
+            registros
+        });
+    });
+}
+
+registrosAlimentador.editarHora = (req, res) => {
+    var id = req.params.id;
+
+    var params = req.body;
+
+    try {
+        var hora = !validacion.isEmpty(params.hora);
+    } catch (err) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Faltan datos por enviar ... verifique por favor'
+        })
+    }
+
+    if (hora) {
+        RegistroHora.findOneAndUpdate({
+            _id: id
+        }, params, {
+            new: true
+        }, (err, registroActualizado) => {
+            if (err) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'Error al actualizar'
+                })
+            }
+
+            if (!registroActualizado) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'No existe el registro a actualizar'
+                })
+            }
+
+            return res.status(200).send({
+                status: 'Registro Actualizado con éxito',
+                registroActualizado
+            })
+        });
+    } else {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Los datos no son validos verifique por favor'
+        })
+    }
+}
+
+registrosAlimentador.eliminarHora = (req, res) => {
+    var id = req.params.id;
+
+    if (!id || id == null) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'No se ingresó un ID del registro'
+        });
+    }
+
+    RegistroHora.findOneAndDelete({
+        _id: id
+    }, (err, registroEliminado) => {
+        if (err) {
+            return res.status.send(500).send({
+                status: 'Error',
+                mensaje: 'Error, no se pudo eliminar el registro'
+            });
+        }
+
+        if (!registroEliminado) {
+            return res.status(404).send({
+                status: 'Error',
+                mensaje: 'Error el registro a eliminar no existe'
+            });
+        }
+
+        return res.status(200).send({
+            status: 'Registro eliminado con éxito',
+            registroEliminado
+        });
+    });
 }
 
 module.exports = registrosAlimentador;
