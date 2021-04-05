@@ -15,10 +15,12 @@ const {
     verHoras,
     editarHora,
     eliminarHora,
-    reiniciarPorciones
+    reiniciarPorciones,
+    servir
 } = require('../controllers/alimentador.controller');
 
 router.post('/alimentador/crear_registro', agregarRegistro);
+router.put('/alimentador/servir/:id', servir);
 router.get('/alimentador', verRegistros);
 router.get('/alimentador/ver_registro/:id', verRegistro);
 router.put('/alimentador/editar_registro/:id', editarRegistro);

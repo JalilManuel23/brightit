@@ -6,6 +6,53 @@ const RegistroHora = require('../models/ConfigAlimentador');
 
 var validacion = require('validator');
 
+registrosAlimentador.servir = (req, res) => {
+    var id = req.params.id;
+
+    var params = req.body;
+    console.log(params);
+    try {
+        var servir = !validacion.isEmpty(params.servir);
+    } catch (err) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Faltan datos por enviar ... verifique por favor'
+        })
+    }
+
+    if (servir) {
+        Registro.findOneAndUpdate({
+            _id: id
+        }, params, {
+            new: true
+        }, (err, registroActualizado) => {
+            if (err) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'Error al actualizar'
+                })
+            }
+
+            if (!registroActualizado) {
+                return res.status(404).send({
+                    status: 'Error',
+                    mensaje: 'No existe el registro a actualizar'
+                })
+            }
+
+            return res.status(200).send({
+                status: 'Registro Actualizado con éxito',
+                registroActualizado
+            })
+        });
+    } else {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'Los datos no son validos verifique por favor'
+        })
+    }
+}
+
 registrosAlimentador.agregarRegistro = async (req, res) => {
     const {
         horaUltimoUso,
@@ -252,17 +299,15 @@ registrosAlimentador.obtenerPorciones = async (req, res) => {
     let meses = [];
     let valores = [];
 
-    RegistroPorcion.aggregate([
-        {
-            $group: {
-                _id: "$mes",
-                count: {
-                    $sum: 1
-                }
+    RegistroPorcion.aggregate([{
+        $group: {
+            _id: "$mes",
+            count: {
+                $sum: 1
             }
         }
-    ], (err, registros) => {
-        if(err) {
+    }], (err, registros) => {
+        if (err) {
             res.status(404).send({
                 'status': 'ERROR'
             });
@@ -273,7 +318,10 @@ registrosAlimentador.obtenerPorciones = async (req, res) => {
             valores.push(registro.count);
         });
 
-        res.status(200).send({meses, valores});
+        res.status(200).send({
+            meses,
+            valores
+        });
     })
 }
 

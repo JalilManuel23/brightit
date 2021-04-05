@@ -14,6 +14,7 @@ export default class Cerradura extends Component {
             porciones: null
         }
         this.getData = this.getData.bind(this);
+        this.servir = this.servir.bind(this);
     }
 
     componentDidMount() {
@@ -33,6 +34,26 @@ export default class Cerradura extends Component {
             });
         });
     }
+
+    servir() {
+        const objeto = {
+            servir: "true"
+        }
+
+        fetch('/alimentador/servir/6063ca6922bc2823085fa739', {
+            method: 'PUT', // or 'PUT'
+            body: JSON.stringify(objeto), // data can be `string` or {object}!
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            }
+        }).then(res => {
+            res.json().then((data) => {
+                console.log('sirviendo');
+            });
+        });
+    }
+
     render() {
         return (
             <div className="fondo">
@@ -65,7 +86,7 @@ export default class Cerradura extends Component {
                         <div className="data-card d-flex align-items-center col-11 col-md-3">
                             <div className="dc-prototipo d-flex flex-column align-items-center">
                                 <p>Servir porción ahora</p>
-                                <button className="btn btn-primary btn-servir">Servir</button>
+                                <button className="btn btn-primary btn-servir" onClick={() => this.servir()}>Servir</button>
                             </div>
                         </div>
                     </div>
