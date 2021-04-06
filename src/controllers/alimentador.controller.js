@@ -140,48 +140,31 @@ registrosAlimentador.editarRegistro = (req, res) => {
 
     var params = req.body;
 
-    try {
-        var horaUltimoUso = !validacion.isEmpty(params.horaUltimoUso);
-        var numeroPorcion = !validacion.isEmpty(params.numeroPorcion);
-    } catch (err) {
-        return res.status(404).send({
-            status: 'Error',
-            mensaje: 'Faltan datos por enviar ... verifique por favor'
-        })
-    }
+    Registro.findOneAndUpdate({
+        _id: id
+    }, params, {
+        new: true
+    }, (err, registroActualizado) => {
 
-    if (horaUltimoUso && numeroPorcion) {
-        Registro.findOneAndUpdate({
-            _id: id
-        }, params, {
-            new: true
-        }, (err, registroActualizado) => {
-
-            if (err) {
-                return res.status(404).send({
-                    status: 'Error',
-                    mensaje: 'Error al actualizar'
-                })
-            }
-
-            if (!registroActualizado) {
-                return res.status(404).send({
-                    status: 'Error',
-                    mensaje: 'No existe el registro a actualizar'
-                })
-            }
-
-            return res.status(200).send({
-                status: 'Registro Actualizado con éxito',
-                registroActualizado
+        if (err) {
+            return res.status(404).send({
+                status: 'Error',
+                mensaje: 'Error al actualizar'
             })
-        });
-    } else {
-        return res.status(404).send({
-            status: 'Error',
-            mensaje: 'Los datos no son validos verifique por favor'
+        }
+
+        if (!registroActualizado) {
+            return res.status(404).send({
+                status: 'Error',
+                mensaje: 'No existe el registro a actualizar'
+            })
+        }
+
+        return res.status(200).send({
+            status: 'Registro Actualizado con éxito',
+            registroActualizado
         })
-    }
+    });
 }
 
 registrosAlimentador.eliminarRegistro = (req, res) => {

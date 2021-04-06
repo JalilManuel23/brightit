@@ -87,6 +87,7 @@ class App extends Component {
       subtotal: subtotal
     });
   }
+  
   componentDidMount() {
     this.isLogged();
   }

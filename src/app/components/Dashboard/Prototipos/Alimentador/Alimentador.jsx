@@ -11,9 +11,11 @@ export default class Cerradura extends Component {
         super();
         this.state = {
             hora: null,
-            porciones: null
+            porciones: null,
+            datos: null
         }
         this.getData = this.getData.bind(this);
+        this.cargarDatosGrafico = this.cargarDatosGrafico.bind(this);
         this.servir = this.servir.bind(this);
     }
 
@@ -24,7 +26,6 @@ export default class Cerradura extends Component {
     getData() {
         fetch('/alimentador/ver_registro/6063ca6922bc2823085fa739').then(res => {
             res.json().then((data) => {
-                console.log(data);
                 var hora = data.registro.horaUltimoUso.substring(11, 16);
                 var porciones = data.registro.numeroPorcion;
                 this.setState({
@@ -33,6 +34,26 @@ export default class Cerradura extends Component {
                 })
             });
         });
+    }
+
+    cargarDatosGrafico() {
+        fetch('/alimentador/obtener_porciones').then(res => {
+            res.json().then((data) => {
+                this.setState({
+                    datos: {
+                        labels: data.meses,
+                        datasets: [{
+                            data: data.valores,
+                            label: 'Porciones',
+                            backgroundColor: ['rgba(104,183,220,255)','rgba(104,148,220,255)', 'rgba(104,113,220,255)', 'rgba(128,104,220,255)', 'rgba(163,104,220,255)', 'rgba(199,104,220,255)'],
+                            borderColor: ['rgba(104,183,220,255)','rgba(104,148,220,255)', 'rgba(104,113,220,255)', 'rgba(128,104,220,255)', 'rgba(163,104,220,255)', 'rgba(199,104,220,255)'],
+                            borderWidth: 2,
+                        }] 
+                    }
+                })
+                console.log(this.state);
+            });
+        })
     }
 
     servir() {
@@ -48,6 +69,8 @@ export default class Cerradura extends Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => {
+            this.cargarDatosGrafico();
+            this.getData();
             res.json().then((data) => {
                 console.log('sirviendo');
             });
@@ -65,7 +88,7 @@ export default class Cerradura extends Component {
                             <Link to="/dashboard/alimentador/configuracion" className="btn btn-primary btn-config">Configurar</Link>
                         </div>
                         <div className="data-card col-11 col-md-7">
-                            <AlimentadorChart />
+                            <AlimentadorChart datos={this.state.datos} />
                         </div>
                     </div>
                     <div className="row d-flex justify-content-center justify-content-md-between">

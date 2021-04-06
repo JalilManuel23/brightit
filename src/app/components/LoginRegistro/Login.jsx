@@ -48,8 +48,9 @@ export default class Login extends Component {
             },
             credentials: 'include'
         }).then(res => {
-            res.json();
-
+            res.json().then((data) => {
+                console.log(data);
+            });
             if (res.status == 200) {
                 const Toast = Swal.mixin({
                     toast: true,

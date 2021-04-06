@@ -32,8 +32,6 @@ export default class AlimentadorChart extends Component {
                         borderWidth: 2,
                     }] 
                 })
-                console.log(data);
-                console.log(this.state);
             });
         })
     }
@@ -43,10 +41,12 @@ export default class AlimentadorChart extends Component {
     }
 
     render() {
+        let datos = this.props.datos ? this.props.datos : this.state;
+
         return (
             <div>
                 <Bar
-                    data={this.state}
+                    data={datos}
                     options={{
                         title: {
                             display: true,
