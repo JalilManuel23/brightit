@@ -3,7 +3,7 @@ import '../Prototipos.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaw, faClock } from "@fortawesome/free-solid-svg-icons"
 import imagenes from '../../../../assets/imagenes';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 import AlimentadorChart from '../../../Charts/AlimentadorChart';
 
 export default class Cerradura extends Component {
@@ -12,7 +12,8 @@ export default class Cerradura extends Component {
         this.state = {
             hora: null,
             porciones: null,
-            datos: null
+            datos: null,
+            redirect: null
         }
         this.getData = this.getData.bind(this);
         this.cargarDatosGrafico = this.cargarDatosGrafico.bind(this);
@@ -26,7 +27,7 @@ export default class Cerradura extends Component {
     getData() {
         fetch('/alimentador/ver_registro/6063ca6922bc2823085fa739').then(res => {
             res.json().then((data) => {
-                var hora = data.registro.horaUltimoUso.substring(11, 16);
+                var hora = data.registro.horaUltimoUso.substring(0,5);
                 var porciones = data.registro.numeroPorcion;
                 this.setState({
                     hora,
@@ -69,15 +70,14 @@ export default class Cerradura extends Component {
                 'Content-Type': 'application/json'
             }
         }).then(res => {
-            this.cargarDatosGrafico();
-            this.getData();
-            res.json().then((data) => {
-                console.log('sirviendo');
-            });
+            this.setState({redirect: "/redirect"})
         });
     }
 
     render() {
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
+        }
         return (
             <div className="fondo">
                 <div className="container prototipo-container">

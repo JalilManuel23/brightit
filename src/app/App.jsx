@@ -33,6 +33,7 @@ import CerraduraChart from './components/Charts/CerraduraChart';
 import AlarmaChart from './components/Charts/AlarmaChart';
 import ConfiguracionAlarma from './components/Dashboard/Prototipos/Alarma/ConfiguracionAlarma';
 import Cuenta from './components/Dashboard/Cuenta/Cuenta';
+import Redireccion from './components/Dashboard/Prototipos/Alimentador/Redireccion';
 
 class App extends Component {
 
@@ -240,6 +241,12 @@ class App extends Component {
           return <div>
             <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
             <Cuenta usuario={this.state.usuario} />
+          </div>
+        }}>
+        </Route>
+        <Route exact path="/redirect" render={() => {
+          return <div>
+            <Redireccion/>
           </div>
         }}>
         </Route>

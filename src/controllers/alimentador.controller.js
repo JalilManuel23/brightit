@@ -403,7 +403,6 @@ registrosAlimentador.verHoras = (req, res) => {
 
         return res.status(200).send({
             // Registros consultados con éxito
-            status: 'Busqueda Correcta',
             registros
         });
     });
