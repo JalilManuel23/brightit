@@ -10,7 +10,7 @@ registrosAlimentador.servir = (req, res) => {
     var id = req.params.id;
 
     var params = req.body;
-    console.log(params);
+
     try {
         var servir = !validacion.isEmpty(params.servir);
     } catch (err) {

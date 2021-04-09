@@ -5,6 +5,7 @@ import { faPaw, faClock } from "@fortawesome/free-solid-svg-icons"
 import imagenes from '../../../../assets/imagenes';
 import { Link, Redirect } from 'react-router-dom';
 import AlimentadorChart from '../../../Charts/AlimentadorChart';
+import Swal from 'sweetalert2';
 
 export default class Cerradura extends Component {
     constructor() {
@@ -18,6 +19,7 @@ export default class Cerradura extends Component {
         this.getData = this.getData.bind(this);
         this.cargarDatosGrafico = this.cargarDatosGrafico.bind(this);
         this.servir = this.servir.bind(this);
+        this.refrescar = this.refrescar.bind(this);
     }
 
     componentDidMount() {
@@ -58,26 +60,36 @@ export default class Cerradura extends Component {
     }
 
     servir() {
-        const objeto = {
-            servir: "true"
+        if(this.state.porciones > 0) {
+            const objeto = {
+                servir: "true"
+            }
+    
+            fetch('/alimentador/servir/6063ca6922bc2823085fa739', {
+                method: 'PUT', // or 'PUT'
+                body: JSON.stringify(objeto), // data can be `string` or {object}!
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            });
+        } else {
+            Swal.fire({
+                icon: 'info',
+                title: 'No hay porciones disponibles',
+                text: 'El dispositivo no cuenta con alimento disponible'
+            })
         }
 
-        fetch('/alimentador/servir/6063ca6922bc2823085fa739', {
-            method: 'PUT', // or 'PUT'
-            body: JSON.stringify(objeto), // data can be `string` or {object}!
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }).then(res => {
-            this.setState({redirect: "/redirect"})
-        });
+        setTimeout(this.refrescar, 7000);
+    }
+
+    refrescar() {
+        this.getData();
+        this.cargarDatosGrafico();
     }
 
     render() {
-        if (this.state.redirect) {
-            return <Redirect to={this.state.redirect} />
-        }
         return (
             <div className="fondo">
                 <div className="container prototipo-container">
