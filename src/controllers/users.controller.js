@@ -123,7 +123,6 @@ usersCtrl.editarUsuario = (req, res) => {
     try {
         var validar_name = !validacion.isEmpty(params.name);
         var validar_email = !validacion.isEmpty(params.email);
-        var validar_password = !validacion.isEmpty(params.password);
     } catch (err) {
         return res.status(404).send({
             status: 'Error',
@@ -131,7 +130,7 @@ usersCtrl.editarUsuario = (req, res) => {
         })
     }
 
-    if (validar_name && validar_email && validar_password) {
+    if (validar_name && validar_email) {
         User.findOneAndUpdate({
             _id: id
         }, params, {
@@ -237,7 +236,7 @@ usersCtrl.logout = (req, res) => {
     if(req.isAuthenticated()){
         next();
     } else {
-        return res.status(505).send({
+        return res.status(200).send({
             'status': 'No ha iniciado sesión'
         });
     }

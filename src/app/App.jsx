@@ -44,7 +44,8 @@ class App extends Component {
       carrito: [],
       subtotal: 0,
       logged: false,
-      usuario: null
+      usuario: null,
+      idUsuario: null
     }
 
     this.handleCarrito = this.handleCarrito.bind(this);
@@ -109,9 +110,8 @@ class App extends Component {
     console.log(this.state.logged);
   }
 
-  handleUsuario(datos) {
-    this.setState({ usuario: datos });
-    console.log(this.state.usuario);
+  handleUsuario(nombre, idUsuario) {
+    this.setState({ usuario: nombre, idUsuario: idUsuario });
   }
 
   render() {
@@ -119,7 +119,7 @@ class App extends Component {
       <Router history={history}>
         <Route exact path="/" render={() => {
           return <div>
-            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} usuario={this.state.usuario} />
             <Home/>
             <Footer/>
           </div>
@@ -127,7 +127,7 @@ class App extends Component {
         </Route>
         <Route exact path="/contacto" render={() => {
           return <div>
-            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} usuario={this.state.usuario} />
             <Contacto/>
             <Footer/>
           </div>
@@ -135,7 +135,7 @@ class App extends Component {
         </Route>
         <Route exact path="/nosotros" render={() => {
           return <div>
-            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} usuario={this.state.usuario} />
             <Nosotros/>
             <Footer/>
           </div>
@@ -155,7 +155,7 @@ class App extends Component {
         </Route>
         <Route exact path="/productos" render={() => {
           return <div>
-            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} usuario={this.state.usuario} />
             <Productos handleCarrito={ this.handleCarrito } sumarSubtotal={ this.sumarSubtotal } />
             <Carrito productosCarrito={ this.state.carrito } subtotal={ this.state.subtotal } eliminarProducto={ this.eliminarProducto } />
             <Footer/>
@@ -164,7 +164,7 @@ class App extends Component {
         </Route>
         <Route exact path="/producto/:id" render={({ match }) => {
           return <div>
-            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} usuario={this.state.usuario} />
             <Producto match={match} handleCarrito={this.handleCarrito} sumarSubtotal={this.sumarSubtotal} />
             <Carrito productosCarrito={this.state.carrito}
               subtotal={this.state.subtotal} eliminarProducto={this.eliminarProducto} />
@@ -174,7 +174,7 @@ class App extends Component {
         </Route>
         <Route exact path="/confirmar_compra" render={() => {
           return <div>
-            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} />
+            <Navbar handleLogged={this.handleLogged} logged={this.state.logged} usuario={this.state.usuario} />
             <ConfirmarCompra productosCarrito={this.state.carrito} eliminarProducto={this.eliminarProducto}
               subtotal={this.state.subtotal} />
             <Footer/>
@@ -240,7 +240,7 @@ class App extends Component {
         <Route exact path="/cuenta" render={() => {
           return <div>
             <Navbar handleLogged={this.handleLogged} logged={this.state.logged} dash={true} usuario={this.state.usuario} />
-            <Cuenta usuario={this.state.usuario} />
+            <Cuenta usuario={this.state.idUsuario} />
           </div>
         }}>
         </Route>

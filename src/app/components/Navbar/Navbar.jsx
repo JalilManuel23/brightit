@@ -12,6 +12,7 @@ import './Navbar.css';
 
 function Navbar(props) {
     const [navbar, setNavbar] = useState(false);
+    const [redirect, setRedirect] = useState('');
 
     const agregarSombra = () => {
         if (window.scrollY != 0) {
@@ -23,7 +24,7 @@ function Navbar(props) {
 
     const cerrarSesion = () => {
         fetch('/usuarios/logout').then(res => {
-            if (res.status == 505) {
+            if (res.status == 200) {
                 const Toast = Swal.mixin({
                     toast: true,
                     position: 'top-end',
@@ -89,10 +90,10 @@ function Navbar(props) {
                                         {props.usuario}
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                        <Link to="/productos" class="dropdown-item" href="#">Comprar Productos</Link>
-                                        <Link to="/dashboard" class="dropdown-item" href="#">Administrar mis disp.</Link>
-                                        <Link to="/cuenta" class="dropdown-item" href="#">Mi cuenta</Link>
-                                        <a class="dropdown-item" onClick={cerrarSesion}>Cerrar Sesión</a>
+                                        <Link to="/productos" class="dropdown-item">Comprar Productos</Link>
+                                        <Link to="/dashboard" class="dropdown-item">Administrar mis disp.</Link>
+                                        <Link to="/cuenta" class="dropdown-item">Mi cuenta</Link>
+                                        <Link to="/" class="dropdown-item" onClick={() => cerrarSesion()}>Cerrar Sesión</Link>
                                     </div>
                                 </li>
                                 : <Boton ruta="login" texto="Iniciar Sesión" />

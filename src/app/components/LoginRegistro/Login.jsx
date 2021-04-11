@@ -30,7 +30,7 @@ export default class Login extends Component {
         fetch(`/usuarios/cargar_datos/${email}`).then(
             res => {
                 res.json().then((data) => {
-                    this.props.handleUsuario(data.usuario[0].name);
+                    this.props.handleUsuario(data.usuario[0].name, data.usuario[0]._id);
                 });
             }
         )
