@@ -1,0 +1,37 @@
+.btn-servir {
+    font-size: 2vmin;
+    width: 100%;
+}
+
+.hora-programada, .porciones-restantes {
+    display: flex;
+    align-items: center;
+    height: 10vmin;
+    width: 50%;
+    font-size: 6vmin;
+    font-weight: 200;
+}
+
+.hora, .numero-porcion {
+    padding: 0;
+    margin: 0;
+}
+
+.hora-programada svg, .porciones-restantes svg {
+    font-size: 3vmin;
+    margin-left: 2vmin;
+}
+
+.hora-programada svg {
+    color: rgb(185, 76, 76);
+}
+
+.porciones-restantes svg {
+    color: rgb(223, 160, 45);
+}
+
+@media (max-width: 576px) {
+    .hora-programada {
+        width: 100%;
+    }
+}

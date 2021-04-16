@@ -1,0 +1,30 @@
+.img-user-e {
+    max-width: 20vmin;
+}
+
+.nombre-user-e {
+    font-size: 4vmin;
+    font-weight: 500;
+}
+
+.img-edit {
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 50%;
+    position: relative;
+}
+
+.edit {
+    background: var(--azul);
+    width: 2rem;
+    height: 2rem;
+    color: #FFF;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.edit:hover {
+    cursor: pointer;
+}
