@@ -4,20 +4,25 @@ const User = require('../models/User');
 var validacion = require('validator');
 const passport = require('passport');
 
-usersCtrl.agregarUsuario = async (req, res) => {
-    const {
-        name,
-        email,
-        password
-    } = req.body;
+var fs = require('fs'); //trabajar con archivos o gestionar los files
+var path = require('path'); //trabajar con la ruta de los archivos
 
-    const newUser = new User({
-        name,
-        email,
-        password
-    });
-    
-    newUser.password = await newUser.encryptPassword(password);
+usersCtrl.agregarUsuario = async (req, res) => {
+    var params = req.body;
+
+    var newUser = new User();
+
+    newUser.name = params.name;
+    newUser.email = params.email;
+    newUser.password = params.password;
+    newUser.image = null;
+
+    console.log(newUser);
+
+    let pass = params.password;
+
+    newUser.password = await newUser.encryptPassword(pass);
+
     newUser.save((err, usuarioAgregado) => {
 
         if (err || !usuarioAgregado) {
@@ -26,8 +31,6 @@ usersCtrl.agregarUsuario = async (req, res) => {
                 mensaje: 'El usuario no se ha guardado'
             })
         }
-
-        req.flash('Correcto', 'Usuario agregado correctamente');
 
         // res.redirect("/users/");
         return res.status(200).send({
@@ -100,7 +103,9 @@ usersCtrl.cargarDatos = (req, res) => {
         });
     }
 
-    User.find({email}, (err, usuario) => {
+    User.find({
+        email
+    }, (err, usuario) => {
         if (err || !usuario) {
             return res.status(404).send({
                 status: 'Error: ',
@@ -220,12 +225,12 @@ usersCtrl.entrar = function (req, res, next) {
 }
 
 usersCtrl.verificarLogged = (req, res) => {
-    if(req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         next();
         res.send({
             user: req.user
         });
-    } else{
+    } else {
         res.redirect("/login");
     }
 }
@@ -233,7 +238,7 @@ usersCtrl.verificarLogged = (req, res) => {
 usersCtrl.logout = (req, res) => {
     req.logout();
 
-    if(req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         next();
     } else {
         return res.status(200).send({
@@ -243,12 +248,63 @@ usersCtrl.logout = (req, res) => {
 }
 
 usersCtrl.isLogged = (req, res, next) => {
-    if(req.isAuthenticated()){
+    if (req.isAuthenticated()) {
         next();
     } else {
         console.log('NO');
         return res.status(505).send({
             'status': 'No ha iniciado sesión'
+        });
+    }
+}
+
+usersCtrl.subirFoto = (req, res) => {
+    var nombre_archivo = 'Imagen no subida ...';
+
+    var ruta_archivo = req.files.image.path; 
+
+    if (!req.files) {
+        return res.status(404).send({
+            status: 'error',
+            message: nombre_archivo
+        });
+    }
+
+    var nombre_split = ruta_archivo.split('\\');
+
+    nombre_archivo = nombre_split[3];
+
+    var extension_split = nombre_archivo.split('.'); //arreglo 
+    var extencion_archivo = extension_split[1];
+
+    if (extencion_archivo == 'jpg' || extencion_archivo == 'jpeg' || extencion_archivo == 'png' || extencion_archivo == 'gif') {
+        var idUsuario = req.params.id;
+
+        User.findOneAndUpdate({
+            _id: idUsuario
+        }, {
+            image: nombre_archivo
+        }, {
+            new: true
+        }, (err, usuarioActualizado) => {
+            if (err || !usuarioActualizado) {
+                return res.status(200).send({
+                    status: 'error',
+                    message: 'Error al guardar la imagen del usuario ...'
+                });
+            }
+
+            return res.status(200).send({
+                status: 'exitosa',
+                usuarioActualizado
+            });
+        })
+    } else {
+        fs.unlink(ruta_archivo, (err) => {
+            return res.status(200).send({
+                status: 'error',
+                message: 'La extencion de la imagen no es valida'
+            });
         });
     }
 }

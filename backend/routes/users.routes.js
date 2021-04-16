@@ -3,6 +3,9 @@ const {
 } = require('express');
 const router = Router();
 
+var multipart=require('connect-multiparty');
+var mdUpload=multipart({uploadDir:'./backend/upload/images'});
+
 const {
     agregarUsuario,
     verUsuarios,
@@ -13,7 +16,8 @@ const {
     verificarLogged,
     logout,
     isLogged,
-    cargarDatos
+    cargarDatos,
+    subirFoto
 } = require('../controllers/users.controller');
 
 router.post('/usuarios/crear_cuenta', agregarUsuario);
@@ -21,6 +25,8 @@ router.get('/usuarios', verUsuarios);
 router.get('/usuarios/ver_usuario/:id', verUsuario);
 router.put('/usuarios/editar_usuario/:id', editarUsuario);
 router.delete('/usuarios/eliminar_usuario/:id', eliminarUsuario);
+router.put('/usuarios/cargar_imagen/:id?', mdUpload, subirFoto);
+
 router.post('/usuarios/entrar', entrar);
 router.get('/usuarios/logout', logout);
 router.get('/usuarios/is_logged', isLogged);
