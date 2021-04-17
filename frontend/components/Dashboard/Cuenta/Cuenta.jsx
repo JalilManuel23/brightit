@@ -141,7 +141,7 @@ export default class Cuenta extends Component {
 
     render() {
         const userImage = (this.state.image) ?
-            <img className="img-user-e" src={`usuarios/sacar_imagen/${this.state.imageFija}`} alt="usuario" /> :
+            <img className="img-user-e" src={`usuarios/sacar_imagen/${this.state.image}`} alt="usuario" /> :
             <img className="img-user-e" src={imagenes.usuario} alt="usuario" />
 
         return (
