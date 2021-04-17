@@ -261,8 +261,8 @@ usersCtrl.isLogged = (req, res, next) => {
 usersCtrl.subirFoto = (req, res) => {
     var nombre_archivo = 'Imagen no subida ...';
 
-    var ruta_archivo = req.files.image.path; 
-
+    console.log(req.files.image);
+    var ruta_archivo = req.files.image.path;
     if (!req.files) {
         return res.status(404).send({
             status: 'error',
@@ -301,12 +301,29 @@ usersCtrl.subirFoto = (req, res) => {
         })
     } else {
         fs.unlink(ruta_archivo, (err) => {
-            return res.status(200).send({
+            return res.status(404).send({
                 status: 'error',
                 message: 'La extencion de la imagen no es valida'
             });
         });
     }
+}
+
+usersCtrl.sacarImagen = (req, res) => {
+    var archivo = req.params.image;
+    var ruta_archivo = './backend/upload/images/' + archivo;
+
+    fs.exists(ruta_archivo, (existe) => {
+
+        if (existe) {
+            return res.sendFile(path.resolve(ruta_archivo));
+        } else {
+            return res.status(404).send({
+                status: 'error',
+                mensaje: 'Error la imagen no existe en la ruta especificada'
+            })
+        }
+    });
 }
 
 module.exports = usersCtrl;

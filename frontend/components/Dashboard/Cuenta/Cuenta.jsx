@@ -4,6 +4,7 @@ import imagenes from '../../../assets/imagenes.js';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons"
 import Swal from 'sweetalert2';
+import axios from 'axios';
 
 export default class Cuenta extends Component {
     constructor() {
@@ -11,12 +12,15 @@ export default class Cuenta extends Component {
         this.state = {
             email: '',
             name: '',
+            image: null,
+            imageFija: null,
             nameFijo: '',
             redirect: null
         };
         this.manejador = this.manejador.bind(this);
         this.cargarDatos = this.cargarDatos.bind(this);
         this.editarCuenta = this.editarCuenta.bind(this);
+        this.fileChange = this.fileChange.bind(this);
     }
 
     manejador(e) {
@@ -26,6 +30,11 @@ export default class Cuenta extends Component {
         });
     }
 
+    fileChange(e) {
+        this.setState({ image: e.target.files[0] });
+        console.log(e.target.files[0]);
+    }
+
     cargarDatos(id) {
         fetch(`/usuarios/ver_usuario/${id}`).then(
             res => {
@@ -33,7 +42,9 @@ export default class Cuenta extends Component {
                     this.setState({
                         email: data.usuario.email,
                         name: data.usuario.name,
-                        nameFijo: data.usuario.name
+                        nameFijo: data.usuario.name,
+                        image: data.usuario.image,
+                        imageFija: data.usuario.image
                     });
                 });
             }
@@ -48,7 +59,7 @@ export default class Cuenta extends Component {
             name: this.state.name
         }
 
-        fetch(`/usuarios/editar_usuario/${this.props.usuario}` , {
+        fetch(`/usuarios/editar_usuario/${this.props.usuario}`, {
             method: 'PUT', // or 'PUT'
             body: JSON.stringify(datosNuevos), // data can be `string` or {object}!
             headers: {
@@ -57,28 +68,68 @@ export default class Cuenta extends Component {
             }
         }).then(res => {
             if (res.status == 200) {
-                const Toast = Swal.mixin({
-                    toast: true,
-                    position: 'top-end',
-                    showConfirmButton: false,
-                    timer: 3000,
-                    timerProgressBar: true,
-                    didOpen: (toast) => {
-                        toast.addEventListener('mouseenter', Swal.stopTimer)
-                        toast.addEventListener('mouseleave', Swal.resumeTimer)
-                    }
-                })
+                if (
+                    this.state.image != null &&
+                    this.state.image != undefined &&
+                    this.state.image != ""
+                ) {
+                    const formData = new FormData();
 
-                Toast.fire({
-                    icon: 'success',
-                    title: `¡Datos actualizados correctamente!`
-                })
-            } else {
-                Swal.fire(
-                    'Hubo un problema',
-                    'Intenta de nuevo',
-                    'warning'
-                );
+                    const image = this.state.image;
+                    const name = this.state.image.name;
+
+                    formData.append("image", image, name);
+
+                    axios
+                        .put("usuarios/cargar_imagen/" + this.props.usuario, formData)
+                        .then((res) => {
+                            if (res.data.usuarioActualizado) {
+                                this.cargarDatos(this.props.usuario);
+                                const Toast = Swal.mixin({
+                                    toast: true,
+                                    position: 'top-end',
+                                    showConfirmButton: false,
+                                    timer: 3000,
+                                    timerProgressBar: true,
+                                    didOpen: (toast) => {
+                                        toast.addEventListener('mouseenter', Swal.stopTimer)
+                                        toast.addEventListener('mouseleave', Swal.resumeTimer)
+                                    }
+                                })
+
+                                Toast.fire({
+                                    icon: 'success',
+                                    title: `¡Datos e imagen actualizados correctamente!`
+                                })
+                            } else {
+                                Swal.fire(
+                                    'Hubo un problema',
+                                    'Intenta de nuevo',
+                                    'warning'
+                                );
+                            }
+                        })
+                        .catch((err) => {
+                            console.log(err);
+                        });
+                } else {
+                    const Toast = Swal.mixin({
+                        toast: true,
+                        position: 'top-end',
+                        showConfirmButton: false,
+                        timer: 3000,
+                        timerProgressBar: true,
+                        didOpen: (toast) => {
+                            toast.addEventListener('mouseenter', Swal.stopTimer)
+                            toast.addEventListener('mouseleave', Swal.resumeTimer)
+                        }
+                    })
+
+                    Toast.fire({
+                        icon: 'success',
+                        title: `¡Datos actualizados correctamente!`
+                    })
+                }
             }
         }).catch(error => console.error('Error:', error));
         this.cargarDatos(this.props.usuario);
@@ -89,14 +140,15 @@ export default class Cuenta extends Component {
     }
 
     render() {
+        const userImage = (this.state.image) ?
+            <img className="img-user-e" src={`usuarios/sacar_imagen/${this.state.imageFija}`} alt="usuario" /> :
+            <img className="img-user-e" src={imagenes.usuario} alt="usuario" />
+
         return (
             <div className="container">
                 <div className="d-flex flex-column align-items-center">
                     <div className="img-edit">
-                        <img className="img-user-e" src={imagenes.userMale} alt="usuario" />
-                        <div className="edit d-flex align-items-center justify-content-center">
-                            <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
-                        </div>
+                        {userImage}
                     </div>
                     <div className="datos-user-e mt-3">
                         <p className="nombre-user-e">{this.state.nameFijo}</p>
@@ -113,6 +165,12 @@ export default class Cuenta extends Component {
                         <div class="form-group col-md-5">
                             <label for="inputEmail4">Usuario</label>
                             <input type="text" class="form-control" name="name" value={this.state.name} onChange={this.manejador} />
+                        </div>
+                    </div>
+                    <div class="form-row d-flex justify-content-around">
+                        <div class="form-group col-md-5">
+                            <label for="inputEmail4">Imagen de usuario:</label>
+                            <input type="file" class="form-control" name="img-user" onChange={this.fileChange} />
                         </div>
                     </div>
                     <div className="d-flex justify-content-center mt-3">

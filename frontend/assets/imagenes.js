@@ -8,13 +8,11 @@ import bubbles from './images/bubbles.png';
 import menu from './images/menu-rounded-solid.png';
 import close from './images/close.png';
 import alarma from './images/alarma.jpg';
-import usuario from './images/usuario.png';
+import usuario from './images/user.jpg';
 import girl from './images/girl-flat.png';
 import cerradura from './images/cerradura.jpg';
 import alimentador from './images/alimentador.jpg'
-import userMale from './images/user-male.png'
-import userGirl from './images/user-girl.png'
-import userGif from './images/user.gif'
+import userGif from './images/user.gif';
 
 export default {
     "logo": logo,
@@ -31,7 +29,5 @@ export default {
     "cerradura": cerradura,
     "alarma": alarma,
     "alimentador": alimentador,
-    "userMale": userMale,
-    "userGirl": userGirl,
     "userGif": userGif
 }

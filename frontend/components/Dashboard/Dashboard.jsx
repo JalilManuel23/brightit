@@ -9,15 +9,44 @@ import './Dashboard.css'
 import Welcome from './Welcome/Welcome';
 
 export default class Dashboard extends Component {
+    constructor() {
+        super();
+        this.state = {
+            name: '',
+            image: null
+        }
+        this.cargarDatosUsuario = this.cargarDatosUsuario.bind(this);
+    }
+
+    componentDidMount() {
+        this.cargarDatosUsuario(this.props.usuario);
+    }
+
+    cargarDatosUsuario(id) {
+        fetch(`/usuarios/ver_usuario/${id}`).then(
+            res => {
+                res.json().then((data) => {
+                    this.setState({
+                        name: data.usuario.name,
+                        image: data.usuario.image
+                    });
+                });
+            }
+        )
+    }
+
     render() {
+        const userImage = (this.state.image) ?
+            <img className="p-3 user-image" alt="Usuario" src={`usuarios/sacar_imagen/${this.state.image}`} alt="usuario" /> :
+            <img className="col-3 col-md-7 p-3 user-image" alt="Usuario" src={imagenes.usuario} alt="usuario" />
         return (
             <div className="fondo">
                 <div className="container">
                     <div className="row d-flex justify-content-md-between">
                         <div className="container-info-user col-12 col-md-3">
                             <div className="info-user col-12 d-flex flex-column align-items-center p-2">
-                                <img src={imagenes.userMale} className="col-3 col-md-7 p-3" alt="Usuario" />
-                                <p>¡Bienvenido {this.props.usuario}!</p>
+                                {userImage}
+                                <p>¡Bienvenido {this.state.name}!</p>
                                 <div className="col-12 dispositivos d-flex flex-column align-items-center justify-content-between">
                                     <p>Mis dispositivos</p>
                                     <div className="d-flex flex-wrap justify-content-between">

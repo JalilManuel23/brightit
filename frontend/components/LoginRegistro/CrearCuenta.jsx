@@ -29,9 +29,8 @@ export default class CrearCuenta extends Component {
         });
     }
 
-    agregarUsuario(e) {
+    async agregarUsuario(e) {
         e.preventDefault();
-
         fetch('/usuarios/crear_cuenta', {
             method: 'POST', // or 'PUT'
             body: JSON.stringify(this.state), // data can be `string` or {object}!
@@ -63,20 +62,22 @@ export default class CrearCuenta extends Component {
             .catch(error => console.error('Error:', error))
     }
 
+
     render() {
-        if(this.state.redirect) {
-            return <Redirect to = { this.state.redirect } />
+        if (this.state.redirect) {
+            return <Redirect to={this.state.redirect} />
         }
 
         return (
             <div className="contenedor-login d-flex justify-content-center align-items-center">
                 <form className="form form-login form-reg d-flex flex-column align-items-center" onSubmit={this.agregarUsuario}>
-                    <img src={ imagenes.logo }></img>
+                    <img src={imagenes.logo}></img>
                     <p>Ingresa tus datos para crear una cuenta</p>
                     <input name="name" type="text" placeholder="Usuario" value={this.state.user} onChange={this.manejador}></input>
                     <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.manejador}></input>
                     <input name="password" type="password" placeholder="Contraseña" value={this.state.password} onChange={this.manejador}></input>
                     <input name="confirm-pass" type="password" placeholder="Confirmar contraseña"></input>
+                    <input name="image" type="file" placeholder="Imagen" onChange={this.fileChange}></input>
                     <input type="submit" className="btn btn-primary m-3" value="Crear Cuenta"></input>
                 </form>
             </div>

@@ -1,5 +1,7 @@
 .img-user-e {
-    max-width: 20vmin;
+    width: 20vmin;
+    height: 20vmin;
+    border-radius: 50%;
 }
 
 .nombre-user-e {
