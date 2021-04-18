@@ -46,7 +46,7 @@
         display: none;
     }
 
-    form {
+    .form {
         border-radius: 0 0 3rem 3rem;
         padding: 3rem;
     }

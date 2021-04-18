@@ -29,3 +29,10 @@
 .form-reg {
     padding-bottom: 5vmin;
 }
+
+
+@media screen and (max-width: 500px) {
+    p, input {
+        font-size: 4vmin;
+    }
+}
