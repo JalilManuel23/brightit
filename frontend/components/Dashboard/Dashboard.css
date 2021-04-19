@@ -12,8 +12,8 @@
 
 .user-image {
     border-radius: 50%;
-    width: 15vmin;
-    height: 15vmin;
+    width: 17vmin;
+    height: 17vmin;
 }
 
 .data-card {
@@ -152,5 +152,26 @@
 
     .cerradura {
         margin-top: 2vmin;
+    }
+    
+    .user-image {
+        width: 40vmin;
+        height: 40vmin;
+    }
+
+    .nombre-disp, .frase {
+        font-size: 4vmin;
+    }
+
+    .titulo-welcome {
+        font-size: 9vmin;
+    }
+
+    .icono-temperatura {
+        font-size: 7vmin;
+    }
+
+    .alimen, .cerradura, .alarma, .welcome {
+        padding: 3vmin;
     }
 }
