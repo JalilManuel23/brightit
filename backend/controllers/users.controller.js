@@ -3,7 +3,7 @@ const usersCtrl = {};
 const User = require('../models/User');
 var validacion = require('validator');
 const passport = require('passport');
-
+var nodemailer = require('nodemailer');
 var fs = require('fs'); //trabajar con archivos o gestionar los files
 var path = require('path'); //trabajar con la ruta de los archivos
 
@@ -322,6 +322,50 @@ usersCtrl.sacarImagen = (req, res) => {
                 status: 'error',
                 mensaje: 'Error la imagen no existe en la ruta especificada'
             })
+        }
+    });
+}
+
+usersCtrl.enviarMail = (req, res) => {
+    var params = req.body;
+
+    var nombre = params.nombre;
+    var email = params.email;
+    var mensaje = params.mensaje;
+
+    console.log(nombre);
+    console.log(email);
+    console.log(mensaje);
+
+    var transporter = nodemailer.createTransport({
+        host: 'smtp.gmail.com ',
+        port: 465,
+        service: 'gmail',
+        auth: {
+            user: 'bright.it.utd@gmail.com',
+            pass: 'brightit'
+        }
+    });
+
+
+    var mailOptions = {
+        from: email,
+        to: 'bright.it.utd@gmail.com',
+        subject: `Mensaje de ${email}`,
+        text: `${nombre} ha enviado: ${mensaje}`
+    };
+
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            return res.status(404).send({
+                status: 'error',
+                mensaje: 'Error al enviar correo'
+            });
+        } else {
+            return res.status(200).send({
+                status: 'exitosa',
+                info: info.response
+            });
         }
     });
 }
