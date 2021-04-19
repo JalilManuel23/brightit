@@ -38,7 +38,7 @@ table {
     }
 
     .dc-prototipo {
-        font-size: 4vmin;
+        font-size: 8vmin;
     }
 }
 
@@ -55,3 +55,17 @@ table {
     margin-right: 2vmin;
 }
 
+@media (max-width: 576px) {
+    .data-card {
+        padding: 6vmin;
+    }
+
+    .icono-prototipo {
+        font-size: 15vmin;
+        margin-right: 6vmin;
+    }
+
+    .btn-servir {
+        font-size: 10vmin;
+    }
+}

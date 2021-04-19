@@ -64,7 +64,7 @@ export default class Alarma extends Component {
                             </div>
                         </div>
                         <div className="data-card d-flex align-items-center col-11 col-md-3">
-                            <div className="dc-prototipo d-flex flex-column align-items-center">
+                            <div className="dc-prototipo d-flex flex-md-column align-items-center">
                                 <p>Encender/Apagar</p>
                                 <button className="btn btn-primary btn-servir">Activar</button>
                             </div>
