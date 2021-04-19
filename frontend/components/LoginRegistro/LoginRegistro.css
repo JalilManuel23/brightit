@@ -35,4 +35,8 @@
     p, input {
         font-size: 4vmin;
     }
+
+    .form-login {
+        width: 95%;
+    }
 }

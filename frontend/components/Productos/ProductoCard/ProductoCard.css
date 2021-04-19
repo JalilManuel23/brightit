@@ -47,12 +47,13 @@
 
 @media screen and (max-width: 500px) {
     .nombre-producto {
-        font-size: 4vmin;
+        font-size: 6vmin;
         padding: 3vmin;
     }
 
     .descripcion-producto {
-        font-size: 3vmin;
+        font-size: 4vmin;
+        text-align: center;
     }
 
     .tarjeta-producto {
@@ -62,5 +63,13 @@
     .link-producto img {
         /* width: 100%; */
         height: 80vmin;
+    }
+
+    .precio-producto {
+        font-size: 6vmin;
+    }
+
+    .btn-carrito {
+        font-size: 6vmin;
     }
 }

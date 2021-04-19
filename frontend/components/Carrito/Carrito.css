@@ -50,3 +50,19 @@
 .producto-carrito img {
     max-width: 8vmin;
 }
+
+@media (max-width: 500px) {
+    .carrito-icono {
+        width: 20vmin;
+        height: 20vmin;
+        margin-bottom: 4vmin;
+    }
+
+    .sub {
+        font-size: 6vmin;
+    }
+
+    .producto-carrito img {
+        width: 20rem;
+    }
+}

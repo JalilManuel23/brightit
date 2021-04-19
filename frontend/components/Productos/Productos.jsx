@@ -10,7 +10,7 @@ export default class Productos extends Component {
                 <div className="banner">
                     <div className="container d-flex flex-column justify-content-between align-items-center cont-banner">          
                         <h2 className="titulo">Productos</h2>
-                        <p>Los mejores productos que se adaptan a tus necesidades</p>              
+                        <p className="subt">Los mejores productos que se adaptan a tus necesidades</p>              
                     </div>
                 </div>
 
