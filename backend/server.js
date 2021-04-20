@@ -39,6 +39,7 @@ app.use(require('./routes/alarma.routes'));
 app.use(require('./routes/cerradura.routes'));
 app.use(require('./routes/empleados.routes'));
 app.use(require('./routes/compra.routes'));
+app.use(require('./routes/producto.routes'));
 
 // Static Files
 app.use(express.static(path.join(__dirname,'public')));

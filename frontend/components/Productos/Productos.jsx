@@ -1,10 +1,36 @@
 import React, { Component } from 'react'
 import './Productos.css'
-import productos from '../../sample/productos';
 import ProductoCard from './ProductoCard/ProductoCard';
 
 export default class Productos extends Component {
+    constructor() {
+        super();
+
+        this.state = {
+            productos: []
+        }
+
+        this.cargarProductos = this.cargarProductos.bind(this);
+    }
+
+    cargarProductos() {
+        fetch('/productos/obtener_datos').then(
+            res => {
+                res.json().then((data) => {
+                    this.setState({productos: data.registros});
+                });
+            }
+        );
+    }
+
+    componentDidMount() {
+        this.cargarProductos();
+    }
+
     render() {
+
+        let productos = this.state.productos;
+        
         return (
             <div>
                 <div className="banner">

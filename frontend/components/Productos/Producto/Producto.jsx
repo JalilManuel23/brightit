@@ -1,5 +1,5 @@
 import './Producto.css'
-import productos from '../../../sample/productos';
+// import productos from '../../../sample/productos';
 import Swal from 'sweetalert2'
 import { Link, Redirect } from "react-router-dom";
 import React, { Component } from 'react'
@@ -11,12 +11,28 @@ export default class Producto extends Component {
         super();
 
         this.state = {
-            redirect: null
+            redirect: null,
+            productos: []
         }
 
         this.agregarProducto = this.agregarProducto.bind(this);
+        this.cargarProductos = this.cargarProductos.bind(this);
     }
-    
+
+    cargarProductos() {
+        fetch('/productos/obtener_datos').then(
+            res => {
+                res.json().then((data) => {
+                    this.setState({productos: data.registros});
+                });
+            }
+        );
+    }
+
+    componentDidMount() {
+        this.cargarProductos();
+    }
+
     agregarProducto = (id, precio, redirect) => {
         this.props.handleCarrito(id);
         this.props.sumarSubtotal(precio);
@@ -45,6 +61,8 @@ export default class Producto extends Component {
             return <Redirect to={this.state.redirect} />
         }
 
+        let productos = this.state.productos;
+        console.log(productos);
         return (
             <div>
                 {
@@ -52,7 +70,7 @@ export default class Producto extends Component {
                         if (producto.id == this.props.match.params.id) {
                             return (
                                 <div className="container contenedor-producto d-flex flex-column flex-md-row justify-content-around align-items-center">
-                                    <img src={producto.imagen} />
+                                    <img src={`/producto/sacar_imagen/${producto.imagen}`} />
                                     <div className="caracteristicas">
                                         <p className="nombre-producto">{producto.nombre}</p>
                                         <p className="descripcion-producto"> {producto.descripcion}</p>

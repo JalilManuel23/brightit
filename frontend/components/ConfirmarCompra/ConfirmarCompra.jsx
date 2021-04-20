@@ -6,18 +6,32 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons"
 import Swal from 'sweetalert2'
 import Boton from '../Boton/Boton';
 
-import productos from '../../sample/productos';
-
 export default class ConfirmarCompra extends Component {
     constructor() {
         super();
 
         this.state = {
-            redirect: null
+            redirect: null,
+            productos: []
         };
 
         this.eliminarProducto = this.eliminarProducto.bind(this);
         this.confirmarCompra = this.confirmarCompra.bind(this);
+        this.cargarProductos = this.cargarProductos.bind(this);
+    }
+
+    cargarProductos() {
+        fetch('/productos/obtener_datos').then(
+            res => {
+                res.json().then((data) => {
+                    this.setState({productos: data.registros});
+                });
+            }
+        );
+    }
+
+    componentDidMount() {
+        this.cargarProductos();
     }
 
     eliminarProducto(idProducto, precio) {
@@ -108,6 +122,7 @@ export default class ConfirmarCompra extends Component {
                 return <Redirect to={this.state.redirect} />
             }
             
+            let productos = this.state.productos;
             return (
                 <div className="confirmar-compra container d-flex col-12 flex-column align-items-center">
                     <h2>Carrito de compras</h2>
@@ -119,7 +134,7 @@ export default class ConfirmarCompra extends Component {
                                         return (
                                             <div className="d-flex flex-column flex-md-row align-items-center pagar">
                                                 <Link key={productoAgregado.idProducto} to={`/producto/${producto.id}`} className="producto-pagar d-flex col-12 flex-column justify-content-between align-items-center flex-md-row">
-                                                    <img className="col-5 col-md-2" src={producto.imagen}></img>
+                                                    <img className="col-5 col-md-2" src={`/producto/sacar_imagen/${producto.imagen}`}></img>
                                                     <div className="d-flex flex-column align-items-center">
                                                         <p className="nombre-producto">{producto.nombre}</p>
                                                         <p>{producto.descripcion}</p>

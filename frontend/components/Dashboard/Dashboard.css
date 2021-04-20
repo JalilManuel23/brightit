@@ -174,4 +174,12 @@
     .alimen, .cerradura, .alarma, .welcome {
         padding: 3vmin;
     }
+
+    .icono-disp {
+        font-size: 8vmin;
+    }
+
+    .dato-disp {
+        font-size: 5vmin;
+    }
 }

@@ -9,14 +9,6 @@ export default class ProductoCard extends Component {
     constructor() {
         super();
         this.agregarProducto = this.agregarProducto.bind(this);
-        this.manejador = this.manejador.bind(this);
-    }
-
-    manejador(e) {
-        const { name, value } = e.target;
-        this.setState({
-            [name]: value
-        });
     }
 
     agregarProducto(id, precio) {
@@ -44,7 +36,7 @@ export default class ProductoCard extends Component {
         return (
             <div className="d-flex flex-column align-items-center tarjeta-producto col-12 col-md-3">
                 <Link className="link-producto col-12 d-flex flex-column align-items-center" to={`/producto/${this.props.id}`}>
-                    <img src={this.props.imagen}></img>
+                    <img src={`producto/sacar_imagen/${this.props.imagen}`}></img>
                     <div className="datos col-12 d-flex flex-column align-items-center align-items-md-start">
                         <p className="nombre-producto">{this.props.nombre}</p>
                         <p className="descripcion-producto">{this.props.descripcion}</p>

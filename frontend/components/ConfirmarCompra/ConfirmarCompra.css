@@ -29,3 +29,9 @@
 h4 {
     padding: 5vmin;
 }
+
+@media (max-width: 576px) {
+    .quitar { 
+        font-size: 4vmin;
+    }
+}

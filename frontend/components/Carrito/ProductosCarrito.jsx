@@ -5,12 +5,32 @@ import './Carrito.css';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from 'sweetalert2';
-import productos from '../../sample/productos';
+// import productos from '../../sample/productos';
 
 export default class ProductosCarrito extends Component {
     constructor() {
         super();
+
+        this.state = {
+            productos: []
+        }
+
         this.eliminarProducto = this.eliminarProducto.bind(this);
+        this.cargarProductos = this.cargarProductos.bind(this);
+    }
+
+    componentDidMount() {
+        this.cargarProductos();
+    }
+
+    cargarProductos() {
+        fetch('/productos/obtener_datos').then(
+            res => {
+                res.json().then((data) => {
+                    this.setState({productos: data.registros});
+                });
+            }
+        );
     }
 
     eliminarProducto(idProducto, precio) {
@@ -42,6 +62,7 @@ export default class ProductosCarrito extends Component {
                 </div>
             )
         } else {
+            let productos = this.state.productos;
             return (
                 <div className="productos d-flex flex-column align-items-center">
                     <p className="sub">Subtotal:</p>
@@ -54,7 +75,7 @@ export default class ProductosCarrito extends Component {
                                         return (
                                             <div key={productoAgregado.idProducto} className="producto-carrito d-flex justify-content-around align-items-center">
                                                 <Link to={`/producto/${producto.id}`}>
-                                                    <img src={producto.imagen}></img>
+                                                    <img src={`/producto/sacar_imagen/${producto.imagen}`}></img>
                                                 </Link>
                                                 <a onClick={() => this.eliminarProducto(productoAgregado.idProducto, producto.precio)}>
                                                     <FontAwesomeIcon className="quitar" icon={ faTrash } />
