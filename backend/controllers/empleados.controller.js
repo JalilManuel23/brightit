@@ -78,6 +78,31 @@ ctrlEmpleados.verRegistro = (req, res) => {
     });
 }
 
+ctrlEmpleados.buscarCodigo = (req, res) => {
+    var pinEmpleado = req.params.pinEmpleado;
+
+    if (!pinEmpleado || pinEmpleado == null) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'No se ingreso ID de registro a buscar'
+        });
+    }
+
+    Empleado.findOne(({"pinEmpleado": pinEmpleado}), (err, registro) => {
+        if (err || !registro) {
+            return res.status(404).send({
+                status: 'Error: ',
+                mensaje: 'No existe el registro a buscar en la colección'
+            })
+        }
+
+        return res.status(200).send({
+            status: 'Busqueda del registro de forma exitosa',
+            registro
+        })
+    });
+}
+
 ctrlEmpleados.editarRegistro = (req, res) => {
     var id = req.params.id;
 

@@ -172,30 +172,6 @@ registrosCerradura.agregarRegistro = async (req, res) => {
 //     });
 // }
 
-// registrosCerradura.verRegistro = (req, res) => {
-//     var id = req.params.id;
-
-//     if (!id || id == null) {
-//         return res.status(404).send({
-//             status: 'Error',
-//             mensaje: 'No se ingreso ID de registro a buscar'
-//         });
-//     }
-
-//     RegistroCerradura.findById(id, (err, registro) => {
-//         if (err || !registro) {
-//             return res.status(404).send({
-//                 status: 'Error: ',
-//                 mensaje: 'No existe el registro a buscar en la colección'
-//             })
-//         }
-
-//         return res.status(200).send({
-//             status: 'Busqueda del registro de forma exitosa',
-//             registro
-//         })
-//     });
-// }
 
 // registrosCerradura.editarRegistro = (req, res) => {
 //     var id = req.params.id;
