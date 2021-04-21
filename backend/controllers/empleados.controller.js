@@ -83,7 +83,7 @@ ctrlEmpleados.buscarCodigo = (req, res) => {
 
     if (!pinEmpleado || pinEmpleado == null) {
         return res.status(404).send({
-            status: 'Error',
+            status: 'error',
             mensaje: 'No se ingreso ID de registro a buscar'
         });
     }
@@ -91,13 +91,13 @@ ctrlEmpleados.buscarCodigo = (req, res) => {
     Empleado.findOne(({"pinEmpleado": pinEmpleado}), (err, registro) => {
         if (err || !registro) {
             return res.status(404).send({
-                status: 'Error: ',
+                status: 'error',
                 mensaje: 'No existe el registro a buscar en la colección'
             })
         }
 
         return res.status(200).send({
-            status: 'Busqueda del registro de forma exitosa',
+            status: 'exitosa',
             registro
         })
     });

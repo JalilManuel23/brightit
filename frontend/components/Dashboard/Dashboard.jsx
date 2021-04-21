@@ -110,30 +110,52 @@ export default class Dashboard extends Component {
                                 (this.state.alarma || this.state.cerradura || this.state.alimentador) ?
                                     <div className="datos-disp d-flex flex-column flex-md-row justify-content-md-between">
                                         <div className="d-flex flex-column alimen-cerradura justify-content-between">
-                                            <div className="alimen">
-                                                <div className="icono-disp">
-                                                    <FontAwesomeIcon icon={faPaw} ></FontAwesomeIcon>
-                                                </div>
-                                                <div className="dato-cantidad">
-                                                    <p>Porciones de alimento</p>
-                                                    <p className="dato-disp">10</p>
-                                                </div>
-                                            </div>
-                                            <div className="cerradura">
-                                                <div className="icono-disp">
-                                                    <FontAwesomeIcon icon={faThermometerEmpty} ></FontAwesomeIcon>
-                                                </div>
-                                                <div className="dato-cantidad">
-                                                    <p>Temperatura cuarto frio</p>
-                                                    <p className="dato-disp">15°c</p>
-                                                </div>
-                                            </div>
+                                            {
+                                                (this.state.alimentador) ?
+                                                    <div className="alimen">
+                                                        <div className="icono-disp">
+                                                            <FontAwesomeIcon icon={faPaw} ></FontAwesomeIcon>
+                                                        </div>
+                                                        <div className="dato-cantidad">
+                                                            <p>Porciones de alimento</p>
+                                                            <p className="dato-disp">10</p>
+                                                        </div>
+                                                    </div> :
+                                                    <div className="alimen d-flex flex-column align-items-center">
+                                                        <p className="no-comprado">No cuentas con este dispositivo ):</p>
+                                                        <Link to="/producto/2" className="btn btn-light">Comprar Alimentador</Link>
+                                                    </div>
+                                            }
+                                            {
+                                                (this.state.cerradura) ?
+                                                    <div className="cerradura">
+                                                        <div className="icono-disp">
+                                                            <FontAwesomeIcon icon={faThermometerEmpty} ></FontAwesomeIcon>
+                                                        </div>
+                                                        <div className="dato-cantidad">
+                                                            <p>Temperatura cuarto frio</p>
+                                                            <p className="dato-disp">15°c</p>
+                                                        </div>
+                                                    </div> :
+                                                    <div className="cerradura d-flex flex-column align-items-center">
+                                                        <p className="no-comprado">No cuentas con este dispositivo ):</p>
+                                                        <Link to="/producto/1" className="btn btn-light">Comprar Cerradura</Link>
+                                                    </div>
+                                            }
                                         </div>
                                         <div className="alarma d-flex flex-row align-items-center justify-content-around flex-md-column alig-items-md-center justify-content-md-around">
-                                            <CerraduraChart />
+                                            {
+                                                (this.state.alarma) ?
+                                                    <CerraduraChart />
+                                                    :
+                                                    <div className="alimen d-flex flex-column align-items-center">
+                                                        <p className="no-comprado">No cuentas con este dispositivo ):</p>
+                                                        <Link to="/producto/0" className="btn btn-light">Comprar Alarma</Link>
+                                                    </div>
+                                            }
                                         </div>
                                     </div>
-                                :
+                                    :
                                     <div className="d-flex flex-column align-items-center">
                                         <h4>¡No tienes ningún dispositivo vinculado!</h4>
                                         <Link to="/productos" className="btn btn-primary">Comprar</Link>

@@ -96,7 +96,7 @@
 .alimen, .cerradura, .alarma, .welcome {
     background: #FFF;
     border-radius: 4vmin;
-    padding: 1.5vmin;
+    padding: 3vmin;
     z-index: 0;
 }
 
@@ -111,6 +111,7 @@
 
 .alimen-cerradura, .alarma {
     width: 47%;
+    margin-top: 4vmin;
 }
 
 
@@ -142,6 +143,15 @@
 .icono-temperatura {
     font-size: 5vmin;
     margin: 3vmin;
+}
+
+.no-comprado {
+    font-size: 2vmin;
+}
+
+.cerradura {
+    margin-top: 2vmin;
+    margin-bottom: 4vmin;
 }
 
 @media (max-width: 576px) {

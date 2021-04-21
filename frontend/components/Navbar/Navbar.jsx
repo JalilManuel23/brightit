@@ -51,7 +51,7 @@ function Navbar(props) {
         <nav className={navbar ? 'navbar sticky-top navbar-expand-lg navbar-light p-3 activo' : 'navbar sticky-top navbar-expand-lg navbar-light p-3'}>
             <div className="container">
                 <Link className="navbar-brand" to="/">
-                    <img src={ imagenes.logo } className="logo-menu"></img>
+                    <img src={imagenes.logo} className="logo-menu"></img>
                 </Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -60,7 +60,7 @@ function Navbar(props) {
                     <ul className="navbar-nav ml-auto">
                         {props.dash ?
                             <li className="nav-item">
-                                <Link className="nav-link" to='/dashboard'><FontAwesomeIcon icon={ faHome } /></Link>
+                                <Link className="nav-link" to='/dashboard'><FontAwesomeIcon icon={faHome} /></Link>
                             </li>
                             : ''
                         }

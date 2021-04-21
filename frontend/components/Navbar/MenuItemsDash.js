@@ -1,14 +1,10 @@
 export const MenuItemsDash = [
     {
-        "titulo": "Alarma",
-        "ruta": "/dashboard/alarma",
+        "titulo": "Comprar",
+        "ruta": "/productos",
     },
     {
-        "titulo": "Alimentador",
-        "ruta": "/dashboard/alimentador",
-    },
-    {
-        "titulo": "Cerradura",
-        "ruta": "/dashboard/cerradura",
+        "titulo": "Administrar",
+        "ruta": "/dashboard",
     }
 ]
