@@ -26,6 +26,8 @@
     border-radius: 2vmin;
     margin-bottom: 2vmin;
     box-shadow: var(--sombra);
+    max-height: 60vh;
+    overflow-y: auto;
 }
 
 .sub {
@@ -48,7 +50,7 @@
 }
 
 .producto-carrito img {
-    max-width: 8vmin;
+    max-width: 12vmin;
 }
 
 @media (max-width: 500px) {
