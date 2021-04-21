@@ -224,6 +224,40 @@ usersCtrl.entrar = function (req, res, next) {
     })(req, res, next);
 }
 
+
+usersCtrl.agregarProducto = (req, res) => {
+    var id = req.params.id;
+
+    var params = req.body;
+    console.log(params);
+    User.findOneAndUpdate({
+        _id: id
+    }, params, {
+        new: true
+    }, (err, usuarioActualizado) => {
+
+        if (err) {
+            return res.status(404).send({
+                status: 'Error',
+                mensaje: 'Error al actualizar'
+            })
+        }
+
+        if (!usuarioActualizado) {
+            return res.status(404).send({
+                status: 'Error',
+                mensaje: 'No existe el usuario a actualizar'
+            })
+        }
+
+        return res.status(200).send({
+            status: 'Usuario Actualizado con éxito',
+            usuarioActualizado
+        })
+    });
+
+}
+
 usersCtrl.verificarLogged = (req, res) => {
     if (req.isAuthenticated()) {
         next();

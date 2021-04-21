@@ -19,7 +19,8 @@ const {
     cargarDatos,
     subirFoto,
     sacarImagen,
-    enviarMail
+    enviarMail,
+    agregarProducto
 } = require('../controllers/users.controller');
 
 router.post('/usuarios/crear_cuenta', agregarUsuario);
@@ -28,6 +29,7 @@ router.get('/usuarios/ver_usuario/:id', verUsuario);
 router.put('/usuarios/editar_usuario/:id', editarUsuario);
 router.delete('/usuarios/eliminar_usuario/:id', eliminarUsuario);
 router.post('/send_email', enviarMail);
+router.put('/usuario/agregar_producto/:id', agregarProducto);
 
 router.put('/usuarios/cargar_imagen/:id?', mdUpload, subirFoto);
 router.get('/usuarios/sacar_imagen/:image?', sacarImagen);

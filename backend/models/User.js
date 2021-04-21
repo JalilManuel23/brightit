@@ -5,7 +5,10 @@ const UserSchema = new Schema({
     name: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     password: {type: String, required: true},
-    image: String
+    image: String,
+    alarma: {type:Boolean, default: false},
+    cerradura: {type:Boolean, default: false},
+    alimentador: {type:Boolean, default: false}
 }, {
     timestamps: true
 });

@@ -17,6 +17,7 @@ export default class ConfirmarCompra extends Component {
 
         this.eliminarProducto = this.eliminarProducto.bind(this);
         this.confirmarCompra = this.confirmarCompra.bind(this);
+        this.guardarCompra = this.guardarCompra.bind(this);
         this.cargarProductos = this.cargarProductos.bind(this);
     }
 
@@ -24,7 +25,7 @@ export default class ConfirmarCompra extends Component {
         fetch('/productos/obtener_datos').then(
             res => {
                 res.json().then((data) => {
-                    this.setState({productos: data.registros});
+                    this.setState({ productos: data.registros });
                 });
             }
         );
@@ -54,7 +55,7 @@ export default class ConfirmarCompra extends Component {
             title: `Producto eliminado del carrito`
         })
     }
-    
+
     confirmarCompra() {
         fetch('/usuarios/is_logged', {
             method: 'GET',
@@ -89,7 +90,8 @@ export default class ConfirmarCompra extends Component {
                     }
                 ]).then((result) => {
                     if (result.value) {
-                        const answers = JSON.stringify(result.value)
+                        const answers = JSON.stringify(result.value);
+                        this.guardarCompra();
                         Swal.fire({
                             title: '¡Tu compra ha sido realizada con éxito!',
                             confirmButtonText: 'Comprar!'
@@ -103,13 +105,51 @@ export default class ConfirmarCompra extends Component {
                     'Por favor, para realizar esta compra entra a tu cuenta',
                     'info'
                 );
-                this.setState({redirect: '/login'});
+                this.setState({ redirect: '/login' });
             }
         })
     }
 
+    guardarCompra() {
+        this.state.productos.map(producto => {
+            this.props.productosCarrito.map(productoAgregado => {
+                if (producto.id == productoAgregado.id) {
+
+                    let objeto = {};
+
+                    if (producto._id == "607e27d208ba4f52404c4bed") {
+                        objeto.alarma = true;
+                    }
+
+                    if (producto._id == "607e27fd08ba4f52404c4bee") {
+                        objeto.cerradura = true;
+                    }
+
+                    if (producto._id == "607e281808ba4f52404c4bef") {
+                        objeto.alimentador = true;
+                    }
+
+                    fetch(`/usuario/agregar_producto/${this.props.usuario}`, {
+                        method: 'PUT', // or 'PUT'
+                        body: JSON.stringify(objeto), // data can be `string` or {object}!
+                        headers: {
+                            'Accept': 'application/json',
+                            'Content-Type': 'application/json'
+                        }
+                    }).then(res => {
+                        res.json().then(data => {
+                            if (data.usuarioActualizado) {
+                                this.setState({ redirect: '/dashboard' });
+                            }
+                        })
+                    });
+                }
+            })
+        });
+    }
+
     render() {
-        if(this.props.productosCarrito.length == 0) {
+        if (this.props.productosCarrito.length == 0) {
             return (
                 <div className="d-flex flex-column align-items-center justify-content-center pagar-vacio">
                     <h2>Carrito de compras</h2>
@@ -121,7 +161,7 @@ export default class ConfirmarCompra extends Component {
             if (this.state.redirect) {
                 return <Redirect to={this.state.redirect} />
             }
-            
+
             let productos = this.state.productos;
             return (
                 <div className="confirmar-compra container d-flex col-12 flex-column align-items-center">

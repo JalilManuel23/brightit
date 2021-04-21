@@ -176,7 +176,7 @@ class App extends Component {
           return <div>
             <Navbar handleLogged={this.handleLogged} logged={this.state.logged} usuario={this.state.usuario} />
             <ConfirmarCompra productosCarrito={this.state.carrito} eliminarProducto={this.eliminarProducto}
-              subtotal={this.state.subtotal} />
+              subtotal={this.state.subtotal}  usuario={this.state.idUsuario} />
             <Footer/>
           </div>
         }}>

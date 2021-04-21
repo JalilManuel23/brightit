@@ -13,7 +13,10 @@ export default class Dashboard extends Component {
         super();
         this.state = {
             name: '',
-            image: null
+            image: null,
+            alarma: false,
+            cerradura: false,
+            alimentador: false
         }
         this.cargarDatosUsuario = this.cargarDatosUsuario.bind(this);
     }
@@ -28,7 +31,10 @@ export default class Dashboard extends Component {
                 res.json().then((data) => {
                     this.setState({
                         name: data.usuario.name,
-                        image: data.usuario.image
+                        image: data.usuario.image,
+                        alarma: data.usuario.alarma,
+                        alimentador: data.usuario.alimentador,
+                        cerradura: data.usuario.cerradura
                     });
                 });
             }
@@ -38,7 +44,43 @@ export default class Dashboard extends Component {
     render() {
         const userImage = (this.state.image) ?
             <img className="p-3 user-image" alt="Usuario" src={`usuarios/sacar_imagen/${this.state.image}`} alt="usuario" /> :
-            <img className="col-3 col-md-7 p-3 user-image" alt="Usuario" src={imagenes.usuario} alt="usuario" />
+            <img className="col-3 col-md-7 p-3 user-image" alt="Usuario" src={imagenes.usuario} alt="usuario" />;
+
+        let iconos = [];
+
+        if (this.state.alarma) {
+            iconos.push(
+                <Link to='/dashboard/alarma' className="li-dis d-flex flex-column align-items-center">
+                    <div className="disp rosa">
+                        <FontAwesomeIcon icon={faClock} ></FontAwesomeIcon>
+                    </div>
+                    <p className="nombre-disp">Alarma</p>
+                </Link>
+            );
+        }
+
+        if (this.state.cerradura) {
+            iconos.push(
+                <Link to='/dashboard/cerradura' className="li-dis  d-flex flex-column align-items-center">
+                    <div className="disp verde">
+                        <FontAwesomeIcon icon={faDoorOpen} ></FontAwesomeIcon>
+                    </div>
+                    <p className="nombre-disp">Cerradura</p>
+                </Link>
+            );
+        }
+
+        if (this.state.alimentador) {
+            iconos.push(
+                <Link to='/dashboard/alimentador' className="li-dis d-flex flex-column align-items-center">
+                    <div className="disp azul">
+                        <FontAwesomeIcon icon={faPaw} ></FontAwesomeIcon>
+                    </div>
+                    <p className="nombre-disp">Alimentador</p>
+                </Link>
+            );
+        }
+
         return (
             <div className="fondo">
                 <div className="container">
@@ -50,25 +92,8 @@ export default class Dashboard extends Component {
                                 <div className="col-12 dispositivos d-flex flex-column align-items-center justify-content-between">
                                     <p>Mis dispositivos</p>
                                     <div className="d-flex flex-wrap justify-content-between">
-                                        <Link to='/dashboard/alarma' className="li-dis d-flex flex-column align-items-center">
-                                            <div className="disp rosa">
-                                                <FontAwesomeIcon icon={faClock} ></FontAwesomeIcon>
-                                            </div>
-                                            <p className="nombre-disp">Alarma</p>
-                                        </Link>
-                                        <Link to='/dashboard/cerradura' className="li-dis  d-flex flex-column align-items-center">
-                                            <div className="disp verde">
-                                                <FontAwesomeIcon icon={faDoorOpen} ></FontAwesomeIcon>
-                                            </div>
-                                            <p className="nombre-disp">Cerradura</p>
-                                        </Link>
-                                        <Link to='/dashboard/alimentador' className="li-dis d-flex flex-column align-items-center">
-                                            <div className="disp azul">
-                                                <FontAwesomeIcon icon={faPaw} ></FontAwesomeIcon>
-                                            </div>
-                                            <p className="nombre-disp">Alimentador</p>
-                                        </Link>
-                                        <Link className="li-dis d-flex flex-column align-items-center">
+                                        {iconos}
+                                        <Link to="/productos" className="li-dis d-flex flex-column align-items-center">
                                             <div className="disp gris">
                                                 <FontAwesomeIcon icon={faPlus} ></FontAwesomeIcon>
                                             </div>
@@ -80,31 +105,41 @@ export default class Dashboard extends Component {
                         </div>
                         <div className="container-info-main col-12 col-md-8 d-flex flex-column align-items-center justify-content-between">
                             <Welcome />
-                            <div className="datos-disp d-flex flex-column flex-md-row justify-content-md-between">
-                                <div className="d-flex flex-column alimen-cerradura justify-content-between">
-                                    <div className="alimen">
-                                        <div className="icono-disp">
-                                            <FontAwesomeIcon icon={faPaw} ></FontAwesomeIcon>
+
+                            {
+                                (this.state.alarma || this.state.cerradura || this.state.alimentador) ?
+                                    <div className="datos-disp d-flex flex-column flex-md-row justify-content-md-between">
+                                        <div className="d-flex flex-column alimen-cerradura justify-content-between">
+                                            <div className="alimen">
+                                                <div className="icono-disp">
+                                                    <FontAwesomeIcon icon={faPaw} ></FontAwesomeIcon>
+                                                </div>
+                                                <div className="dato-cantidad">
+                                                    <p>Porciones de alimento</p>
+                                                    <p className="dato-disp">10</p>
+                                                </div>
+                                            </div>
+                                            <div className="cerradura">
+                                                <div className="icono-disp">
+                                                    <FontAwesomeIcon icon={faThermometerEmpty} ></FontAwesomeIcon>
+                                                </div>
+                                                <div className="dato-cantidad">
+                                                    <p>Temperatura cuarto frio</p>
+                                                    <p className="dato-disp">15°c</p>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div className="dato-cantidad">
-                                            <p>Porciones de alimento</p>
-                                            <p className="dato-disp">10</p>
+                                        <div className="alarma d-flex flex-row align-items-center justify-content-around flex-md-column alig-items-md-center justify-content-md-around">
+                                            <CerraduraChart />
                                         </div>
                                     </div>
-                                    <div className="cerradura">
-                                        <div className="icono-disp">
-                                            <FontAwesomeIcon icon={faThermometerEmpty} ></FontAwesomeIcon>
-                                        </div>
-                                        <div className="dato-cantidad">
-                                            <p>Temperatura cuarto frio</p>
-                                            <p className="dato-disp">15°c</p>
-                                        </div>
+                                :
+                                    <div className="d-flex flex-column align-items-center">
+                                        <h4>¡No tienes ningún dispositivo vinculado!</h4>
+                                        <Link to="/productos" className="btn btn-primary">Comprar</Link>
                                     </div>
-                                </div>
-                                <div className="alarma d-flex flex-row align-items-center justify-content-around flex-md-column alig-items-md-center justify-content-md-around">
-                                    <CerraduraChart />
-                                </div>
-                            </div>
+                            }
+
                         </div>
                     </div>
                 </div>
