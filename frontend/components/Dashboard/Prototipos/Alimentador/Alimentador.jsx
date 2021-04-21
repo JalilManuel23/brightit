@@ -14,16 +14,20 @@ export default class Cerradura extends Component {
             hora: null,
             porciones: null,
             datos: null,
+            imagen: null,
+            nombre: null,
             redirect: null
         }
         this.getData = this.getData.bind(this);
         this.cargarDatosGrafico = this.cargarDatosGrafico.bind(this);
+        this.cargarDatosAlimentador = this.cargarDatosAlimentador.bind(this);
         this.servir = this.servir.bind(this);
         this.refrescar = this.refrescar.bind(this);
     }
 
     componentDidMount() {
         this.getData();
+        this.cargarDatosAlimentador();
     }
 
     getData() {
@@ -54,7 +58,17 @@ export default class Cerradura extends Component {
                         }] 
                     }
                 })
-                console.log(this.state);
+            });
+        })
+    }
+
+    cargarDatosAlimentador() {
+        fetch('/producto/obtener_datos/607e281808ba4f52404c4bef').then(res => {
+            res.json().then((data) => {
+                this.setState({
+                    imagen: data.registro.imagen,
+                    nombre: data.registro.nombre
+                });
             });
         })
     }
@@ -95,8 +109,8 @@ export default class Cerradura extends Component {
                 <div className="container prototipo-container">
                     <div className="row d-flex justify-content-center justify-content-md-between">
                         <div className="col-11 col-md-4 data-card d-flex flex-column align-items-center justify-content-between">
-                            <p className="titulo-prototipo">Alimentador</p>
-                            <img className="img-prototipo" src={imagenes.alimentador} />
+                            <p className="titulo-prototipo">{this.state.nombre}</p>
+                            <img className="img-prototipo" src={`/producto/sacar_imagen/${this.state.imagen}`} />
                             <Link to="/dashboard/alimentador/configuracion" className="btn btn-primary btn-config">Configurar</Link>
                         </div>
                         <div className="data-card col-11 col-md-7">
