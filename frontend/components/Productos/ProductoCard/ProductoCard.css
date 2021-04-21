@@ -59,10 +59,8 @@
     .tarjeta-producto {
         width: 100%
     }
-
     .link-producto img {
-        /* width: 100%; */
-        height: 80vmin;
+        max-height: 30vh;
     }
 
     .precio-producto {

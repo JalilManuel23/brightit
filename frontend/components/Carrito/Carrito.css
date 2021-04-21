@@ -63,6 +63,6 @@
     }
 
     .producto-carrito img {
-        width: 30rem;
+        max-width: 25vmin;
     }
 }
