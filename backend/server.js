@@ -16,7 +16,7 @@ app.set('port', process.env.PORT || 3000);
 
 //Middlewares
 app.use(morgan('dev'));
-app.use(express.json());
+// app.use(express.json());
 app.use(session({
      secret: 'secret',
      resave: true,
@@ -24,7 +24,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-// app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({extended: false}));
 
 
 // Global variables
