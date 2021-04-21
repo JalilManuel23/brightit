@@ -12,15 +12,19 @@ export default class Cerradura extends Component {
         this.state = {
             temperaturaActual: null,
             temperaturaAlerta: null,
+            imagen: null,
+            nombre: null,
             empleados: []
         }
         this.cargarDataConfig = this.cargarDataConfig.bind(this);
         this.cargarDataEmpleados = this.cargarDataEmpleados.bind(this);
+        this.cargarDatosCerradura = this.cargarDatosCerradura.bind(this);
     }
 
     componentDidMount() {
         this.cargarDataConfig();
         this.cargarDataEmpleados();
+        this.cargarDatosCerradura();
     }
 
     cargarDataConfig() {
@@ -45,14 +49,25 @@ export default class Cerradura extends Component {
         })
     }
 
+    cargarDatosCerradura() {
+        fetch('/producto/obtener_datos/607e27fd08ba4f52404c4bee').then(res => {
+            res.json().then((data) => {
+                this.setState({
+                    imagen: data.registro.imagen,
+                    nombre: data.registro.nombre
+                });
+            });
+        })
+    }
+
     render() {
         return (
             <div className="fondo">
                 <div className="container prototipo-container">
                     <div className="row d-flex justify-content-center justify-content-md-between">
                         <div className="col-11 col-md-4 data-card d-flex flex-column align-items-center justify-content-between">
-                            <p className="titulo-prototipo">Cerradura</p>
-                            <img className="img-prototipo" src={imagenes.cerradura} />
+                            <p className="titulo-prototipo">{this.state.nombre}</p>
+                            <img className="img-prototipo"  src={`/producto/sacar_imagen/${this.state.imagen}`} />
                             <Link to="/dashboard/cerradura/configuracion" className="btn btn-primary btn-config">Configurar</Link>
                         </div>
                         <div className="data-card col-11 col-md-7">

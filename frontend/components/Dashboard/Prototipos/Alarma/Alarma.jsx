@@ -11,13 +11,17 @@ export default class Alarma extends Component {
         super();
         this.state = {
             horaActiva: null,
-            horaDesactivada: null
+            horaDesactivada: null,
+            imagen: null,
+            nombre: null,
         }
         this.getData = this.getData.bind(this);
+        this.cargarDatosAlarma = this.cargarDatosAlarma.bind(this);
     }
 
     componentDidMount() {
         this.getData();
+        this.cargarDatosAlarma();
     }
 
     getData() {
@@ -34,14 +38,25 @@ export default class Alarma extends Component {
         });
     }
 
+    cargarDatosAlarma() {
+        fetch('/producto/obtener_datos/607e27d208ba4f52404c4bed').then(res => {
+            res.json().then((data) => {
+                this.setState({
+                    imagen: data.registro.imagen,
+                    nombre: data.registro.nombre
+                });
+            });
+        })
+    }
+
     render() {
         return (
             <div className="fondo">
                 <div className="container prototipo-container">
                     <div className="row d-flex justify-content-center justify-content-md-between">
                         <div className="data-card col-11 col-md-4 d-flex flex-column align-items-center">
-                            <p className="titulo-prototipo">Alarma</p>
-                            <img className="img-prototipo" src={imagenes.alarma} />
+                            <p className="titulo-prototipo">{this.state.nombre}</p>
+                            <img className="img-prototipo" src={`/producto/sacar_imagen/${this.state.imagen}`} />
                             <Link to="/dashboard/alarma/configuracion" className="btn btn-primary btn-config mt-4">Configurar</Link>
                         </div>
                         <div className="data-card col-11 col-md-7">
