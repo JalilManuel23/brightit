@@ -122,27 +122,27 @@ registrosCerradura.verRegistrosConfig = (req, res) => {
     });
 }
 
-// registrosCerradura.agregarRegistro = async (req, res) => {
-//     const {temperaturaRegistrada, horaRegistro} = req.body;
+registrosCerradura.agregarRegistro = async (req, res) => {
+    const {temperaturaRegistrada, horaRegistro} = req.body;
 
-//     const newRegistro = new RegistroCerradura({temperaturaRegistrada, horaRegistro});
+    const newRegistro = new RegistroCerradura({temperaturaRegistrada, horaRegistro});
 
-//     await newRegistro.save((err, registroAgregado) => {
+    await newRegistro.save((err, registroAgregado) => {
 
-//         if (err || !registroAgregado) {
-//             return res.status(404).send({
-//                 status: 'error',
-//                 mensaje: 'El registro no se ha guardado'
-//             })
-//         }
+        if (err || !registroAgregado) {
+            return res.status(404).send({
+                status: 'error',
+                mensaje: 'El registro no se ha guardado'
+            })
+        }
 
-//         return res.status(200).send({
-//             //Registro insertado con exito 
-//             status: 'Completado',
-//             registroAgregado
-//         });
-//     });
-// }
+        return res.status(200).send({
+            //Registro insertado con exito 
+            status: 'Completado',
+            registroAgregado
+        });
+    });
+}
 
 // registrosCerradura.verRegistros = (req, res) => {
 //     var consulta = RegistroCerradura.find({});
