@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const router = Router();
 
-const { editarAlerta, editarActual, verRegistrosConfig, agregarEmpleado } = require('../controllers/cerradura.controller');
+const { editarAlerta, editarActual, verRegistrosConfig, agregarRegistro } = require('../controllers/cerradura.controller');
 
 router.put('/cerradura/actualizar_alerta', editarAlerta);
 router.put('/cerradura/actualizar_temp_actual', editarActual);
