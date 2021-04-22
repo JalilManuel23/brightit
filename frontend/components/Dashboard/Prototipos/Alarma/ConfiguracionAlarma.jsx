@@ -255,7 +255,7 @@ export default class ConfiguracionAlarma extends Component {
                 valores: [],
                 idUsuarios: []
             })
-
+ 
             this.cargarDatosUsuarios();
 
             if (res.status == 200) {

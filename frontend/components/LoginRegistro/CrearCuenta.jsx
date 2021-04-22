@@ -16,6 +16,7 @@ export default class CrearCuenta extends Component {
             name: '',
             email: '',
             password: '',
+            conPassword: '',
             redirect: null
         };
         this.agregarUsuario = this.agregarUsuario.bind(this);
@@ -31,36 +32,74 @@ export default class CrearCuenta extends Component {
 
     async agregarUsuario(e) {
         e.preventDefault();
-        fetch('/usuarios/crear_cuenta', {
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(this.state), // data can be `string` or {object}!
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }).then(res => {
-            res.json();
 
-            if (res.status == 200) {
-                Swal.fire(
-                    'Usuario creado correctamente',
-                    'Da click para continuar',
-                    'success'
-                ).then((result) => {
-                    if (result.isConfirmed) {
-                        this.setState({ redirect: '/login' });
-                    }
-                });
-            } else {
-                Swal.fire(
-                    'Ya hay una cuenta vinculada a este email',
-                    'Vuelve a intentarlo con otro email',
-                    'warning'
-                );
-            }
-        })
-            .catch(error => console.error('Error:', error))
+        let errores = false;
+
+        let name = this.state.name;
+        let email = this.state.email;
+        let password = this.state.password;
+        let conPassword = this.state.conPassword;
+
+        if (password.length < 8) {
+            errores = true;
+            Swal.fire(
+                'Contraseña insegura',
+                'La contraseña debe ser minimo de 8 caracteres',
+                'warning'
+            )
+        } 
+
+        if(password != conPassword) {
+            errores = true;
+            Swal.fire(
+                'Las contraseñas no coinciden',
+                'Verifica por favor',
+                'warning'
+            )
+        }
+
+        if(!name || !email || !password || !conPassword) {
+            errores = true;
+            Swal.fire(
+                'Datos incompletos',
+                'POr favor llena todos los campos',
+                'warning'
+            )
+        }
+
+        if(!errores) {
+            fetch('/usuarios/crear_cuenta', {
+                method: 'POST',
+                body: JSON.stringify(this.state),
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json'
+                }
+            }).then(res => {
+                res.json();
+
+                if (res.status == 200) {
+                    Swal.fire(
+                        'Usuario creado correctamente',
+                        'Da click para continuar',
+                        'success'
+                    ).then((result) => {
+                        if (result.isConfirmed) {
+                            this.setState({ redirect: '/login' });
+                        }
+                    });
+                } else {
+                    Swal.fire(
+                        'Ya hay una cuenta vinculada a este email',
+                        'Vuelve a intentarlo con otro email',
+                        'warning'
+                    );
+                }
+            })
+                .catch(error => console.error('Error:', error))
+        }
     }
+
 
 
     render() {
@@ -76,7 +115,7 @@ export default class CrearCuenta extends Component {
                     <input name="name" type="text" placeholder="Usuario" value={this.state.user} onChange={this.manejador}></input>
                     <input name="email" type="email" placeholder="Email" value={this.state.email} onChange={this.manejador}></input>
                     <input name="password" type="password" placeholder="Contraseña" value={this.state.password} onChange={this.manejador}></input>
-                    <input name="confirm-pass" type="password" placeholder="Confirmar contraseña"></input>
+                    <input name="conPassword" type="password" placeholder="Confirmar contraseña" value={this.state.conPassword} onChange={this.manejador}></input>
                     <input type="submit" className="btn btn-primary m-3" value="Crear Cuenta"></input>
                 </form>
             </div>
