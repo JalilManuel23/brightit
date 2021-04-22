@@ -9,7 +9,6 @@ registrosAlarma.actualizarHoras = async (req, res) => {
     var params = req.body;
 
     try {
-        var horaActiva = !validacion.isEmpty(params.horaActiva);
         var horaDesactivada = !validacion.isEmpty(params.horaDesactivada);
     } catch (err) {
         return res.status(404).send({
@@ -18,7 +17,7 @@ registrosAlarma.actualizarHoras = async (req, res) => {
         })
     }
 
-    if (horaActiva && horaDesactivada) {
+    if (horaDesactivada) {
         ConfigAlarma.findOneAndUpdate({
             _id: "605fe9ebdba0045904d35d1c"
         }, params, {
@@ -229,14 +228,14 @@ registrosAlarma.actualizarContador = (req, res) => {
 
             if (err) {
                 return res.status(404).send({
-                    status: 'Error',
+                    status: 'error',
                     mensaje: 'Error al actualizar'
                 })
             }
 
             if (!registroActualizado) {
                 return res.status(404).send({
-                    status: 'Error',
+                    status: 'error',
                     mensaje: 'No existe el registro a actualizar'
                 })
             }
@@ -326,6 +325,33 @@ registrosAlarma.actualizarUsuario = (req, res) => {
             mensaje: 'Los datos no son validos verifique por favor'
         })
     }
+}
+
+registrosAlarma.verificarCodigo = (req, res) => {
+    var codigo = req.params.codigo;
+
+    console.log(codigo);
+
+    if (!codigo || codigo == null) {
+        return res.status(404).send({
+            status: 'error',
+            mensaje: 'No se ingreso ID de registro a buscar'
+        });
+    }
+
+    ConfigAlarma.findOne(({"codigo": codigo}), (err, registro) => {
+        if (err || !registro) {
+            return res.status(404).send({
+                status: 'error',
+                mensaje: 'No existe el registro a buscar en la colección'
+            })
+        }
+
+        return res.status(200).send({
+            status: 'exitosa',
+            registro
+        })
+    });
 }
 
 module.exports = registrosAlarma;

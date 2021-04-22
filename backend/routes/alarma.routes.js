@@ -13,6 +13,7 @@ const {
     actualizarContador,
     actualizarUsuario,
     eliminarUsuario,
+    verificarCodigo
 } = require('../controllers/alarma.controller');
 
 router.put('/alarma/actualizar_horas', actualizarHoras);
@@ -25,5 +26,6 @@ router.get('/alarma/ver_datos_usuarios', verUsuarios);
 router.put('/alarma/actualizar_contador/:idUsuario', actualizarContador);
 router.put('/alarma/actualizar_usuario/:idUsuario', actualizarUsuario);
 router.delete('/alarma/eliminar_usuario/:idUsuario', eliminarUsuario);
+router.get('/alarma/verificar_codigo/:codigo', verificarCodigo);
 
 module.exports = router;
