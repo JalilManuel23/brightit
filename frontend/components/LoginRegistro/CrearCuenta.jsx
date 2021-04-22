@@ -62,7 +62,7 @@ export default class CrearCuenta extends Component {
             errores = true;
             Swal.fire(
                 'Datos incompletos',
-                'POr favor llena todos los campos',
+                'Por favor llena todos los campos',
                 'warning'
             )
         }

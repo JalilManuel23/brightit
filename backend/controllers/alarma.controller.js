@@ -9,6 +9,7 @@ registrosAlarma.actualizarHoras = async (req, res) => {
     var params = req.body;
 
     try {
+        var horaActiva = !validacion.isEmpty(params.horaActiva);
         var horaDesactivada = !validacion.isEmpty(params.horaDesactivada);
     } catch (err) {
         return res.status(404).send({
@@ -17,7 +18,7 @@ registrosAlarma.actualizarHoras = async (req, res) => {
         })
     }
 
-    if (horaDesactivada) {
+    if (horaActiva && horaDesactivada) {
         ConfigAlarma.findOneAndUpdate({
             _id: "605fe9ebdba0045904d35d1c"
         }, params, {
