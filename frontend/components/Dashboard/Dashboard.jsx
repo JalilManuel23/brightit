@@ -16,13 +16,19 @@ export default class Dashboard extends Component {
             image: null,
             alarma: false,
             cerradura: false,
-            alimentador: false
+            alimentador: false,
+            porciones: null,
+            temperatura: null
         }
         this.cargarDatosUsuario = this.cargarDatosUsuario.bind(this);
+        this.cargarDatosAlimentador = this.cargarDatosAlimentador.bind(this);
+        this.cargarDatosCerradura = this.cargarDatosCerradura.bind(this);
     }
 
     componentDidMount() {
         this.cargarDatosUsuario(this.props.usuario);
+        this.cargarDatosCerradura();
+        this.cargarDatosAlimentador();
     }
 
     cargarDatosUsuario(id) {
@@ -35,6 +41,32 @@ export default class Dashboard extends Component {
                         alarma: data.usuario.alarma,
                         alimentador: data.usuario.alimentador,
                         cerradura: data.usuario.cerradura
+                    });
+                });
+            }
+        )
+    }
+
+    cargarDatosAlimentador() {
+        fetch(`/alimentador/ver_registro/6063ca6922bc2823085fa739`).then(
+            res => {
+                res.json().then((data) => {
+                    this.setState({
+                        porciones: data.registro.numeroPorcion
+                    });
+                });
+            }
+        )
+    }
+
+    cargarDatosCerradura() {
+        fetch(`/cerradura/ultimo_registro/1`).then(
+            res => {
+                res.json().then((data) => {
+                    let temperaturaReg = data.registro[0].temperaturaRegistrada;
+                    temperaturaReg = parseFloat(temperaturaReg.toFixed(1));
+                    this.setState({
+                        temperatura: temperaturaReg
                     });
                 });
             }
@@ -118,7 +150,7 @@ export default class Dashboard extends Component {
                                                         </div>
                                                         <div className="dato-cantidad">
                                                             <p>Porciones de alimento</p>
-                                                            <p className="dato-disp">10</p>
+                                                            <p className="dato-disp">{this.state.porciones}</p>
                                                         </div>
                                                     </div> :
                                                     <div className="alimen d-flex flex-column align-items-center">
@@ -134,7 +166,7 @@ export default class Dashboard extends Component {
                                                         </div>
                                                         <div className="dato-cantidad">
                                                             <p>Temperatura cuarto frio</p>
-                                                            <p className="dato-disp">15°c</p>
+                                                            <p className="dato-disp">{this.state.temperatura}°c</p>
                                                         </div>
                                                     </div> :
                                                     <div className="cerradura d-flex flex-column align-items-center">

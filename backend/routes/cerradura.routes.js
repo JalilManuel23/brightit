@@ -1,11 +1,11 @@
 const { Router } = require('express');
 const router = Router();
 
-const { editarAlerta, editarActual, verRegistrosConfig, agregarRegistro } = require('../controllers/cerradura.controller');
+const { editarAlerta, editarActual, verUltimoRegistro, agregarRegistro } = require('../controllers/cerradura.controller');
 
 router.put('/cerradura/actualizar_alerta', editarAlerta);
 router.put('/cerradura/actualizar_temp_actual', editarActual);
-router.get('/cerradura/ver_registros_config', verRegistrosConfig);
+router.get('/cerradura/ultimo_registro/:last', verUltimoRegistro);
 
 router.post('/cerradura/crear_registro', agregarRegistro);
 // router.get('/cerradura', verRegistros);

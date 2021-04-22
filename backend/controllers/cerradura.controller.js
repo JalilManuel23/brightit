@@ -94,32 +94,39 @@ registrosCerradura.editarActual = (req, res) => {
     }
 }
 
-registrosCerradura.verRegistrosConfig = (req, res) => {
-    var consulta = ConfigCerradura.find({});
+registrosCerradura.verUltimoRegistro = (req, res) => {
+    var ultimo = req.params.last;
+    var consulta = RegistroCerradura.find({});
 
-    consulta.exec((err, registros) => {
-        if(err) {
+    if (ultimo || ultimo != undefined) {
+        consulta.limit(1);
+    }
+
+    //Ejecutar la consulta a la BD de Mongo para mostrar los registros en JSON
+    consulta.sort('-_id').exec((err, registro) => {
+
+        if (err) {
             return res.status(500).send({
-                // Error
-                status: 'Error',
-                mensaje: 'Error al devolver registros'
-            });
+                //Error
+                status: 'error',
+                mensaje: 'Error al ejecutar la consulta'
+            })
         }
 
-        if(!registros) {
+        if (!registro) {
             return res.status(404).send({
-                // Error
-                status: 'Error',
-                mensaje: 'No existen registros en la colección'
-            });
+                //Error
+                status: 'error',
+                mensaje: 'No existen articulos en la BD que mostrar'
+            })
         }
 
         return res.status(200).send({
-            // Registros consultados con éxito
-            status: 'Busqueda Correcta',
-            registros
-        });
-    });
+            //Consulta ejecutada con exito
+            status: 'exitosa',
+            registro
+        })
+    })
 }
 
 registrosCerradura.agregarRegistro = async (req, res) => {
