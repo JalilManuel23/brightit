@@ -26,12 +26,11 @@ export default class ConfiguracionCerradura extends Component {
     }
 
     cargarDataConfig() {
-        fetch('/cerradura/ver_registros_config').then(res => {
+        fetch('/cerradura/ver_registros_config/60612f232cce824434e9c674').then(res => {
             res.json().then((data) => {
-                data.registros.map(registro => {
-                    this.setState({ temperaturaAlerta: registro.temperaturaAlerta })
-                })
-                // console.log(this.state);
+                this.setState({ temperaturaAlerta: data.registro.temperaturaAlerta })
+
+                console.log(this.state);
             });
         })
     }

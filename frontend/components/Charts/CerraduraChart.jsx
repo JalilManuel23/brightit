@@ -20,12 +20,21 @@ export default class CerraduraChart extends Component {
     }
 
     cargarDatos() {
-        fetch('/alimentador/obtener_porciones').then(res => {
+        fetch('/cerradura/datos_grafica/5').then(res => {
             res.json().then((data) => {
+
+                let dias = [];
+                let valores = [];
+
+                data.registros.map(registro => {
+                    dias.push(registro.horaRegistro.substring(11,16));
+                    valores.push(registro.temperaturaRegistrada);
+                });
+
                 this.setState({
-                    labels: data.meses,
+                    labels: dias,
                     datasets: [{
-                        data: data.valores,
+                        data: valores,
                         label: '°C',
                         backgroundColor: 'rgba(80, 161, 228)',
                         borderColor: 'rgba(80, 161, 228)',

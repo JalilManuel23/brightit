@@ -129,6 +129,66 @@ registrosCerradura.verUltimoRegistro = (req, res) => {
     })
 }
 
+registrosCerradura.datosGrafica = (req, res) => {
+    var ultimo = req.params.last;
+    var consulta = RegistroCerradura.find({});
+
+    if (ultimo || ultimo != undefined) {
+        consulta.limit(5);
+    }
+
+    //Ejecutar la consulta a la BD de Mongo para mostrar los registros en JSON
+    consulta.sort('-_id').exec((err, registros) => {
+
+        if (err) {
+            return res.status(500).send({
+                //Error
+                status: 'error',
+                mensaje: 'Error al ejecutar la consulta'
+            })
+        }
+
+        if (!registros) {
+            return res.status(404).send({
+                //Error
+                status: 'error',
+                mensaje: 'No existen articulos en la BD que mostrar'
+            })
+        }
+
+        return res.status(200).send({
+            //Consulta ejecutada con exito
+            status: 'exitosa',
+            registros
+        })
+    })
+}
+
+registrosCerradura.verConfig = (req, res) => {
+    var id = req.params.id;
+
+    if (!id || id == null) {
+        return res.status(404).send({
+            status: 'Error',
+            mensaje: 'No se ingreso ID de usuario a buscar'
+        });
+    }
+
+    ConfigCerradura.findById(id, (err, registro) => {
+        if (err || !registro) {
+            return res.status(404).send({
+                status: 'Error: ',
+                mensaje: 'No existe el usuario a buscar en la colección'
+            })
+        }
+
+        return res.status(200).send({
+            status: 'Busqueda del usuario de forma exitosa',
+            registro
+        })
+    });
+}
+
 registrosCerradura.agregarRegistro = async (req, res) => {
     const {temperaturaRegistrada, horaRegistro} = req.body;
 
