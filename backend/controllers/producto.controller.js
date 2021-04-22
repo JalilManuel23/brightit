@@ -30,7 +30,7 @@ ctrlProducto.agregarRegistro = async (req, res) => {
 ctrlProducto.subirFoto = (req, res) => {
     var nombre_archivo = 'Imagen no subida ...';
 
-    console.log(req.files.imagen);
+    console.log(req);
     var ruta_archivo = req.files.imagen.path;
     if (!req.files) {
         return res.status(404).send({

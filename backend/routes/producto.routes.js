@@ -7,7 +7,7 @@ var multipart=require('connect-multiparty');
 var mdUpload=multipart({uploadDir:'./backend/upload/images'});
 
 router.post('/producto/crear_registro', agregarRegistro);
-router.put('/producto/cargar_imagen/:id?',mdUpload, subirFoto);
+router.put('/producto/cargar_imagen/:id',mdUpload, subirFoto);
 router.get('/producto/sacar_imagen/:image', sacarImagen);
 router.get('/productos/obtener_datos', verRegistros);
 router.get('/producto/obtener_datos/:id', verRegistro);
